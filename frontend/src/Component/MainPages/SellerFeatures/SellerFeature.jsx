@@ -19,10 +19,21 @@ const SellerProfile = () => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
-  const handleAddBook = () => {
+  const handleAddBook = async () => {
     if (newBook.title && newBook.price && newBook.stocks && newBook.author) {
-      setBooks([...books, { id: books.length + 1, ...newBook }]);
-      setNewBook({ title: "", price: "" });
+      const resoponse = await fetch("http://localhost:8080/books/addBooks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newBook),
+      });
+      const data = await resoponse.json();
+      if (data.isAdded) {
+        alert("Book is added");
+      } else {
+        alert("Book not added");
+      }
     }
   };
 
