@@ -2,7 +2,7 @@ package com.raj.library.DTO;
 
 public class BookAdd {
     private String title;
-    private int price;
+    private String price;
     private String author;
     private String stocks;
 
@@ -17,11 +17,11 @@ public class BookAdd {
         this.title = title;
     }
 
-    public int getPrice() {
+    public String  getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String  price) {
         this.price = price;
     }
 
