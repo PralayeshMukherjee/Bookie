@@ -8,7 +8,7 @@ const SellerProfile = () => {
     { id: 1, title: "The Great Gatsby", price: 20 },
     { id: 2, title: "1984", price: 15 },
   ]);
-  const [newBook, setNewBook] = useState({ title: "", price: "" });
+  const [newBook, setNewBook] = useState({ title: "", price: "", books: "" });
 
   const handleAddBook = () => {
     if (newBook.title && newBook.price) {
@@ -93,6 +93,15 @@ const SellerProfile = () => {
             placeholder="Price"
             value={newBook.price}
             onChange={(e) => setNewBook({ ...newBook, price: e.target.value })}
+            className={`w-full p-3 border ${
+              darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
+            } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
+          />
+          <input
+            type="number"
+            placeholder="Books in Stock"
+            value={newBook.books}
+            onChange={(e) => setNewBook({ ...newBook, books: e.target.value })}
             className={`w-full p-3 border ${
               darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
             } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
