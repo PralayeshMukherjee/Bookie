@@ -5,6 +5,8 @@ import com.raj.library.repository.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -24,5 +26,8 @@ public class BookService {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+    public List<Book> getBooks(){
+        return bookRepo.findAll();
     }
 }
