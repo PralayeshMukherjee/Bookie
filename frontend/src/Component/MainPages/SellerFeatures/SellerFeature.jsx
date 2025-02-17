@@ -8,10 +8,19 @@ const SellerProfile = () => {
     { id: 1, title: "The Great Gatsby", price: 20 },
     { id: 2, title: "1984", price: 15 },
   ]);
-  const [newBook, setNewBook] = useState({ title: "", price: "", books: "" });
+  const [newBook, setNewBook] = useState({
+    title: "",
+    price: "",
+    books: "",
+    author: "",
+  });
+
+  const handleChange = (e) => {
+    setNewBook({ ...newBook, [e.target.name]: e.target.value });
+  };
 
   const handleAddBook = () => {
-    if (newBook.title && newBook.price) {
+    if (newBook.title && newBook.price && newBook.books) {
       setBooks([...books, { id: books.length + 1, ...newBook }]);
       setNewBook({ title: "", price: "" });
     }
@@ -83,7 +92,18 @@ const SellerProfile = () => {
             type="text"
             placeholder="Book Title"
             value={newBook.title}
-            onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
+            name="title"
+            onChange={handleChange}
+            className={`w-full p-3 border ${
+              darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
+            } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
+          />
+          <input
+            type="text"
+            placeholder="Author"
+            value={newBook.author}
+            name="author"
+            onChange={handleChange}
             className={`w-full p-3 border ${
               darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
             } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
@@ -92,7 +112,8 @@ const SellerProfile = () => {
             type="number"
             placeholder="Price"
             value={newBook.price}
-            onChange={(e) => setNewBook({ ...newBook, price: e.target.value })}
+            name="price"
+            onChange={handleChange}
             className={`w-full p-3 border ${
               darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
             } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
@@ -101,7 +122,8 @@ const SellerProfile = () => {
             type="number"
             placeholder="Books in Stock"
             value={newBook.books}
-            onChange={(e) => setNewBook({ ...newBook, books: e.target.value })}
+            name="books"
+            onChange={handleChange}
             className={`w-full p-3 border ${
               darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
             } rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400`}
