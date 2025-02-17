@@ -6,5 +6,6 @@ public class BookAdd {
     private String author;
     private String stocks;
 
-
+    public BookAdd() {
+    }
 }
