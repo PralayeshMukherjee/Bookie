@@ -11,7 +11,7 @@ const SellerProfile = () => {
   const [newBook, setNewBook] = useState({
     title: "",
     price: "",
-    books: "",
+    stocks: "",
     author: "",
   });
 
@@ -20,7 +20,7 @@ const SellerProfile = () => {
   };
 
   const handleAddBook = () => {
-    if (newBook.title && newBook.price && newBook.books) {
+    if (newBook.title && newBook.price && newBook.stocks && newBook.author) {
       setBooks([...books, { id: books.length + 1, ...newBook }]);
       setNewBook({ title: "", price: "" });
     }
@@ -121,8 +121,8 @@ const SellerProfile = () => {
           <input
             type="number"
             placeholder="Books in Stock"
-            value={newBook.books}
-            name="books"
+            value={newBook.stocks}
+            name="stocks"
             onChange={handleChange}
             className={`w-full p-3 border ${
               darkMode ? "placeholder-gray-400" : "placeholder-gray-600"
