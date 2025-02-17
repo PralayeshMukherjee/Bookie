@@ -12,8 +12,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private String price;
     private String author;
-    private String isbn;
+    private String stocks;
 
     @ManyToMany(mappedBy = "books")
     private List<Seller> sellers = new ArrayList<>();
@@ -21,12 +22,21 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, String author, String isbn, List<Seller> sellers) {
+    public Book(Long id, String title, String author, String stocks,String price, List<Seller> sellers) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.isbn = isbn;
+        this.stocks = stocks;
         this.sellers = sellers;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public Long getId() {
@@ -53,12 +63,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getStocks() {
+        return stocks;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setStocks(String stocks) {
+        this.stocks = stocks;
     }
 
     public List<Seller> getSellers() {
