@@ -2,9 +2,11 @@ package com.raj.library.controller;
 
 import com.raj.library.DTO.BookAdd;
 import com.raj.library.Service.BookService;
+import com.raj.library.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,5 +24,9 @@ public class BooksController {
         String author = bookAdd.getAuthor();
         boolean isAdded =  bookService.addBooks(title,price,stocks,author);
         return Map.of("isAdded", isAdded);
+    }
+    @GetMapping("/getAllBooks")
+    public void getAllBooks(){
+        List<Book> allBooks = bookService.getBooks();
     }
 }
