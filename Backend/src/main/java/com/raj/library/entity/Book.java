@@ -12,7 +12,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String price;
+    private int price;
     private String author;
     private String stocks;
 
@@ -22,7 +22,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, String author, String stocks,String price, List<Seller> sellers) {
+    public Book(Long id, String title, String author, String stocks,int price, List<Seller> sellers) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -31,11 +31,11 @@ public class Book {
         this.price = price;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
