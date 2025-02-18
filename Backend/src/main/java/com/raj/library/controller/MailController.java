@@ -1,4 +1,6 @@
 package com.raj.library.controller;
 
-public class ContactController {
+
+public class MailController {
+
 }
