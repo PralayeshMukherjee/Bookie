@@ -18,5 +18,7 @@ public class MailController {
         String email = contactHolder.getEmail();
         String mobile = contactHolder.getTel();
         String message = contactHolder.getMessage();
+
+        boolean isContactMailSend = mailService.sendMailToContact(username,email,mobile,message);
     }
 }
