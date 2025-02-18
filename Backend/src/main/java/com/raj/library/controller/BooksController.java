@@ -35,6 +35,7 @@ public class BooksController {
 
     @DeleteMapping("/deleteBook")
     public boolean deleteBooks(@RequestBody BookDelete bookDelete){
+        Long id = bookDelete.getId();
 
     }
 }
