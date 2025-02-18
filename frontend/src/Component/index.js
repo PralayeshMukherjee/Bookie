@@ -27,5 +27,6 @@ import SellerRegister from '../Component/LORE/Register/SellerRegister.jsx'
 import SellerRegisterSuccess from '../Component/Success/SellerRegisterSuccess.jsx'
 import SellerFeature from '../Component/MainPages/SellerFeatures/SellerFeature.jsx'
 import Contact from '../Component/MainPages/Contact.jsx'
+import MailSuccess from '../Component/Success/MailSeccess.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,SearchBox,Features,Search,Clear,Sellers,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,SearchBox,Features,Search,Clear,Sellers,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess};
