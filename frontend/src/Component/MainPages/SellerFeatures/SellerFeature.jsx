@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTrash, FaPlus, FaSun, FaMoon } from "react-icons/fa";
 import { User } from "../../index";
 
 const SellerProfile = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const [books, setBooks] = useState([
-    { id: 1, title: "The Great Gatsby", price: 20 },
-    { id: 2, title: "1984", price: 15 },
-  ]);
+  const [books, setBooks] = useState([]);
+  // { id: null, title: "", price: 0, author: "", stocks: 0, sellers: [] }
   const [newBook, setNewBook] = useState({
     title: "",
     price: "",
@@ -19,6 +17,18 @@ const SellerProfile = () => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
+  const getBooks = async () => {
+    try {
+      const getAllBooksResponse = await fetch(
+        "http://localhost:8080/books/getAllBooks"
+      );
+      const listData = await getAllBooksResponse.json();
+      setBooks(listData);
+      console.log(listData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleAddBook = async () => {
     if (newBook.title && newBook.price && newBook.stocks && newBook.author) {
       const resoponse = await fetch("http://localhost:8080/books/addBooks", {
@@ -74,6 +84,13 @@ const SellerProfile = () => {
 
         <div className="mt-6">
           <h3 className="text-xl font-semibold">Your Books</h3>
+          <br />
+          <button
+            onClick={getBooks}
+            className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg font-semibold h-10 w-50 shadow-lg cursor-pointer"
+          >
+            Show all Books
+          </button>
           <ul className="mt-4 space-y-3">
             {books.map((book) => (
               <li
@@ -83,7 +100,10 @@ const SellerProfile = () => {
                 <span className="text-lg">
                   {book.title} -{" "}
                   <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    ${book.price}
+                    {book.price}/-{" "}
+                  </span>
+                  <span>
+                    by {book.author} In Stock {book.stocks}
                   </span>
                 </span>
                 <button
@@ -141,7 +161,7 @@ const SellerProfile = () => {
           />
           <button
             onClick={handleAddBook}
-            className="mt-4 px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-lg hover:bg-indigo-600 flex items-center gap-2 mx-auto text-lg font-semibold transition-all duration-300"
+            className="mt-4 px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-lg hover:bg-indigo-600 flex items-center gap-2 mx-auto text-lg font-semibold transition-all duration-300 cursor-pointer"
           >
             <FaPlus /> Add Book
           </button>
