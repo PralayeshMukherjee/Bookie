@@ -47,8 +47,26 @@ const SellerProfile = () => {
     }
   };
 
-  const handleDeleteBook = (id) => {
-    setBooks(books.filter((book) => book.id !== id));
+  const handleDeleteBook = async (id) => {
+    const deleteResponse = await fetch(
+      "http://localhost:8080/books/deleteBook",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      }
+    );
+    const deleteData = await deleteResponse.json();
+    console.log(deleteData);
+
+    if (deleteData.isDeleted) {
+      setBooks((prev) => prev.filter((book) => book.id !== id));
+      alert("book delete successfully");
+    } else {
+      alert("Book doesnot deleted");
+    }
   };
 
   return (
