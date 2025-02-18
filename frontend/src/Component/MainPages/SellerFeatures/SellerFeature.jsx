@@ -40,6 +40,12 @@ const SellerProfile = () => {
       });
       const data = await resoponse.json();
       if (data.isAdded) {
+        setNewBook({
+          title: "",
+          price: "",
+          stocks: "",
+          author: "",
+        });
         alert("Book is added");
       } else {
         alert("Book not added");
