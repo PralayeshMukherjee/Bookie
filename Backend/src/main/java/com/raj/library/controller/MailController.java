@@ -14,6 +14,9 @@ public class MailController {
     @Autowired
     private MailService mailService;
     public void sendMail(@RequestBody ContactHolder contactHolder){
-
+        String username = contactHolder.getUsername();
+        String email = contactHolder.getEmail();
+        String mobile = contactHolder.getTel();
+        String message = contactHolder.getMessage();
     }
 }
