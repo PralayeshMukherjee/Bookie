@@ -26,7 +26,9 @@ public class BooksController {
         return Map.of("isAdded", isAdded);
     }
     @GetMapping("/getAllBooks")
-    public void getAllBooks(){
+    public List<Book> getAllBooks(){
         List<Book> allBooks = bookService.getBooks();
+        System.out.println(allBooks);
+        return allBooks;
     }
 }
