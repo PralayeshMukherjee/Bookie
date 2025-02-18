@@ -23,6 +23,7 @@ import {
   SellerRegisterSuccess,
   SellerFeature,
   Contact,
+  MailSuccess,
 } from "./Component/index";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/UserRegisterSuccess" element={<UserRegisterSuccess />} />
         <Route path="/SellerLogin" element={<SellerLogin />} />
         <Route path="/SellerRegister" element={<SellerRegister />} />
+        <Route path="MailSuccess" element={<MailSuccess />} />
         <Route
           path="/SellerRegisterSuccess"
           element={<SellerRegisterSuccess />}
