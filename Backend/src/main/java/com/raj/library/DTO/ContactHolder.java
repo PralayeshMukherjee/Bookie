@@ -5,4 +5,7 @@ public class ContactHolder {
     private String email;
     private String tel;
     private String message;
+
+    public ContactHolder() {
+    }
 }
