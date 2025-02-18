@@ -22,6 +22,7 @@ import {
   SellerRegister,
   SellerRegisterSuccess,
   SellerFeature,
+  Contact,
 } from "./Component/index";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           //for when / hit the url then home page automaticly loaded
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="Contact" element={<Contact />} />
         </Route>
         <Route path="/userLogin" element={<UserLogin />} />
         <Route path="/userRegister" element={<UserRegister />} />
