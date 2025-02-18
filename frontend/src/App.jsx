@@ -53,6 +53,7 @@ function App() {
             <Route index element={<SearchBox />} />
             <Route path="Sellers" element={<Sellers />} />
           </Route>
+          <Route path="Contact" element={<Contact />} />
           <Route path="SellerFeature" element={<SellerFeature />} />
         </Route>
       </>
