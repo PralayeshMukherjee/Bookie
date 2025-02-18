@@ -30,7 +30,13 @@ public class BookService {
     public List<Book> getBooks(){
         return bookRepo.findAll();
     }
-    public boolean deleteTheBook(){
-
+    public boolean deleteTheBook(Long id){
+        try{
+            bookRepo.deleteById(id);
+            return true;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }
