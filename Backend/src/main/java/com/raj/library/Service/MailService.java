@@ -20,6 +20,7 @@ public class MailService {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 
             messageHelper.setTo(recipient);
+            messageHelper.setFrom(email);
             messageHelper.setSubject("New Contact Form Submission");
             messageHelper.setText(
                     "Username: " + username + "\n" +
