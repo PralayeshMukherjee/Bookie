@@ -15,19 +15,19 @@ export default function Contact() {
   const formSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("http://localhost:8080/books/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(apiData),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
       console.log(result);
       if (result.success == true) {
         setTimeout(() => {
-          navigate("/TouchMail");
+          navigate("/MailSuccess");
         }, 2000);
       } else {
         alert(
