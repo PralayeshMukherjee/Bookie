@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.DTO.BookAdd;
+import com.raj.library.DTO.BookDelete;
 import com.raj.library.Service.BookService;
 import com.raj.library.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class BooksController {
         List<Book> allBooks = bookService.getBooks();
         System.out.println(allBooks);
         return allBooks;
+    }
+
+    @DeleteMapping("/deleteBook")
+    public boolean deleteBooks(@RequestBody BookDelete bookDelete){
+
     }
 }
