@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/main")
+@RequestMapping("/mail")
 public class MailController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class MailController {
         String email = contactHolder.getEmail();
         String mobile = contactHolder.getTel();
         String message = contactHolder.getMessage();
-
+        System.out.println("username "+username+" email "+email+" mobile "+mobile+" message "+message);
         boolean isContactMailSend = mailService.sendMailToContact(username,email,mobile,message);
         return Map.of("isContactMailSend",isContactMailSend);
     }
