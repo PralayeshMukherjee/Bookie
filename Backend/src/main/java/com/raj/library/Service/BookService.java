@@ -30,4 +30,7 @@ public class BookService {
     public List<Book> getBooks(){
         return bookRepo.findAll();
     }
+    public boolean deleteTheBook(){
+
+    }
 }
