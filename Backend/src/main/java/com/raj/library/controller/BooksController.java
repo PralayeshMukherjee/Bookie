@@ -34,8 +34,10 @@ public class BooksController {
     }
 
     @DeleteMapping("/deleteBook")
-    public boolean deleteBooks(@RequestBody BookDelete bookDelete){
+    public Map<String, Boolean> deleteBooks(@RequestBody BookDelete bookDelete){
         Long id = bookDelete.getId();
-
+        System.out.println(id + " "+ bookDelete.getId());
+        boolean isDeleted = bookService.deleteTheBook(id);
+        return Map.of("isDeleted",isDeleted);
     }
 }
