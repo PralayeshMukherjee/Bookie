@@ -80,7 +80,11 @@ function MainHeader() {
           </li>
           <li>
             <NavLink
-              to="/Contact"
+              to={
+                sessionStorage.getItem("isValidSeller") === "true"
+                  ? "/Main/Contact"
+                  : "/Main"
+              }
               className={({ isActive }) =>
                 `hover:text-orange-300 ${
                   isActive
