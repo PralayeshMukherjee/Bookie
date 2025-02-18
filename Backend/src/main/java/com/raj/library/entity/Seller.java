@@ -30,24 +30,15 @@ public class Seller {
         this.id = id;
     }
 
-    //    I use Many to Many annotation from JPA repo because seller has multiple books and books also have multiple seller it automatically manage two tables
-    @ManyToMany
-//    to use this mapping we need a intermediate (junction) table to connect two entities
-//    the @ManyToMany does not create the Join table so we need to create this
-    @JoinTable(
-            name = "seller_book", //the junction table name
-            joinColumns = @JoinColumn(name = "seller_id"),// foreign key (FK) refer seller
-            inverseJoinColumns = @JoinColumn(name = "book_id")//foreign key (FK) referring to Book
-    )
-//    use join table method to join seller table and book table with seller_book table where seller_id from seller table is the foreign key to refer seller and book_id from book table is the foreign key to refer book
-    private List<Book> books = new ArrayList<>();
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SellerBook> sellerBooks = new ArrayList<>();
 
-    public List<Book> getBooks() {
-        return books;
+    public List<SellerBook> getSellerBooks() {
+        return sellerBooks;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setSellerBooks(List<SellerBook> sellerBooks) {
+        this.sellerBooks = sellerBooks;
     }
 
     public Long getId() {
