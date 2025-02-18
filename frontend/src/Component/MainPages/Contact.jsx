@@ -11,11 +11,13 @@ export default function Contact() {
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
   };
   const formSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
-      const response = await fetch("http://localhost:8080/books/contact", {
+      const response = await fetch("http://localhost:8080/mail/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,10 +27,10 @@ export default function Contact() {
 
       const result = await response.json();
       console.log(result);
-      if (result.success == true) {
-        setTimeout(() => {
-          navigate("/MailSuccess");
-        }, 2000);
+      if (result.isContactMailSend) {
+        sessionStorage.setItem("isContactMailSend", "true");
+        setFormData({});
+        navigate("/MailSuccess");
       } else {
         alert(
           "Message not send!!! Please fill the form correcty or try again later"
@@ -129,13 +131,13 @@ export default function Contact() {
               onSubmit={formSubmit}
             >
               <div className="flex flex-col">
-                <label htmlFor="name" className="hidden">
+                <label htmlFor="username" className="hidden">
                   Full Name
                 </label>
                 <input
-                  type="name"
-                  name="name"
-                  id="name"
+                  type="username"
+                  name="username"
+                  id="username"
                   placeholder="Full Name"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
                   onChange={handleChange}
