@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.*;
 
 @Service
 public class OtpService {
@@ -20,6 +21,9 @@ public class OtpService {
             generatedOTP += String.valueOf((Math.random()*9)+1);
         }
         otpMapping.put(username,generatedOTP);
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+        scheduledExecutorService.schedule(()->otpMapping.remove(username),2, TimeUnit.MINUTES);
+//       the ScheduledExecutorService is a java utility that used to schedule the task. It basically schedule any task execute after a define time stamp you can decide the time stamp here I decide minutes. It is better than Treade.sleep() method because it doesnot block the main tread. Executors.newScheduledThreadPool(1) means it create a thread pool with 1 background thread to handle the schedule task.
         return true;
     }
 
