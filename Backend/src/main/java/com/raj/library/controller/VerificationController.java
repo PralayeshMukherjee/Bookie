@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("verify")
 public class VerificationController {
@@ -15,9 +17,10 @@ public class VerificationController {
     @Autowired
     private OtpService otpService;
 
-    public void verificationOTP(@RequestBody OTPVerification otpVerification){
+    public Map<String, Integer> verificationOTP(@RequestBody OTPVerification otpVerification){
         String username = otpVerification.getUsername();
         String otp = otpVerification.getOtp();
         int isVerified = otpService.verifyOTP(username,otp);
+        return Map.of("isVerified",isVerified);
     }
 }
