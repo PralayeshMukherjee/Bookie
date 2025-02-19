@@ -33,7 +33,7 @@ public class MailController {
     private OtpService otpService;
 
     @PostMapping("/sendOtp")
-    public void sendOTP(@RequestBody OtpSender otpSender){
+    public Map<String, Boolean> sendOTP(@RequestBody OtpSender otpSender){
         String username = otpSender.getUsername();
         String email = otpSender.getEmail();
         boolean isOTPGenerated = otpService.generateOTP(username);
@@ -41,5 +41,6 @@ public class MailController {
         if(isOTPGenerated){
             isMailSend = otpService.sendOTPToEmail(username,email);
         }
+        return Map.of("isMailSend",isMailSend);
     }
 }
