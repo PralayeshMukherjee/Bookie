@@ -27,11 +27,12 @@ public class SellerService {
             return false;
         }
     }
-
+    private Long tempId;
     public boolean sellerCheckerService(String userName, String password){
         try {
             Seller temp = sellerRepo.findByUserNameAndPassword(userName,password);
             if(temp!=null){
+                tempId = temp.getId();
                 return true;
             }else{
                 return false;
