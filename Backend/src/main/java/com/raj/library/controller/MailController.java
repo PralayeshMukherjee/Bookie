@@ -28,6 +28,7 @@ public class MailController {
         return Map.of("isContactMailSend",isContactMailSend);
     }
 
+    @PostMapping("/sendOtp")
     public void sendOTP(@RequestBody OtpSender otpSender){
 
     }
