@@ -16,8 +16,8 @@ public class Book {
     private String author;
     private String stocks;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SellerBook> sellerBooks = new ArrayList<>();
+//    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<SellerBook> sellerBooks = new ArrayList<>();
 
     public Book() {
     }
@@ -30,13 +30,13 @@ public class Book {
         this.price = price;
     }
 
-    public List<SellerBook> getSellerBooks() {
-        return sellerBooks;
-    }
-
-    public void setSellerBooks(List<SellerBook> sellerBooks) {
-        this.sellerBooks = sellerBooks;
-    }
+//    public List<SellerBook> getSellerBooks() {
+//        return sellerBooks;
+//    }
+//
+//    public void setSellerBooks(List<SellerBook> sellerBooks) {
+//        this.sellerBooks = sellerBooks;
+//    }
 
     public int getPrice() {
         return price;

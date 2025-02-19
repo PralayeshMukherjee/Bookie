@@ -30,16 +30,16 @@ public class Seller {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SellerBook> sellerBooks = new ArrayList<>();
+//    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<SellerBook> sellerBooks = new ArrayList<>();
 
-    public List<SellerBook> getSellerBooks() {
-        return sellerBooks;
-    }
-
-    public void setSellerBooks(List<SellerBook> sellerBooks) {
-        this.sellerBooks = sellerBooks;
-    }
+//    public List<SellerBook> getSellerBooks() {
+//        return sellerBooks;
+//    }
+//
+//    public void setSellerBooks(List<SellerBook> sellerBooks) {
+//        this.sellerBooks = sellerBooks;
+//    }
 
     public Long getId() {
         return id;
