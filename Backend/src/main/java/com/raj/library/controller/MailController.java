@@ -3,6 +3,7 @@ package com.raj.library.controller;
 import com.raj.library.DTO.ContactHolder;
 import com.raj.library.DTO.OtpSender;
 import com.raj.library.Service.MailService;
+import com.raj.library.Service.OtpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,9 +29,13 @@ public class MailController {
         return Map.of("isContactMailSend",isContactMailSend);
     }
 
+    @Autowired
+    private OtpService otpService;
+
     @PostMapping("/sendOtp")
     public void sendOTP(@RequestBody OtpSender otpSender){
         String username = otpSender.getUsername();
         String email = otpSender.getEmail();
+//        boolean isOTPGenerated =
     }
 }
