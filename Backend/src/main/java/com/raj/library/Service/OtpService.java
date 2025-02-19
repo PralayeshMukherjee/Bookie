@@ -17,4 +17,8 @@ public class OtpService {
         otpMapping.put(username,generatedOTP);
         return true;
     }
+
+    public boolean sendOTPToEmail(String username,String email){
+
+    }
 }
