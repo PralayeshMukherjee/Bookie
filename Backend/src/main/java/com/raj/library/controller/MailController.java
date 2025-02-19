@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.DTO.ContactHolder;
+import com.raj.library.DTO.OtpSender;
 import com.raj.library.Service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,5 +26,9 @@ public class MailController {
         System.out.println("username "+username+" email "+email+" mobile "+mobile+" message "+message);
         boolean isContactMailSend = mailService.sendMailToContact(username,email,mobile,message);
         return Map.of("isContactMailSend",isContactMailSend);
+    }
+
+    public void sendOTP(@RequestBody OtpSender otpSender){
+
     }
 }
