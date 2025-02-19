@@ -88,7 +88,7 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ otp, username: formData.username }),
+        body: JSON.stringify({ otp: otp.otp, username: formData.username }),
       });
       const result = await response.json();
       if (result.isVerified == 2) {
