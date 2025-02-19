@@ -1,5 +1,7 @@
 package com.raj.library.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +20,8 @@ public class OtpService {
         return true;
     }
 
+    @Autowired
+    private JavaMailSender javaMailSender;
     public boolean sendOTPToEmail(String username,String email){
 
     }
