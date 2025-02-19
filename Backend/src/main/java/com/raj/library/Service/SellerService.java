@@ -42,4 +42,20 @@ public class SellerService {
             return  false;
         }
     }
+
+    public SellerRepository getSellerRepo() {
+        return sellerRepo;
+    }
+
+    public void setSellerRepo(SellerRepository sellerRepo) {
+        this.sellerRepo = sellerRepo;
+    }
+
+    public Long getTempId() {
+        return tempId;
+    }
+
+    public void setTempId(Long tempId) {
+        this.tempId = tempId;
+    }
 }
