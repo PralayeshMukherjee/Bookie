@@ -53,6 +53,7 @@ public class OtpService {
     public int verifyOTP(String username,String otp){
         if(otpMapping.containsKey(username)){
             if(otpMapping.get(username).equals(otp)){
+                otpMapping.remove(username);
                 return 2;
             }else{
                 return 1;
