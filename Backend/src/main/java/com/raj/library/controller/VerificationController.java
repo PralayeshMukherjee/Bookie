@@ -18,5 +18,6 @@ public class VerificationController {
     public void verificationOTP(@RequestBody OTPVerification otpVerification){
         String username = otpVerification.getUsername();
         String otp = otpVerification.getOtp();
+        int isVerified = otpService.verifyOTP(username,otp);
     }
 }
