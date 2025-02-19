@@ -9,20 +9,40 @@ export default function Contact() {
     message: "",
   });
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
-  const handleSendOtp = async () => {
+  const handleSendOtp = async (e) => {
     e.preventDefault();
-    setEmail(formData.email);
-    setUsername(formData.username);
-    if (email == "") {
+    if (formData.email == "") {
       alert("Please fill the email field first");
-    } else if (username == "") {
+    } else if (formData.username == "") {
       alert("Please fill the username field first");
+    } else {
+      try {
+        const sendOTPResponse = await fetch(
+          "http://localhost:8080/mail/sendOtp",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: formData.email,
+              username: formData.username,
+            }),
+          }
+        );
+        const data = await sendOTPResponse.json();
+        console.log(data);
+        if (data.isMailSend) {
+          alert("OTP send to your email");
+        } else {
+          alert("OTP not send!!! Please try again later");
+        }
+      } catch (error) {
+        console.log("Error:- ", error);
+      }
     }
   };
   const formSubmit = async (e) => {
