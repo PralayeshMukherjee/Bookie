@@ -45,7 +45,11 @@ public class BookService {
         }
     }
     public List<Book> getBooks(){
-        return bookRepo.findAll();
+        long sellerId = sellerService.getTempId();
+        Optional<Seller> seller = sellerRepository.findById(sellerId);
+        Seller mySeller = seller.get();
+        List<Book> books = bookRepo.findByUsername(mySeller.getUserName());
+        return books;
     }
     public boolean deleteTheBook(Long id){
         try{
