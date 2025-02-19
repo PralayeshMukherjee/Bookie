@@ -9,9 +9,21 @@ export default function Contact() {
     message: "",
   });
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     console.log(formData);
+  };
+  const handleSendOtp = async () => {
+    e.preventDefault();
+    setEmail(formData.email);
+    setUsername(formData.username);
+    if (email == "") {
+      alert("Please fill the email field first");
+    } else if (username == "") {
+      alert("Please fill the username field first");
+    }
   };
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -159,13 +171,36 @@ export default function Contact() {
                   required
                 />
               </div>
+              <button
+                onClick={handleSendOtp}
+                className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+              >
+                Send OTP
+              </button>
 
+              <div className="flex flex-col mt-2">
+                <label htmlFor="otp" className="hidden">
+                  OTP Email
+                </label>
+                <input
+                  type="number"
+                  name="otp"
+                  id="otp"
+                  placeholder="OTP via Email"
+                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300">
+                Verify
+              </button>
               <div className="flex flex-col mt-2">
                 <label htmlFor="tel" className="hidden">
                   Number
                 </label>
                 <input
-                  type="tel"
+                  type="number"
                   name="tel"
                   id="tel"
                   placeholder="Mobile Number"
