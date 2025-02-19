@@ -31,5 +31,6 @@ public class MailController {
     @PostMapping("/sendOtp")
     public void sendOTP(@RequestBody OtpSender otpSender){
         String username = otpSender.getUsername();
+        String email = otpSender.getEmail();
     }
 }
