@@ -18,7 +18,7 @@ public class VerificationController {
     @Autowired
     private OtpService otpService;
 
-    @PostMapping("/otpVerification")
+    @PostMapping("/verifyOTP")
     public Map<String, Integer> verificationOTP(@RequestBody OTPVerification otpVerification){
         String username = otpVerification.getUsername();
         String otp = otpVerification.getOtp();
