@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -28,8 +29,13 @@ public class BookService {
         book.setPrice(price);
         book.setStocks(stocks);
         long sellerId = sellerService.getTempId();
-
-        book.setUsername();
+        Optional<Seller> seller = sellerRepository.findById(sellerId);
+        Seller mySeller = null;
+        if(seller.isPresent()){
+            mySeller = seller.get();
+        }
+        assert mySeller != null;
+        book.setUsername(mySeller.getUserName());
         try {
             bookRepo.save(book);
             return true;
