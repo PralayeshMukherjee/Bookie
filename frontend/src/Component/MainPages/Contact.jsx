@@ -72,6 +72,10 @@ export default function Contact() {
       console.log("Error:- ", error);
     }
   };
+  const [otp, setOtp] = useState("");
+  const verifyOTP = async (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="relative flex items-top justify-center min-h-[700px] bg-violet-100 sm:items-center sm:pt-0">
       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -200,7 +204,7 @@ export default function Contact() {
 
               <div className="flex flex-col mt-2">
                 <label htmlFor="otp" className="hidden">
-                  OTP Email
+                  OTP
                 </label>
                 <input
                   type="number"
@@ -208,11 +212,14 @@ export default function Contact() {
                   id="otp"
                   placeholder="OTP via Email"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
-                  onChange={handleChange}
+                  onChange={(e) => setOtp(e.target.value)}
                   required
                 />
               </div>
-              <button className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300">
+              <button
+                onClick={verifyOTP}
+                className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+              >
                 Verify
               </button>
               <div className="flex flex-col mt-2">
