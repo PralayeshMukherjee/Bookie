@@ -36,6 +36,6 @@ public class MailController {
     public void sendOTP(@RequestBody OtpSender otpSender){
         String username = otpSender.getUsername();
         String email = otpSender.getEmail();
-//        boolean isOTPGenerated =
+        boolean isOTPGenerated = otpService.generateOTP(username);
     }
 }
