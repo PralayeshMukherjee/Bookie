@@ -50,4 +50,11 @@ public class OtpService {
             return false;
         }
     }
+    public int verifyOTP(String username,String otp){
+        if(otpMapping.containsKey(username)){
+            
+        }else{
+            return 0;
+        }
+    }
 }
