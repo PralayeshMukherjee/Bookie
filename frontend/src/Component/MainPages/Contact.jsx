@@ -48,6 +48,10 @@ export default function Contact() {
   const formSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    if (sessionStorage.getItem("isVerified") != "true") {
+      alert("Please verify the OTP first");
+      return;
+    }
     try {
       const response = await fetch("http://localhost:8080/mail/contact", {
         method: "POST",
@@ -72,9 +76,32 @@ export default function Contact() {
       console.log("Error:- ", error);
     }
   };
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState({ otp: "" });
+  const otpChange = (e) => {
+    setOtp({ otp: e.target.value });
+  };
   const verifyOTP = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/verify/verifyOTP", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ otp, username: formData.username }),
+      });
+      const result = await response.json();
+      if (result.isVerified == 2) {
+        alert("OTP Verified");
+        sessionStorage.setItem("isVerified", "true");
+      } else if (result.isVerified == 1) {
+        alert("OTP is incorrect");
+      } else {
+        alert("User not found");
+      }
+    } catch (error) {
+      console.log("Error:- ", error);
+    }
   };
   return (
     <div className="relative flex items-top justify-center min-h-[700px] bg-violet-100 sm:items-center sm:pt-0">
@@ -212,7 +239,7 @@ export default function Contact() {
                   id="otp"
                   placeholder="OTP via Email"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={otpChange}
                   required
                 />
               </div>
