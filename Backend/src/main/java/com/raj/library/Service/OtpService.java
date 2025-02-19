@@ -17,7 +17,7 @@ public class OtpService {
     private Map<String,String> otpMapping = new HashMap<>();
     public boolean generateOTP(String username){
         String generatedOTP = "";
-        for(int i=0;i<=otpLength;i++){
+        for(int i=1;i<=otpLength;i++){
             generatedOTP += String.valueOf((int)(Math.random()*9)+1);
         }
         otpMapping.put(username,generatedOTP);
