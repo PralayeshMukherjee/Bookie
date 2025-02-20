@@ -41,6 +41,40 @@ function SellerRegister() {
       alert("No user register!");
     }
   };
+
+  const handleSendOtp = async (e) => {
+    e.preventDefault();
+    if (formData.email == "") {
+      alert("Please fill the email field first");
+    } else if (formData.username == "") {
+      alert("Please fill the username field first");
+    } else {
+      try {
+        const sendOTPResponse = await fetch(
+          "http://localhost:8080/mail/sendOtp",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: registerFormData.emailId,
+              username: registerFormData.userName,
+            }),
+          }
+        );
+        const data = await sendOTPResponse.json();
+        console.log(data);
+        if (data.isMailSend) {
+          alert("OTP send to your email");
+        } else {
+          alert("OTP not send!!! Please try again later");
+        }
+      } catch (error) {
+        console.log("Error:- ", error);
+      }
+    }
+  };
   return (
     <div className="bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center min-h-screen">
       <div className="bg-white/20 bg-opacity-20 backdrop-blur-lg rounded-xl shadow-lg p-8 w-full max-w-md">
