@@ -24,6 +24,7 @@ import {
   SellerFeature,
   Contact,
   MailSuccess,
+  EditSectionSeller,
 } from "./Component/index";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             <Route path="Sellers" element={<Sellers />} />
           </Route>
           <Route path="Contact" element={<Contact />} />
+          <Route path="EditSectionSeller" element={<EditSectionSeller />} />
           <Route path="SellerFeature" element={<SellerFeature />} />
         </Route>
       </>
