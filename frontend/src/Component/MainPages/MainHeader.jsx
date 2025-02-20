@@ -24,7 +24,12 @@ function MainHeader() {
       navigate("/Main/MainHome", { replace: true });
     }
   }, []);
-
+  const navigateToLogout = useNavigate();
+  const LogoutUser = () => {
+    sessionStorage.removeItem("isLogin");
+    sessionStorage.removeItem("isValidSeller");
+    navigateToLogout("/", { replace: true });
+  };
   return (
     <header className="shadow sticky z-50 top-0">
       {/* <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
@@ -138,7 +143,7 @@ function MainHeader() {
                   Support
                 </Link>
                 <Link
-                  to="#"
+                  onClick={LogoutUser}
                   className="block px-4 py-2 hover:bg-gray-200 flex items-center"
                 >
                   <img src={Logout} alt="Logout" className="w-6 h-6 mr-2" />{" "}
