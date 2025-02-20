@@ -75,6 +75,36 @@ function SellerRegister() {
       }
     }
   };
+  const [otp, setOtp] = useState({ otp: "" });
+  const otpChange = (e) => {
+    setOtp({ otp: e.target.value });
+  };
+  const verifyOTP = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/verify/verifyOTP", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          otp: otp.otp,
+          username: registerFormData.userName,
+        }),
+      });
+      const result = await response.json();
+      if (result.isVerified == 2) {
+        alert("OTP Verified");
+        sessionStorage.setItem("isVerified", "true");
+      } else if (result.isVerified == 1) {
+        alert("OTP is incorrect");
+      } else {
+        alert("User not found");
+      }
+    } catch (error) {
+      console.log("Error:- ", error);
+    }
+  };
   return (
     <div className="bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center min-h-screen">
       <div className="bg-white/20 bg-opacity-20 backdrop-blur-lg rounded-xl shadow-lg p-8 w-full max-w-md">
