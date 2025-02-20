@@ -104,6 +104,33 @@ function SellerRegister() {
             required
           />
           <button
+            onClick={handleSendOtp}
+            className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+          >
+            Send OTP
+          </button>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="otp" className="hidden">
+              OTP
+            </label>
+            <input
+              type="number"
+              name="otp"
+              id="otp"
+              placeholder="OTP via Email"
+              className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
+              onChange={otpChange}
+              required
+            />
+          </div>
+          <button
+            onClick={verifyOTP}
+            className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+          >
+            Verify
+          </button>
+          <button
             type="submit"
             className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 rounded-lg"
           >
