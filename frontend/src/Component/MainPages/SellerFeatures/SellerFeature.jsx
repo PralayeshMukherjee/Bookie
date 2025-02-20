@@ -3,6 +3,10 @@ import { FaTrash, FaPlus, FaSun, FaMoon } from "react-icons/fa";
 import { User } from "../../index";
 
 const SellerProfile = () => {
+  const [sellerName, setSellerName] = useState(
+    sessionStorage.getItem("userNameForSeller")
+  );
+
   const [darkMode, setDarkMode] = useState(false);
   const [books, setBooks] = useState([]);
   // { id: null, title: "", price: 0, author: "", stocks: 0, sellers: [] }
@@ -103,7 +107,7 @@ const SellerProfile = () => {
           alt="Seller Profile"
           className="w-28 h-28 rounded-full mx-auto border-4 border-indigo-500 shadow-md"
         />
-        <h2 className="text-3xl font-bold mt-4">Seller Name</h2>
+        <h2 className="text-3xl font-bold mt-4"> Hey, {sellerName}</h2>
         <p className="mt-2 text-lg">Book Seller | Trusted Partner</p>
 
         <div className="mt-6">
