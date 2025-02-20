@@ -21,9 +21,11 @@ function SellerLogin() {
     });
     const data = await response.json();
     console.log(data);
-    if (data.isValidSeller) {
+    if (data.isValidSeller == "true") {
       sessionStorage.setItem("isValidSeller", "true");
+      sessionStorage.setItem("userNameForSeller", data.username);
       console.log("Navigating to /Main...");
+      console.log(data.username);
       navigate("/Main");
     } else {
       alert("User not Register");
