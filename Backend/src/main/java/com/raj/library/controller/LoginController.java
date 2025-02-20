@@ -17,11 +17,16 @@ public class LoginController {
     private SellerService sellerService;
 
     @PostMapping("/sellerLogin")
-    public Map<String, Boolean> sellerChecker(@RequestBody SellerLoginRequest sellerLoginRequest){
+    public Map<String, String> sellerChecker(@RequestBody SellerLoginRequest sellerLoginRequest){
         String userName = sellerLoginRequest.getUserName();
         String  password = sellerLoginRequest.getPassword();
         boolean isValidSeller = sellerService.sellerCheckerService(userName,password);
-        return Map.of("isValidSeller",isValidSeller);
+        if(isValidSeller==true){
+            System.out.println(userName);
+            return Map.of("isValidSeller","true","username",userName);
+        }else{
+            return Map.of("isValidSeller","false");
+        }
     }
 
     @Autowired
