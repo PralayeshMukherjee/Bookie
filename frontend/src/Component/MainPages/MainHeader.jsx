@@ -81,7 +81,8 @@ function MainHeader() {
           <li>
             <NavLink
               to={
-                sessionStorage.getItem("isValidSeller") === "true"
+                (sessionStorage.getItem("isValidSeller") ||
+                  sessionStorage.getItem("isLogin")) === "true"
                   ? "/Main/Contact"
                   : "/Main"
               }
