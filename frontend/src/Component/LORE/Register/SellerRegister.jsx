@@ -44,9 +44,9 @@ function SellerRegister() {
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
-    if (formData.email == "") {
+    if (registerFormData.email == "") {
       alert("Please fill the email field first");
-    } else if (formData.username == "") {
+    } else if (registerFormData.username == "") {
       alert("Please fill the username field first");
     } else {
       try {
@@ -169,7 +169,7 @@ function SellerRegister() {
           />
           <button
             onClick={handleSendOtp}
-            className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+            className="bg-violet-500 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
           >
             Send OTP
           </button>
@@ -183,14 +183,14 @@ function SellerRegister() {
               name="otp"
               id="otp"
               placeholder="OTP via Email"
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-violet-200 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
+              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white/20 border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:border-2 focus:outline-none"
               onChange={otpChange}
               required
             />
           </div>
           <button
             onClick={verifyOTP}
-            className="bg-violet-400 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
+            className="bg-violet-500 w-20 h-7 mt-1 rounded-lg font-semibold text-white hover:bg-violet-600 transition ease-in-out duration-300"
           >
             Verify
           </button>
