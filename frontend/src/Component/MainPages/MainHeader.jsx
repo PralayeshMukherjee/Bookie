@@ -122,7 +122,11 @@ function MainHeader() {
               </div>
               <div className="p-2">
                 <Link
-                  to="/Profile/Edit"
+                  to={
+                    sessionStorage.getItem("isValidSeller") === "true"
+                      ? "/Main/EditSectionSeller"
+                      : "/SellerLogin"
+                  }
                   className="block px-4 py-2 hover:bg-gray-200 flex items-center"
                 >
                   <img src={Profile} alt="Edit" className="w-6 h-6 mr-2" /> Edit
