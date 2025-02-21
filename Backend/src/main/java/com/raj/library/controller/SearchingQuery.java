@@ -14,7 +14,7 @@ public class SearchingQuery {
     @Autowired
     private SearchingQuery searchingQuery;
 
-    public List<String> searchBook(@RequestParam String title){
-
+    public List<String> searchBook(@RequestParam String query){
+        return  searchingQuery.searchBook(query);
     }
 }
