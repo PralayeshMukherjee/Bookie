@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SearchQueryService {
@@ -14,7 +15,7 @@ public class SearchQueryService {
     @Autowired
     private SearchingRepo searchingRepo;
 
-    public List<Book> getALlBooksWhereTitleMatched(String title){
-        return searchingRepo.findByTitleContainingIgnoreCase(title);
+    public List<String> getALlBooksWhereTitleMatched(String title){
+        return searchingRepo.findByTitleContainingIgnoreCase(title).stream().map(Book::getTitle).collect(Collectors.toList());
     }
 }
