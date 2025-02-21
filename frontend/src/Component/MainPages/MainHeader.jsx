@@ -51,13 +51,7 @@ function MainHeader() {
       }
       setLoading(true);
       try {
-        const response = await fetch("", {
-          method: "POST",
-          header: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(query),
-        });
+        const response = await fetch("");
         const data = await response.json();
         setSuggestions(data);
       } catch (error) {
