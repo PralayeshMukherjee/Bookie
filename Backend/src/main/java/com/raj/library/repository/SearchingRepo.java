@@ -1,4 +1,9 @@
 package com.raj.library.repository;
 
-public interface SearchingRepo extai{
+import com.raj.library.entity.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SearchingRepo extends JpaRepository<Book,Long> {
 }
