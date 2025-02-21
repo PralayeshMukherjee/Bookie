@@ -113,13 +113,11 @@ function MainHeader() {
         </ul>
         <div className="bg-white/20 flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-lg transition focus-within:border-blue-500">
           <img
-            onClick={() => navigate("/Main/Search")}
             src={Search}
             className="text-gray-500 mr-2 w-5 h-5"
             alt="Search"
           />
           <input
-            onClick={() => navigate("/Main/Search")}
             type="text"
             placeholder="Search products..."
             className="w-full bg-transparent focus:outline-none"
