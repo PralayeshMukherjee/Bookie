@@ -38,6 +38,35 @@ function MainHeader() {
     sessionStorage.removeItem("isValidSeller");
     navigateToLogout("/", { replace: true });
   };
+
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      if (query.length < 0) {
+        setSuggestions([]);
+        return;
+      }
+      setLoading(true);
+      try {
+        const response = await fetch("", {
+          method: "POST",
+          header: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(query),
+        });
+        const data = await response.json();
+        setSuggestions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    const timer = setTimeout(() => fetchSuggestions(), 300);
+    return () => clearTimeout(timer);
+  }, [query]);
   return (
     <header className="shadow sticky z-50 top-0">
       {/* <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
@@ -120,8 +149,11 @@ function MainHeader() {
           <input
             type="text"
             placeholder="Search products..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             className="w-full bg-transparent focus:outline-none"
           />
+          {}
         </div>
         <div className="relative">
           <img
