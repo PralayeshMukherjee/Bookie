@@ -62,6 +62,8 @@ function MainHeader() {
         setSuggestions(data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     const timer = setTimeout(() => fetchSuggestions(), 300);
