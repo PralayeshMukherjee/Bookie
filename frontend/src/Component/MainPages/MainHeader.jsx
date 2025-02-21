@@ -51,7 +51,9 @@ function MainHeader() {
       }
       setLoading(true);
       try {
-        const response = await fetch("");
+        const response = await fetch(
+          `http://localhost:8080/search/books?query=${query}`
+        );
         const data = await response.json();
         setSuggestions(data);
       } catch (error) {
