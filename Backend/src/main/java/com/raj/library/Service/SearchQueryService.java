@@ -15,6 +15,6 @@ public class SearchQueryService {
     private SearchingRepo searchingRepo;
 
     public List<Book> getALlBooksWhereTitleMatched(String title){
-        sellerRepository.
+        return searchingRepo.findByTitleContainingIgnoreCase(title);
     }
 }
