@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Library, User, Profile, Setting, Help, Logout } from "../index";
+import {
+  Library,
+  User,
+  Profile,
+  Setting,
+  Help,
+  Logout,
+  Search,
+} from "../index";
 
 function MainHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,6 +111,20 @@ function MainHeader() {
             </NavLink>
           </li>
         </ul>
+        <div className="bg-white/20 flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-lg transition focus-within:border-blue-500">
+          <img
+            onClick={() => navigate("/Main/Search")}
+            src={Search}
+            className="text-gray-500 mr-2 w-5 h-5"
+            alt="Search"
+          />
+          <input
+            onClick={() => navigate("/Main/Search")}
+            type="text"
+            placeholder="Search products..."
+            className="w-full bg-transparent focus:outline-none"
+          />
+        </div>
         <div className="relative">
           <img
             src={User}
@@ -158,7 +180,6 @@ function MainHeader() {
           )}
         </div>
       </nav>
-      {/* </div> */}
     </header>
   );
 }
