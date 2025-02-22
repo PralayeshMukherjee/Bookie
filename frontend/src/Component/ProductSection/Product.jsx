@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function Product() {
   const selectedBook = sessionStorage.getItem("selectedBook");
+  const [dataFetch, setDataFetch] = useState([]);
   useEffect(() => {
     console.log("fetching");
     fetchData();
@@ -12,10 +13,22 @@ function Product() {
     );
     const data = await response.json();
     console.log(data);
+    setDataFetch(data);
   };
   return (
     <div>
-      <h1>book found</h1>
+      <h1>book is:-</h1>
+      <ul>
+        {dataFetch.map((value, idx) => (
+          <li key={idx}>
+            {value.title}
+            {value.price}
+            {value.author}
+            {value.stocks}
+            {value.username}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
