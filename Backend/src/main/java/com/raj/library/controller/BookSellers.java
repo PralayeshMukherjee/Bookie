@@ -19,6 +19,6 @@ public class BookSellers {
 
     @GetMapping("/books")
     public List<Book> getAllBook(@RequestParam String title){
-
+        return bookSellersService.getAllBooksMatchedWithTitle(title);
     }
 }
