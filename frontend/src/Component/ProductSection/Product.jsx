@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 function Product() {
   const selectedBook = sessionStorage.getItem("selectedBook");
   useEffect(() => {
-    console.log(fetching);
+    console.log("fetching");
     fetchData();
   }, [selectedBook]);
   const fetchData = async () => {
@@ -21,3 +21,14 @@ function Product() {
 }
 
 export default Product;
+
+// [
+//   {
+//       "id": 1,
+//       "title": "Java By Raj",
+//       "price": 650,
+//       "author": "Raj Mukherjee",
+//       "stocks": "13",
+//       "username": "raj"
+//   }
+// ]
