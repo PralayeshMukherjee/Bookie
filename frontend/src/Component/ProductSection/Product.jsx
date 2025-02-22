@@ -5,7 +5,11 @@ function Product() {
   useEffect(() => {
     console.log(fetching);
   }, [selectedBook]);
-  const fetchData = async () => {};
+  const fetchData = async () => {
+    const response = await fetch("");
+    const data = await response.json();
+    console.log(data);
+  };
   return (
     <div>
       <h1>book found</h1>
