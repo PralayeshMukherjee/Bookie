@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   Library,
@@ -44,37 +44,41 @@ function MainHeader() {
   const [loading, setLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
-    const fetchSuggestions = async () => {
-      console.log(query.length);
-      if (query.length == 0) {
-        setSuggestions([]);
-        return;
-      }
-      setLoading(true);
-      try {
-        const response = await fetch(
-          `http://localhost:8080/search/books?query=${query}`
-        );
-        const data = await response.json();
-        console.log(data);
-        setSuggestions(data);
-        console.log(suggestions);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    const timer = setTimeout(() => fetchSuggestions(), 300);
-    return () => clearTimeout(timer);
+  const fetchSuggestions = useCallback(async () => {
+    if (query.length === 0) {
+      setSuggestions([]);
+      setShowDropdown(false);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/search/books?query=${query}`
+      );
+      const data = await response.json();
+      setSuggestions(data);
+      setShowDropdown(true); // Show dropdown only when data is received
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   }, [query]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchSuggestions();
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [query, fetchSuggestions]);
 
   const ProductFound = (value) => {
     setQuery(value);
     setShowDropdown(false);
     setLoading(false);
-    setSuggestions([]);
+    // setSuggestions([]);
     sessionStorage.setItem("selectedBook", value);
     navigate("/Main/Product", { replace: true });
   };
