@@ -17,10 +17,7 @@ import Logout from "../images/logout.png";
 import Pic from "../images/pic.png";
 import userLoginPNG from "../images/userLogin.jpg";
 import AboutPNG from '../images/About.svg'
-import Features from './MainPages/Features/Features.jsx'
-import Search from '../images/Search.png'
 import Clear from '../images/Clear.png'
-import Sellers from '../Component/MainPages/Features/Sellers.jsx'
 import SellerLogin from '../Component/LORE/Login/SellerLogin.jsx'
 import SellerRegister from '../Component/LORE/Register/SellerRegister.jsx'
 import SellerRegisterSuccess from '../Component/Success/SellerRegisterSuccess.jsx'
@@ -29,4 +26,4 @@ import Contact from '../Component/MainPages/Contact.jsx'
 import MailSuccess from '../Component/Success/MailSeccess.jsx'
 import Product from '../Component/ProductSection/Product.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Features,Search,Clear,Sellers,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Features,Clear,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product};
