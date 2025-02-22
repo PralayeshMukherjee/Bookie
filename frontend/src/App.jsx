@@ -15,8 +15,6 @@ import {
   MainFooter,
   MainHome,
   About,
-  Features,
-  Sellers,
   SellerLogin,
   SellerRegister,
   SellerRegisterSuccess,
@@ -51,10 +49,6 @@ function App() {
           <Route index element={<MainHome />} />
           <Route path="MainHome" element={<MainHome />} />
           <Route path="about" element={<About />} />
-          <Route path="features" element={<Features />}>
-            <Route index element={<SearchBox />} />
-            <Route path="Sellers" element={<Sellers />} />
-          </Route>
           <Route path="Contact" element={<Contact />} />
           <Route path="Product" element={<Product />} />
           <Route path="SellerFeature" element={<SellerFeature />} />
