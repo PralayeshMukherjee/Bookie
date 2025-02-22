@@ -4,6 +4,7 @@ function Product() {
   const selectedBook = sessionStorage.getItem("selectedBook");
   useEffect(() => {
     console.log(fetching);
+    fetchData();
   }, [selectedBook]);
   const fetchData = async () => {
     const response = await fetch("");
