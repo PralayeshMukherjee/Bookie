@@ -14,6 +14,6 @@ public class BookSellersService {
     private BookRepo bookRepo;
 
     public List<Book> getAllBooksMatchedWithTitle(String title){
-        
+        return bookRepo.findByTitle(title);
     }
 }
