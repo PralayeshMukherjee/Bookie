@@ -69,6 +69,7 @@ function MainHeader() {
     const timer = setTimeout(() => fetchSuggestions(), 300);
     return () => clearTimeout(timer);
   }, [query]);
+
   return (
     <header className="shadow sticky z-50 top-0">
       {/* <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
@@ -172,6 +173,7 @@ function MainHeader() {
                       setQuery(value);
                       setShowDropdown(false);
                     }}
+                    onClick={ProductFound}
                   >
                     {value}
                   </li>
