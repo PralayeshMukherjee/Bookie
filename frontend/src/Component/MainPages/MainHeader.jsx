@@ -72,6 +72,10 @@ function MainHeader() {
 
   const ProductFound = (value) => {
     setQuery(value);
+    setShowDropdown(false);
+    setLoading(false);
+    setSuggestions([]);
+    sessionStorage.setItem("selectedBook", value);
     navigate("/Main/Product", { replace: true });
   };
 
