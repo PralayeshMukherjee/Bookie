@@ -7,7 +7,9 @@ function Product() {
     fetchData();
   }, [selectedBook]);
   const fetchData = async () => {
-    const response = await fetch("");
+    const response = await fetch(
+      `http://localhost:8080/fetchSellers/books?title=${selectedBook}`
+    );
     const data = await response.json();
     console.log(data);
   };
