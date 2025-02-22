@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 
 function Product() {
   const selectedBook = sessionStorage.getItem("selectedBook");
+  const [selectedBooks, setSelectedBooks] = useState(selectedBook);
   const [dataFetch, setDataFetch] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     console.log("fetching");
     fetchData();
-  }, [selectedBook]);
+  }, [selectedBooks]);
   const fetchData = async () => {
     const response = await fetch(
       `http://localhost:8080/fetchSellers/books?title=${selectedBook}`
@@ -96,7 +97,8 @@ function Product() {
               >
                 {book.price}
               </p>
-              <p className="text-yellow-500">⭐ {book.rating}</p>
+              <p className="text-yellow-500">In Stock:- {book.stocks}</p>
+              <p>Sellers:- {book.username}</p>
               <button
                 className={`mt-2 px-4 py-2 rounded-full transition-all ${
                   darkMode
