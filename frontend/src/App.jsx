@@ -15,7 +15,6 @@ import {
   MainFooter,
   MainHome,
   About,
-  SearchBox,
   Features,
   Sellers,
   SellerLogin,
