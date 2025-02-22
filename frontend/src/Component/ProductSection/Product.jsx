@@ -26,6 +26,7 @@ function Product() {
             {value.author}
             {value.stocks}
             {value.username}
+            <hr />
           </li>
         ))}
       </ul>
