@@ -158,8 +158,6 @@ function MainHeader() {
               className="w-full bg-transparent focus:outline-none"
             />
           </div>
-
-          {/* Dropdown Suggestion Box */}
           {showDropdown && (
             <ul className="absolute left-0 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-lg z-50">
               {loading && (
