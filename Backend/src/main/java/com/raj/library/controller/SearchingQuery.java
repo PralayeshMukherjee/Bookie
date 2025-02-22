@@ -1,5 +1,6 @@
 package com.raj.library.controller;
 
+import com.raj.library.Service.SearchQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +14,10 @@ import java.util.List;
 public class SearchingQuery {
 
     @Autowired
-    private SearchingQuery searchingQuery;
+    private SearchQueryService searchQueryService;
 
     @GetMapping("/books")
     public List<String> searchBook(@RequestParam String query){
-        return  searchingQuery.searchBook(query);
+        return  searchQueryService.getALlBooksWhereTitleMatched(query);
     }
 }
