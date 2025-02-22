@@ -42,10 +42,12 @@ function MainHeader() {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     const fetchSuggestions = async () => {
-      if (query.length < 0) {
+      console.log(query.length);
+      if (query.length == 0) {
         setSuggestions([]);
         return;
       }
@@ -55,7 +57,9 @@ function MainHeader() {
           `http://localhost:8080/search/books?query=${query}`
         );
         const data = await response.json();
+        console.log(data);
         setSuggestions(data);
+        console.log(suggestions);
       } catch (error) {
         console.error(error);
       } finally {
@@ -138,20 +142,47 @@ function MainHeader() {
             </NavLink>
           </li>
         </ul>
-        <div className="bg-white/20 flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-lg transition focus-within:border-blue-500">
-          <img
-            src={Search}
-            className="text-gray-500 mr-2 w-5 h-5"
-            alt="Search"
-          />
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent focus:outline-none"
-          />
-          {}
+        <div className="relative">
+          <div className="bg-white/20 flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-lg transition focus-within:border-blue-500">
+            <img
+              src={Search}
+              className="text-gray-500 mr-2 w-5 h-5"
+              alt="Search"
+            />
+            <input
+              type="text"
+              placeholder="Search books..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onFocus={() => setShowDropdown(true)}
+              className="w-full bg-transparent focus:outline-none"
+            />
+          </div>
+
+          {/* Dropdown Suggestion Box */}
+          {showDropdown && (
+            <ul className="absolute left-0 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-lg z-50">
+              {loading && (
+                <li className="px-4 py-2 text-gray-500">Loading...</li>
+              )}
+              {suggestions.length > 0 ? (
+                suggestions.map((value, i) => (
+                  <li
+                    key={i}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black"
+                    onMouseDown={() => {
+                      setQuery(value);
+                      setShowDropdown(false);
+                    }}
+                  >
+                    {value}
+                  </li>
+                ))
+              ) : (
+                <li className="px-4 py-2 text-gray-500">No results found</li>
+              )}
+            </ul>
+          )}
         </div>
         <div className="relative">
           <img
