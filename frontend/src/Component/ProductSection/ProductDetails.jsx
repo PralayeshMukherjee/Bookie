@@ -68,7 +68,7 @@ function ProductDetails() {
 
         {/* Right Section - Additional Details */}
         <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-          <img src={sellerContact} alt="seller png" />
+          <img src={sellerContact} alt="seller png" className="w-50 h-50" />
           <h2 className="text-lg font-semibold">
             Seller, {dataFetch.username}
           </h2>
