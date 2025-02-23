@@ -1,40 +1,79 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 
 function Product() {
-  const [selectedBooks, setSelectedBooks] = useState("");
+  const [selectedBooks, setSelectedBooks] = useState(
+    () => sessionStorage.getItem("theQueryBook") || ""
+  );
   const [dataFetch, setDataFetch] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
-  const [forceUpdate, setForceUpdate] = useState(0);
+  const [darkMode, setDarkMode] = useState(
+    () => JSON.parse(localStorage.getItem("darkMode")) || false
+  );
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Store dark mode preference
   useEffect(() => {
-    const book = sessionStorage.getItem("theQueryBook");
-    if (book) {
-      setSelectedBooks(book);
-    }
-  }, []);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   useEffect(() => {
-    if (selectedBooks) {
-      fetchData();
-    }
+    if (selectedBooks) fetchData();
   }, [selectedBooks]);
 
   const fetchData = async () => {
-    console.log(selectedBooks);
-    console.log(sessionStorage.getItem("theQueryBook"));
     try {
       const response = await fetch(
         `http://localhost:8080/fetchSellers/books?title=${selectedBooks}`
       );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
+      if (!response.ok) throw new Error("Failed to fetch data");
+
       const data = await response.json();
-      console.log(data);
       setDataFetch(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+
+  const fetchSuggestions = useCallback(async () => {
+    if (!query) {
+      setSuggestions([]);
+      setShowDropdown(false);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/search/books?query=${query}`
+      );
+      const data = await response.json();
+      setSuggestions(data);
+      setShowDropdown(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    const timer = setTimeout(fetchSuggestions, 300);
+    return () => clearTimeout(timer);
+  }, [query, fetchSuggestions]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div
@@ -55,25 +94,50 @@ function Product() {
             Book Search
           </h1>
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="px-4 py-2 rounded-full transition-all text-white bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 shadow-lg"
+            onClick={() => setDarkMode((prev) => !prev)}
+            className="px-4 py-2 rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 shadow-lg"
           >
-            {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
+            {darkMode ? "☀️" : "🌙"}
           </button>
         </div>
 
         {/* Search Bar */}
-        <input
-          type="text"
-          placeholder="Search for a book..."
-          value={selectedBooks}
-          onChange={(e) => setSelectedBooks(e.target.value)}
-          className={`w-full p-3 border rounded-full shadow-md focus:outline-none focus:ring-2 ${
-            darkMode
-              ? "focus:ring-blue-500 bg-gray-800 text-white"
-              : "focus:ring-indigo-500 bg-white text-black"
-          } transition-all`}
-        />
+        <div className="relative w-full" ref={dropdownRef}>
+          <input
+            type="text"
+            placeholder="Search for a book..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className={`w-full p-3 border rounded-full shadow-md focus:outline-none focus:ring-2 ${
+              darkMode
+                ? "focus:ring-blue-500 bg-gray-800 text-white"
+                : "focus:ring-indigo-500 bg-white text-black"
+            } transition-all`}
+          />
+          {showDropdown && (
+            <ul className="absolute left-0 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-lg z-50">
+              {loading ? (
+                <li className="px-4 py-2 text-gray-500">Loading...</li>
+              ) : suggestions.length > 0 ? (
+                suggestions.map((value, i) => (
+                  <li
+                    key={i}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black"
+                    onClick={() => {
+                      setSelectedBooks(value);
+                      sessionStorage.setItem("theQueryBook", value);
+                      setShowDropdown(false);
+                    }}
+                  >
+                    {value}
+                  </li>
+                ))
+              ) : (
+                <li className="px-4 py-2  text-gray-500">No results found</li>
+              )}
+            </ul>
+          )}
+        </div>
 
         {/* Book List */}
         <h2
@@ -103,11 +167,7 @@ function Product() {
                 >
                   {book.title}
                 </h3>
-                <p
-                  className={`text-gray-600 ${
-                    darkMode ? "dark:text-gray-300" : "text-gray-700"
-                  }`}
-                >
+                <p className="text-gray-600 dark:text-gray-300">
                   by {book.author}
                 </p>
                 <p
@@ -131,7 +191,9 @@ function Product() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-500">No books found.</p>
+            <h1 className=" text-center font-bold text-red-500">
+              No books found.
+            </h1>
           )}
         </div>
       </div>
