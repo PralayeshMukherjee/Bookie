@@ -21,4 +21,7 @@ public class BookSellers {
     public List<Book> getAllBook(@RequestParam String title){
         return bookSellersService.getAllBooksMatchedWithTitle(title);
     }
+    public Book getBookIdMatched(@RequestParam String id){
+
+    }
 }
