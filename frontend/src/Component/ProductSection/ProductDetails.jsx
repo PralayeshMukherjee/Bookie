@@ -13,7 +13,7 @@ function ProductDetails() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/fetchSellers/books?title=${selectedBooks}`
+        `http://localhost:8080/fetchSellers/books?title=${bookDetails}`
       );
       if (!response.ok) throw new Error("Failed to fetch data");
 
