@@ -19,10 +19,10 @@ public class BooksController {
 
     @PostMapping("/addBooks")
     public Map<String,Boolean> addNewBook(@RequestBody BookAdd bookAdd){
-        String title = bookAdd.getTitle();
+        String title = bookAdd.getTitle().trim();
         int price = Integer.parseInt(bookAdd.getPrice());
-        String stocks = bookAdd.getStocks();
-        String author = bookAdd.getAuthor();
+        String stocks = bookAdd.getStocks().trim();
+        String author = bookAdd.getAuthor().trim();
         boolean isAdded =  bookService.addBooks(title,price,stocks,author);
         return Map.of("isAdded", isAdded);
     }
