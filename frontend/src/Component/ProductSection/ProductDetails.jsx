@@ -10,6 +10,11 @@ function ProductDetails() {
       setBookDetails(book);
     }
   }, []);
+  useEffect(() => {
+    if (bookDetails) {
+      fetchData();
+    }
+  });
   const fetchData = async () => {
     try {
       const response = await fetch(
