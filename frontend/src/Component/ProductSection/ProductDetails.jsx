@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
+  let book = sessionStorage.getItem("bookDetails");
+  console.log(book);
+  const [bookDetails, setBookDetails] = useState(book);
   return (
     <div
       className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
     >
       <div className="max-w-6xl mx-auto p-6 shadow-lg rounded-lg flex">
-        {/* Left Section - Book Details */}
         <div className="w-2/3 p-4">
           <h1 className="text-3xl font-bold">Book Title</h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
