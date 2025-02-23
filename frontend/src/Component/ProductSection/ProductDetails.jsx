@@ -35,11 +35,13 @@ function ProductDetails() {
     >
       <div className="max-w-6xl mx-auto p-6 shadow-lg rounded-lg flex">
         <div className="w-2/3 p-4">
-          <h1 className="text-3xl font-bold">Book Title</h1>
+          <h1 className="text-3xl font-bold">{dataFetch.title}</h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Author: Author Name
+            Author: {dataFetch.author}
           </p>
-          <p className="text-2xl font-semibold text-green-600 mt-2">$9.99</p>
+          <p className="text-2xl font-semibold text-green-600 mt-2">
+            {dataFetch.price}/-
+          </p>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
             Special Offer: 10% off on first purchase
           </p>
@@ -49,7 +51,7 @@ function ProductDetails() {
             <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300">
               <li>Bank Offer: 5% Cashback on XYZ Bank Credit Card</li>
               <li>Bank Offer: 10% off up to ₹1500 on orders over ₹5000</li>
-              <li>Partner Offer: Buy 2 books, get 1 free</li>
+              <li>Partner Offer: Buy 3 books, get 1 free</li>
             </ul>
           </div>
 
@@ -65,17 +67,28 @@ function ProductDetails() {
 
         {/* Right Section - Additional Details */}
         <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold">Delivery</h2>
+          <h2 className="text-lg font-semibold">
+            Seller, {dataFetch.username}
+          </h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Check delivery availability for your location.
+            By Book from our Seller, {dataFetch.username}
           </p>
-          <input
-            type="text"
-            placeholder="Enter Pincode"
-            className="w-full p-2 mt-2 border rounded bg-white dark:bg-gray-700 dark:text-white"
-          />
+          {Number(dataFetch.stocks) > 20 ? (
+            <p className="text-1xl font-semibold text-green-600 mt-2">
+              Book in Stock: {dataFetch.stocks}
+            </p>
+          ) : Number(dataFetch.stocks) > 10 ? (
+            <p className="text-1xl font-semibold text-yellow-500 mt-2">
+              Book in Stock: {dataFetch.stocks}
+            </p>
+          ) : (
+            <p className="text-1xl font-semibold text-red-600 mt-2">
+              Book in Stock: {dataFetch.stocks}
+            </p>
+          )}
+
           <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg w-full">
-            Check
+            Contact Seller Directly
           </button>
 
           <h2 className="mt-6 text-lg font-semibold">Warranty</h2>
