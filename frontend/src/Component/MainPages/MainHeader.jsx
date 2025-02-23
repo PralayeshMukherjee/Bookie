@@ -75,7 +75,7 @@ function MainHeader() {
   }, [query, fetchSuggestions]);
 
   const ProductFound = (value) => {
-    setQuery(value);
+    setQuery("");
     setShowDropdown(false);
     setLoading(false);
     setSuggestions([]);
