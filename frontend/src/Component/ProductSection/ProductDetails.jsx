@@ -1,4 +1,5 @@
 import React, { use, useEffect, useState } from "react";
+import { sellerContact } from "../index";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
