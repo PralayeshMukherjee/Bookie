@@ -78,8 +78,8 @@ function MainHeader() {
     setQuery(value);
     setShowDropdown(false);
     setLoading(false);
-    // setSuggestions([]);
-    sessionStorage.setItem("selectedBook", value);
+    setSuggestions([]);
+    sessionStorage.setItem("theQueryBook", value);
     navigate("/Main/Product", { replace: true });
   };
 
