@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
   let book = sessionStorage.getItem("bookDetails");
   console.log(book);
-  const [bookDetails, setBookDetails] = useState(book);
+  const [bookDetails, setBookDetails] = useState("");
+  useEffect(() => {
+    setBookDetails(book);
+  }, []);
   return (
     <div
       className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
