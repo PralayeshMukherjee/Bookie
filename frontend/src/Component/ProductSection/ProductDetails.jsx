@@ -3,8 +3,9 @@ import React, { use, useEffect, useState } from "react";
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
   let book = sessionStorage.getItem("bookDetails");
-  console.log(book);
+  console.log(book + " type of " + typeof book);
   const [bookDetails, setBookDetails] = useState("");
+  const [dataFetch, setDataFetch] = useState();
   useEffect(() => {
     if (book) {
       setBookDetails(book);
@@ -18,7 +19,7 @@ function ProductDetails() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/fetchSellers/books?title=${bookDetails}`
+        `http://localhost:8080/fetchSellers/idMatched?id=${bookDetails}`
       );
       if (!response.ok) throw new Error("Failed to fetch data");
 
