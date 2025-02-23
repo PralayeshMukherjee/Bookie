@@ -25,6 +25,6 @@ public class BookSellers {
     public Book getBookIdMatched(@RequestParam String id){
         Long bookId = Long.parseLong(id);
         System.out.println(bookId);
-
+        return bookSellersService.getBookWhereIdMatched(bookId);
     }
 }
