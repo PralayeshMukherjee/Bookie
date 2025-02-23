@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Product() {
   const [selectedBooks, setSelectedBooks] = useState(
@@ -75,6 +76,12 @@ function Product() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const navigateToDetails = useNavigate();
+  const viewDetails = (book) => {
+    console.log(book + " type is " + typeof book);
+    sessionStorage.setItem("bookDetails", book);
+    navigateToDetails("/Main/ProductDetails");
+  };
   return (
     <div
       className={`min-h-screen p-6 transition-all duration-500 ${
@@ -180,6 +187,7 @@ function Product() {
                 <p className="text-yellow-500">In Stock: {book.stocks}</p>
                 <p>Sellers: {book.username}</p>
                 <button
+                  onClick={() => viewDetails(book.title)}
                   className={`mt-2 px-4 py-2 rounded-full transition-all ${
                     darkMode
                       ? "bg-blue-500 hover:bg-blue-600 text-white"
