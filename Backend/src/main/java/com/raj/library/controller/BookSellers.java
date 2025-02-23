@@ -23,6 +23,8 @@ public class BookSellers {
     }
     @GetMapping("/idMatched")
     public Book getBookIdMatched(@RequestParam String id){
+        Long bookId = Long.parseLong(id);
+        System.out.println(bookId);
 
     }
 }
