@@ -10,6 +10,19 @@ function ProductDetails() {
       setBookDetails(book);
     }
   }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/fetchSellers/books?title=${selectedBooks}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch data");
+
+      const data = await response.json();
+      setDataFetch(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   return (
     <div
       className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
