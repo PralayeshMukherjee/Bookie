@@ -6,7 +6,9 @@ function ProductDetails() {
   console.log(book);
   const [bookDetails, setBookDetails] = useState("");
   useEffect(() => {
-    setBookDetails(book);
+    if (book) {
+      setBookDetails(book);
+    }
   }, []);
   return (
     <div
