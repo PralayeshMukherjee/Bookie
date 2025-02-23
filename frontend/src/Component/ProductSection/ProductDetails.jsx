@@ -5,7 +5,7 @@ function ProductDetails() {
   let book = sessionStorage.getItem("bookDetails");
   console.log(book + " type of " + typeof book);
   const [bookDetails, setBookDetails] = useState("");
-  const [dataFetch, setDataFetch] = useState();
+  const [dataFetch, setDataFetch] = useState({});
   useEffect(() => {
     if (book) {
       setBookDetails(book);
