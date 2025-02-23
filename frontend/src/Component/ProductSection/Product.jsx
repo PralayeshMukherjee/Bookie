@@ -1,22 +1,41 @@
 import React, { useEffect, useState } from "react";
 
 function Product() {
-  const selectedBook = sessionStorage.getItem("selectedBook");
-  const [selectedBooks, setSelectedBooks] = useState(selectedBook);
+  const [selectedBooks, setSelectedBooks] = useState("");
   const [dataFetch, setDataFetch] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(0);
   useEffect(() => {
-    console.log("fetching");
-    fetchData();
+    const book = sessionStorage.getItem("theQueryBook");
+    if (book) {
+      setSelectedBooks(book);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedBooks) {
+      fetchData();
+    }
   }, [selectedBooks]);
+
   const fetchData = async () => {
-    const response = await fetch(
-      `http://localhost:8080/fetchSellers/books?title=${selectedBook}`
-    );
-    const data = await response.json();
-    console.log(data);
-    setDataFetch(data);
+    console.log(selectedBooks);
+    console.log(sessionStorage.getItem("theQueryBook"));
+    try {
+      const response = await fetch(
+        `http://localhost:8080/fetchSellers/books?title=${selectedBooks}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      console.log(data);
+      setDataFetch(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   return (
     <div
       className={`min-h-screen p-6 transition-all duration-500 ${
@@ -47,8 +66,8 @@ function Product() {
         <input
           type="text"
           placeholder="Search for a book..."
-          // value={query}
-          // onChange={(e) => handleSearch(e.target.value)}
+          value={selectedBooks}
+          onChange={(e) => setSelectedBooks(e.target.value)}
           className={`w-full p-3 border rounded-full shadow-md focus:outline-none focus:ring-2 ${
             darkMode
               ? "focus:ring-blue-500 bg-gray-800 text-white"
@@ -65,51 +84,55 @@ function Product() {
           Search Results
         </h2>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {dataFetch.map((book, index) => (
-            <div
-              key={index}
-              className={`flex flex-col border p-5 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl ${
-                darkMode
-                  ? "bg-gray-800 text-white border-gray-700"
-                  : "bg-white text-black border-gray-300"
-              } relative overflow-hidden`}
-            >
-              <h3
-                className={`text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r ${
+          {dataFetch.length > 0 ? (
+            dataFetch.map((book, index) => (
+              <div
+                key={index}
+                className={`flex flex-col border p-5 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl ${
                   darkMode
-                    ? "from-blue-400 to-purple-400"
-                    : "from-indigo-500 to-pink-500"
-                }`}
+                    ? "bg-gray-800 text-white border-gray-700"
+                    : "bg-white text-black border-gray-300"
+                } relative overflow-hidden`}
               >
-                {book.title}
-              </h3>
-              <p
-                className={`text-gray-600 ${
-                  darkMode ? "dark:text-gray-300" : "text-gray-700"
-                }`}
-              >
-                by {book.author}
-              </p>
-              <p
-                className={`font-semibold ${
-                  darkMode ? "text-green-400" : "text-green-600"
-                }`}
-              >
-                {book.price}
-              </p>
-              <p className="text-yellow-500">In Stock:- {book.stocks}</p>
-              <p>Sellers:- {book.username}</p>
-              <button
-                className={`mt-2 px-4 py-2 rounded-full transition-all ${
-                  darkMode
-                    ? "bg-blue-500 hover:bg-blue-600 text-white"
-                    : "bg-indigo-500 hover:bg-indigo-600 text-white"
-                }`}
-              >
-                View Details
-              </button>
-            </div>
-          ))}
+                <h3
+                  className={`text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r ${
+                    darkMode
+                      ? "from-blue-400 to-purple-400"
+                      : "from-indigo-500 to-pink-500"
+                  }`}
+                >
+                  {book.title}
+                </h3>
+                <p
+                  className={`text-gray-600 ${
+                    darkMode ? "dark:text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  by {book.author}
+                </p>
+                <p
+                  className={`font-semibold ${
+                    darkMode ? "text-green-400" : "text-green-600"
+                  }`}
+                >
+                  {book.price}
+                </p>
+                <p className="text-yellow-500">In Stock: {book.stocks}</p>
+                <p>Sellers: {book.username}</p>
+                <button
+                  className={`mt-2 px-4 py-2 rounded-full transition-all ${
+                    darkMode
+                      ? "bg-blue-500 hover:bg-blue-600 text-white"
+                      : "bg-indigo-500 hover:bg-indigo-600 text-white"
+                  }`}
+                >
+                  View Details
+                </button>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-gray-500">No books found.</p>
+          )}
         </div>
       </div>
     </div>
@@ -117,14 +140,3 @@ function Product() {
 }
 
 export default Product;
-
-// [
-//   {
-//       "id": 1,
-//       "title": "Java By Raj",
-//       "price": 650,
-//       "author": "Raj Mukherjee",
-//       "stocks": "13",
-//       "username": "raj"
-//   }
-// ]
