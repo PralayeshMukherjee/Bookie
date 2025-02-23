@@ -20,5 +20,6 @@ public class BookSellersService {
 
     public Book getBookWhereIdMatched(Long id){
         Optional<Book> book = bookRepo.findById(id);
+        return book.get();
     }
 }
