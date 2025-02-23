@@ -16,4 +16,8 @@ public class BookSellersService {
     public List<Book> getAllBooksMatchedWithTitle(String title){
         return bookRepo.findByTitle(title);
     }
+
+    public Book getBookWhereIdMatched(Long id){
+
+    }
 }
