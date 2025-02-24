@@ -30,5 +30,6 @@ public class BookSellersService {
 
     public String getSellerNameByUsername(String userName){
         Seller seller= sellerRepository.findByUserName(userName);
+        return  seller.getName();
     }
 }
