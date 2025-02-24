@@ -13,8 +13,10 @@ public class MailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public boolean sendMailToContact(String username,String email,String mobile, String message){
-        String recipient = "rajmukherjeegcp@gmail.com"; // Replace with your email
+    public boolean sendMailToContact(String recipient,String username,String email,String mobile, String message){
+        if(recipient.isEmpty()){
+            recipient = "rajmukherjeegcp@gmail.com"; // Replace with your email
+        }
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
