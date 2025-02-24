@@ -41,6 +41,7 @@ function ProductDetails() {
       );
       const data = response.json();
       setSellerName(data);
+      setSellerDetailsComponent(true);
     } catch (error) {
       console.log(error);
     }
