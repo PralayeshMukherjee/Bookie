@@ -24,12 +24,21 @@ public class MailService {
             messageHelper.setTo(recipient);
             messageHelper.setFrom(email);
             messageHelper.setSubject("New Contact Form Submission");
-            messageHelper.setText(
-                    "Username: " + username + "\n" +
-                            "Email: " + email + "\n" +
-                            "Mobile: " + mobile + "\n\n" +
-                            "Message:\n" + message
-            );
+            if(mobile.equals("NULL")){
+                messageHelper.setText(
+                        "Username: " + username + "\n" +
+                                "Email: " + email + "\n" +
+                                "Message:\n" + message
+                );
+            }else{
+                messageHelper.setText(
+                        "Username: " + username + "\n" +
+                                "Email: " + email + "\n" +
+                                "Mobile: " + mobile + "\n\n" +
+                                "Message:\n" + message
+                );
+            }
+
 
             javaMailSender.send(mimeMessage);
             return true;
