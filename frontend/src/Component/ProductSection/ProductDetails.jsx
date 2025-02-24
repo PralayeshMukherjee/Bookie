@@ -90,11 +90,9 @@ function ProductDetails() {
         {sellerDetailsComponent && (
           <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
             <img src={sellerContact} alt="seller png" className="w-50 h-50" />
-            <h2 className="text-lg font-semibold">
-              Seller, {dataFetch.username}
-            </h2>
+            <h2 className="text-lg font-semibold">Seller, {sellerName}</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              By Book from our Seller, {dataFetch.username}
+              By Book from our Seller, {sellerName}
             </p>
             {Number(dataFetch.stocks) > 20 ? (
               <p className="text-1xl font-semibold text-green-600 mt-2">
