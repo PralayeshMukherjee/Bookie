@@ -43,12 +43,17 @@ function ProductDetails() {
       );
       const data = await response.json();
       setSellerDetails(data);
-      sessionStorage.getItem("sellerEmail", sellerDetails.emailId);
       setSellerDetailsComponent(true);
     } catch (error) {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (sellerDetails.emailId) {
+      sessionStorage.setItem("sellerEmail", sellerDetails.emailId);
+      console.log("Seller email stored:", sellerDetails.emailId);
+    }
+  }, [sellerDetails]);
   return (
     <div
       className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
