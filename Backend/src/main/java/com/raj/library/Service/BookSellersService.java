@@ -1,6 +1,7 @@
 package com.raj.library.Service;
 
 import com.raj.library.entity.Book;
+import com.raj.library.entity.Seller;
 import com.raj.library.repository.BookRepo;
 import com.raj.library.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,6 @@ public class BookSellersService {
     }
 
     public String getSellerNameByUsername(String userName){
-        sellerRepository.findByUserName(userName);
+        Seller seller= sellerRepository.findByUserName(userName);
     }
 }
