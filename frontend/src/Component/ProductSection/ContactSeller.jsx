@@ -7,6 +7,7 @@ const ContactSeller = () => {
     username: "",
     email: "",
     message: "",
+    sellerEmail: "",
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -47,6 +48,7 @@ const ContactSeller = () => {
   };
   const formSubmit = async (e) => {
     e.preventDefault();
+    formData.sellerEmail = sessionStorage.getItem("sellerEmail");
     console.log(formData);
     if (sessionStorage.getItem("isVerified") != "true") {
       alert("Please verify the OTP first");
