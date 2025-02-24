@@ -112,7 +112,10 @@ function ProductDetails() {
               </p>
             )}
 
-            <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg w-full">
+            <button
+              onClick={() => Navigate("/Main/ContactSeller")}
+              className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
+            >
               Contact Seller Directly
             </button>
 
