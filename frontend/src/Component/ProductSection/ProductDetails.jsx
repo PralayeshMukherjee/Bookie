@@ -3,6 +3,7 @@ import { sellerContact } from "../index";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
+  const [sellerDetails, setSellerDetails] = useState(false);
   let book = sessionStorage.getItem("bookDetails");
   console.log(book + " type of " + typeof book);
   const [bookDetails, setBookDetails] = useState("");
@@ -65,39 +66,39 @@ function ProductDetails() {
             </button>
           </div>
         </div>
-
-        {/* Right Section - Additional Details */}
-        <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-          <img src={sellerContact} alt="seller png" className="w-50 h-50" />
-          <h2 className="text-lg font-semibold">
-            Seller, {dataFetch.username}
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            By Book from our Seller, {dataFetch.username}
-          </p>
-          {Number(dataFetch.stocks) > 20 ? (
-            <p className="text-1xl font-semibold text-green-600 mt-2">
-              Book in Stock: {dataFetch.stocks}
+        {sellerDetails && (
+          <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
+            <img src={sellerContact} alt="seller png" className="w-50 h-50" />
+            <h2 className="text-lg font-semibold">
+              Seller, {dataFetch.username}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              By Book from our Seller, {dataFetch.username}
             </p>
-          ) : Number(dataFetch.stocks) > 10 ? (
-            <p className="text-1xl font-semibold text-yellow-500 mt-2">
-              Book in Stock: {dataFetch.stocks}
-            </p>
-          ) : (
-            <p className="text-1xl font-semibold text-red-600 mt-2">
-              Book in Stock: {dataFetch.stocks}
-            </p>
-          )}
+            {Number(dataFetch.stocks) > 20 ? (
+              <p className="text-1xl font-semibold text-green-600 mt-2">
+                Book in Stock: {dataFetch.stocks}
+              </p>
+            ) : Number(dataFetch.stocks) > 10 ? (
+              <p className="text-1xl font-semibold text-yellow-500 mt-2">
+                Book in Stock: {dataFetch.stocks}
+              </p>
+            ) : (
+              <p className="text-1xl font-semibold text-red-600 mt-2">
+                Book in Stock: {dataFetch.stocks}
+              </p>
+            )}
 
-          <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg w-full">
-            Contact Seller Directly
-          </button>
+            <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg w-full">
+              Contact Seller Directly
+            </button>
 
-          <h2 className="mt-6 text-lg font-semibold">Warranty</h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            1 Year Warranty Available
-          </p>
-        </div>
+            <h2 className="mt-6 text-lg font-semibold">Warranty</h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              1 Year Warranty Available
+            </p>
+          </div>
+        )}
       </div>
       <button
         onClick={() => setDarkMode(!darkMode)}
