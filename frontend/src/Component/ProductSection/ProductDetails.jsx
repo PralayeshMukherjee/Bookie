@@ -64,7 +64,10 @@ function ProductDetails() {
             <button className="bg-orange-500 text-white py-2 px-6 rounded-lg">
               Buy Now
             </button>
-            <button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 cursor-pointer">
+            <button
+              onClick={getSellerDetails}
+              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 cursor-pointer"
+            >
               Seller Details
             </button>
           </div>
