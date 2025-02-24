@@ -19,6 +19,9 @@ public class SellerController {
 
     @PostMapping("/sendMailSeller")
     public Map<String,Boolean> sendMailToSeller(@RequestBody SellerContact sellerContact){
-
+        String username = sellerContact.getUsername();
+        String email = sellerContact.getEmail();
+        String message = sellerContact.getMessage();
+        String recipient = sellerContact.getSellerEmail();
     }
 }
