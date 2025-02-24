@@ -27,5 +27,7 @@ public class BookSellersService {
         return book.get();
     }
 
+    public String getSellerNameByUsername(){
 
+    }
 }
