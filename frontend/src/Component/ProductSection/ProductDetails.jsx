@@ -35,9 +35,15 @@ function ProductDetails() {
     }
   };
   const getSellerDetails = async () => {
-    const response = await fetch(
-      `http://localhost:8080/fetchSellers/getSellerName?userName=${sellerUsername}`
-    );
+    try {
+      const response = await fetch(
+        `http://localhost:8080/fetchSellers/getSellerName?userName=${sellerUsername}`
+      );
+      const data = response.json();
+      setSellerName(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div
