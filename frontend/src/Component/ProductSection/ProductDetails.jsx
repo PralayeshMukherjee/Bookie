@@ -4,10 +4,9 @@ import { sellerContact } from "../index";
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
   const [sellerDetailsComponent, setSellerDetailsComponent] = useState(false);
-  const [sellerName, setSellerName] = useState("");
+  const [sellerDetails, setSellerDetails] = useState({});
   const [sellerUsername, setSellerUsername] = useState("");
   let book = sessionStorage.getItem("bookDetails");
-  console.log(book + " type of " + typeof book);
   const [bookDetails, setBookDetails] = useState("");
   const [dataFetch, setDataFetch] = useState({});
   useEffect(() => {
@@ -20,7 +19,7 @@ function ProductDetails() {
     if (bookDetails) {
       fetchData();
     }
-  });
+  }, [bookDetails]);
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -36,11 +35,12 @@ function ProductDetails() {
   };
   const getSellerDetails = async () => {
     try {
+      console.log(sellerUsername);
       const response = await fetch(
         `http://localhost:8080/fetchSellers/getSellerName?userName=${sellerUsername}`
       );
-      const data = response.json();
-      setSellerName(data);
+      const data = await response.json();
+      setSellerDetails(data);
       setSellerDetailsComponent(true);
     } catch (error) {
       console.log(error);
@@ -90,9 +90,11 @@ function ProductDetails() {
         {sellerDetailsComponent && (
           <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
             <img src={sellerContact} alt="seller png" className="w-50 h-50" />
-            <h2 className="text-lg font-semibold">Seller, {sellerName}</h2>
+            <h2 className="text-lg font-semibold">
+              Seller, {sellerDetails.name}
+            </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              By Book from our Seller, {sellerName}
+              By Book from our Seller, {sellerDetails.name}
             </p>
             {Number(dataFetch.stocks) > 20 ? (
               <p className="text-1xl font-semibold text-green-600 mt-2">
