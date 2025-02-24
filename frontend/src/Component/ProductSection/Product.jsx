@@ -176,7 +176,7 @@ function Product() {
                 >
                   {book.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-400 dark:text-gray-300">
                   by {book.author}
                 </p>
                 <p
@@ -187,6 +187,9 @@ function Product() {
                   {book.price}
                 </p>
                 <p className="text-yellow-500">In Stock: {book.stocks}</p>
+                <p className="text-1xl text-gray-400">
+                  Seller:- {book.username}
+                </p>
                 <button
                   onClick={() => viewDetails(book.id, book.username)}
                   className={`mt-2 px-4 py-2 rounded-full transition-all ${
