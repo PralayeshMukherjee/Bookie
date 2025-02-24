@@ -55,13 +55,16 @@ const ContactSeller = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:8080/mail/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://localhost:8080/mailSenderSeller/sendMailSeller",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
       console.log(result);
