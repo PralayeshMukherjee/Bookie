@@ -80,7 +80,7 @@ function Product() {
   const viewDetails = (id) => {
     console.log(id + " type is " + typeof id);
     sessionStorage.setItem("bookDetails", id);
-    navigateToDetails("/Main/ProductDetails", { replace: true });
+    navigateToDetails("/Main/ProductDetails");
   };
   return (
     <div
