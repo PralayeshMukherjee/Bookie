@@ -77,9 +77,10 @@ function Product() {
   }, []);
 
   const navigateToDetails = useNavigate();
-  const viewDetails = (id) => {
+  const viewDetails = (id, seller) => {
     console.log(id + " type is " + typeof id);
     sessionStorage.setItem("bookDetails", id);
+    sessionStorage.setItem("SellerName", seller);
     navigateToDetails("/Main/ProductDetails");
   };
   return (
@@ -186,7 +187,7 @@ function Product() {
                 </p>
                 <p className="text-yellow-500">In Stock: {book.stocks}</p>
                 <button
-                  onClick={() => viewDetails(book.id)}
+                  onClick={() => viewDetails(book.id, book.seller)}
                   className={`mt-2 px-4 py-2 rounded-full transition-all ${
                     darkMode
                       ? "bg-blue-500 hover:bg-blue-600 text-white"
