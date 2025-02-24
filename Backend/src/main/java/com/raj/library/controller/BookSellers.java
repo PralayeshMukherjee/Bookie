@@ -30,6 +30,9 @@ public class BookSellers {
     }
     @GetMapping("/getSellerName")
     public Seller SellerName(@RequestParam String userName){
-        return bookSellersService.getSellerNameByUsername(userName);
+        System.out.println(userName);
+        Seller seller = bookSellersService.getSellerNameByUsername(userName);
+        System.out.println(seller);
+        return seller;
     }
 }
