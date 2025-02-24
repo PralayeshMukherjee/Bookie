@@ -29,5 +29,6 @@ import Search from "../images/Search.png";
 import LoginPage from '../images/LoginPage.png'
 import ProductDetails from '../Component/ProductSection/ProductDetails.jsx';
 import sellerContact from '../images/sellerContact.svg'
+import ContactSeller from '../Component/ProductSection/ContactSeller.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller};
