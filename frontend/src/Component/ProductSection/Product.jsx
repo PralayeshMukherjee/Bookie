@@ -185,7 +185,6 @@ function Product() {
                   {book.price}
                 </p>
                 <p className="text-yellow-500">In Stock: {book.stocks}</p>
-                <p>Sellers: {book.username}</p>
                 <button
                   onClick={() => viewDetails(book.id)}
                   className={`mt-2 px-4 py-2 rounded-full transition-all ${
