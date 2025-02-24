@@ -43,6 +43,7 @@ function ProductDetails() {
       );
       const data = await response.json();
       setSellerDetails(data);
+      sessionStorage.getItem("sellerEmail", sellerDetails.emailId);
       setSellerDetailsComponent(true);
     } catch (error) {
       console.log(error);
