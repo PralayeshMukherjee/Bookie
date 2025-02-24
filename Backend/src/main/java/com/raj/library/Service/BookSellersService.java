@@ -27,7 +27,7 @@ public class BookSellersService {
         return book.get();
     }
 
-    public String getSellerNameByUsername(){
-
+    public String getSellerNameByUsername(String userName){
+        sellerRepository.findByUserName(userName);
     }
 }
