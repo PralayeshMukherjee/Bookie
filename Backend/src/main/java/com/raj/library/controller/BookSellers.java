@@ -29,6 +29,6 @@ public class BookSellers {
     }
     @GetMapping("/getSellerName")
     public String SellerName(@RequestParam String userName){
-
+        return bookSellersService.getSellerNameByUsername(userName);
     }
 }
