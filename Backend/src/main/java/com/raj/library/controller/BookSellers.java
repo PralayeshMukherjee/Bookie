@@ -27,4 +27,7 @@ public class BookSellers {
         System.out.println(bookId);
         return bookSellersService.getBookWhereIdMatched(bookId);
     }
+    public String SellerName(){
+
+    }
 }
