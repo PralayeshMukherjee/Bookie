@@ -28,7 +28,7 @@ public class BookSellers {
         return bookSellersService.getBookWhereIdMatched(bookId);
     }
     @GetMapping("/getSellerName")
-    public String SellerName(){
+    public String SellerName(@RequestParam String userName){
 
     }
 }
