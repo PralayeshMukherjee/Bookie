@@ -23,5 +23,7 @@ public class SellerController {
         String email = sellerContact.getEmail();
         String message = sellerContact.getMessage();
         String recipient = sellerContact.getSellerEmail();
+        boolean isContactMailSend = mailService.sendMailToContact(recipient,username,email,"NULL",message);
+        return Map.of("isContactMailSend",isContactMailSend);
     }
 }
