@@ -5,4 +5,7 @@ public class SellerContact {
     private String email;
     private String message;
     private String sellerEmail;
+
+    public SellerContact() {
+    }
 }
