@@ -2,6 +2,8 @@ package com.raj.library.controller;
 
 import com.raj.library.Service.BookSellersService;
 import com.raj.library.entity.Book;
+import com.raj.library.entity.Seller;
+import com.raj.library.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,6 @@ public class BookSellers {
     }
     @GetMapping("/getSellerName")
     public String SellerName(@RequestParam String userName){
-        return bookSellersService.getSellerNameByUsername(userName);
+        Seller seller = bookSellersService.getSellerNameByUsername(userName);
     }
 }
