@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { sellerContact } from "../index";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
@@ -9,6 +10,7 @@ function ProductDetails() {
   let book = sessionStorage.getItem("bookDetails");
   const [bookDetails, setBookDetails] = useState("");
   const [dataFetch, setDataFetch] = useState({});
+  const Navigate = useNavigate();
   useEffect(() => {
     if (book) {
       setSellerUsername(sessionStorage.getItem("SellerName"));
