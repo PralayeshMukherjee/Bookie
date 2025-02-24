@@ -28,8 +28,8 @@ public class BookSellersService {
         return book.get();
     }
 
-    public String getSellerNameByUsername(String userName){
+    public Seller getSellerNameByUsername(String userName){
         Seller seller= sellerRepository.findByUserName(userName);
-        return  seller.getName();
+        return  seller;
     }
 }
