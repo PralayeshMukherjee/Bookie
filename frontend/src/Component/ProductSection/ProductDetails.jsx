@@ -3,13 +3,16 @@ import { sellerContact } from "../index";
 
 function ProductDetails() {
   const [darkMode, setDarkMode] = useState(false);
-  const [sellerDetails, setSellerDetails] = useState(false);
+  const [sellerDetailsComponent, setSellerDetailsComponent] = useState(false);
+  const [sellerName, setSellerName] = useState("");
+  const [sellerUsername, setSellerUsername] = useState("");
   let book = sessionStorage.getItem("bookDetails");
   console.log(book + " type of " + typeof book);
   const [bookDetails, setBookDetails] = useState("");
   const [dataFetch, setDataFetch] = useState({});
   useEffect(() => {
     if (book) {
+      setSellerUsername(sessionStorage.getItem("SellerName"));
       setBookDetails(book);
     }
   }, []);
@@ -30,6 +33,11 @@ function ProductDetails() {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+  const getSellerDetails = async () => {
+    const response = await fetch(
+      `http://localhost:8080/fetchSellers/getSellerName?userName=${sellerUsername}`
+    );
   };
   return (
     <div
@@ -72,7 +80,7 @@ function ProductDetails() {
             </button>
           </div>
         </div>
-        {sellerDetails && (
+        {sellerDetailsComponent && (
           <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
             <img src={sellerContact} alt="seller png" className="w-50 h-50" />
             <h2 className="text-lg font-semibold">
