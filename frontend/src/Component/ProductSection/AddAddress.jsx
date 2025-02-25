@@ -152,6 +152,7 @@ const AddAddress = () => {
           Save and Deliver Here
         </button>
         <button
+          onClick={CancelForm}
           type="button"
           className="w-full text-center text-gray-700 p-3 mt-2 hover:underline"
         >
