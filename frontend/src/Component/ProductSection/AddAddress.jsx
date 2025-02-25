@@ -148,10 +148,11 @@ const AddAddress = () => {
           </label>
         </div>
         <button
+          onClick={SaveAddress}
           type="submit"
           className="w-full bg-orange-500 text-white p-3 rounded-lg shadow-md hover:bg-orange-600"
         >
-          Save and Deliver Here
+          Save Address
         </button>
         <button
           onClick={CancelForm}
