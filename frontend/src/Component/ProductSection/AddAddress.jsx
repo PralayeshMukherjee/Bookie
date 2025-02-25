@@ -156,7 +156,7 @@ const AddAddress = () => {
         <button
           onClick={CancelForm}
           type="button"
-          className="w-full text-center text-gray-700 p-3 mt-2 hover:underline"
+          className="w-full text-center text-gray-700 p-3 mt-2 hover:underline cursor-pointer"
         >
           Cancel
         </button>
