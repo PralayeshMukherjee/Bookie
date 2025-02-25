@@ -54,6 +54,9 @@ function ProductDetails() {
       console.log("Seller email stored:", sellerDetails.emailId);
     }
   }, [sellerDetails]);
+  const AddressPage = () => {
+    Navigate("/DeliveryAddress");
+  };
   return (
     <div
       className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
@@ -84,7 +87,10 @@ function ProductDetails() {
             <button className="bg-yellow-500 text-white py-2 px-6 rounded-lg">
               Add to Cart
             </button>
-            <button className="bg-orange-500 text-white py-2 px-6 rounded-lg cursor-pointer">
+            <button
+              className="bg-orange-500 text-white py-2 px-6 rounded-lg cursor-pointer"
+              onClick={AddressPage}
+            >
               Buy Now
             </button>
             <button
