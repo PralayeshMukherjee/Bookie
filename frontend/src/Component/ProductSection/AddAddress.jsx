@@ -56,7 +56,7 @@ const AddAddress = () => {
     try {
       setFormData({ ...formData, username: userNameOfUser });
       const responseUserId = await fetch(
-        `http://localhost:8080/user/getUserId?username=${userNameOfUser}`
+        `http://localhost:8080/UserDetails/UserID?username=${userNameOfUser}`
       );
       const dataUserId = await responseUserId.json();
       setFormData({ ...formData, id: dataUserId.id });
