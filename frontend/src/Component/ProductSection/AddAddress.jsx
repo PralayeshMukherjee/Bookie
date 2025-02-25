@@ -44,10 +44,25 @@ const AddAddress = () => {
     landmark: "",
     alternatePhone: "",
     addressType: "home",
+    username: "",
+    id: "",
   });
   const Navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const SaveAddress = async () => {
+    let userNameOfUser = sessionStorage.getItem("UserUserName");
+    try {
+      setFormData({ ...formData, username: userNameOfUser });
+      const responseUserId = await fetch(
+        `http://localhost:8080/user/getUserId?username=${userNameOfUser}`
+      );
+      const dataUserId = await responseUserId.json();
+      setFormData({ ...formData, id: dataUserId.id });
+    } catch (error) {
+      console.log(error);
+    }
   };
   const CancelForm = () => {
     Navigate("/Main/DeliveryAddress");
