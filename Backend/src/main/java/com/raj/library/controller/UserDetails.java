@@ -17,6 +17,7 @@ public class UserDetails {
     public Long getUserIdByUsername(@RequestParam String username){
         return userService.getUserIdByUsernameService(username);
     }
+    @GetMapping("/UserAddressSave")
     public Map<String,Boolean> saveUserAddress(@RequestBody UserAddress userAddress){
 
     }
