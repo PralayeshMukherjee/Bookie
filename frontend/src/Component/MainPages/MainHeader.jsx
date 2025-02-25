@@ -80,7 +80,7 @@ function MainHeader() {
     setLoading(false);
     setSuggestions([]);
     sessionStorage.setItem("theQueryBook", value);
-    navigate("/Main/Product", { replace: true });
+    navigate("/Main/Product");
   };
 
   return (
