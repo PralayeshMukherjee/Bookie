@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const addresses = [
   {
@@ -24,7 +24,13 @@ const addresses = [
 
 const DeliveryAddress = () => {
   const [selectedAddress, setSelectedAddress] = useState(addresses[0]);
-
+  const [bookPrice, setBookPrice] = useState(0);
+  const [packingPrice, setPackingPrice] = useState(29);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    setBookPrice(Number(sessionStorage.getItem("bookPrice")));
+    setTotalPrice(Number(sessionStorage.getItem("bookPrice")) + packingPrice);
+  }, [bookPrice]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-200 to-violet-300 p-6">
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg text-gray-900">
@@ -65,17 +71,17 @@ const DeliveryAddress = () => {
         <div className="border p-4 rounded-md bg-gray-100">
           <h2 className="font-semibold text-lg mb-2">Price Details</h2>
           <p className="flex justify-between">
-            Price (1 item) <span>₹5,399</span>
+            Price (1 item) <span>₹{bookPrice}</span>
           </p>
           <p className="flex justify-between">
             Delivery Charges <span className="text-green-500">₹40 FREE</span>
           </p>
           <p className="flex justify-between">
-            Packaging Charge <span>₹29</span>
+            Packaging Charge <span>₹{packingPrice}</span>
           </p>
           <hr className="my-2 border-gray-300" />
           <p className="flex justify-between font-semibold">
-            Total Payable <span>₹5,428</span>
+            Total Payable <span>₹{totalPrice}</span>
           </p>
           <p className="text-green-500 text-sm">
             Your Total Savings on this order ₹3,571
