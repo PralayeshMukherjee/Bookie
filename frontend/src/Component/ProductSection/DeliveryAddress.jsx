@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const addresses = [
   {
@@ -27,10 +28,14 @@ const DeliveryAddress = () => {
   const [bookPrice, setBookPrice] = useState(0);
   const [packingPrice, setPackingPrice] = useState(29);
   const [totalPrice, setTotalPrice] = useState(0);
+  const Navigate = useNavigate();
   useEffect(() => {
     setBookPrice(Number(sessionStorage.getItem("bookPrice")));
     setTotalPrice(Number(sessionStorage.getItem("bookPrice")) + packingPrice);
   }, [bookPrice]);
+  const AddDeliveryAddress = () => {
+    Navigate("/Main/AddAddress");
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-200 to-violet-300 p-6">
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg text-gray-900">
