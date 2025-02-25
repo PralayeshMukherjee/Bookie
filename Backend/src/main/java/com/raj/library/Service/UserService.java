@@ -52,4 +52,7 @@ public class UserService {
             return false;
         }
     }
+    public String getUserIdByUsername(String username){
+
+    }
 }
