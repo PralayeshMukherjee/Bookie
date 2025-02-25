@@ -25,6 +25,7 @@ import {
   ProductDetails,
   ContactSeller,
   DeliveryAddress,
+  AddAddress,
 } from "./Component/index";
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path="ProductDetails" element={<ProductDetails />} />
           <Route path="ContactSeller" element={<ContactSeller />} />
           <Route path="SellerFeature" element={<SellerFeature />} />
+          <Route path="AddAddress" element={<AddAddress />} />
         </Route>
       </>
     )
