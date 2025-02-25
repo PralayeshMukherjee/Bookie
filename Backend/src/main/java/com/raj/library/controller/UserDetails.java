@@ -13,7 +13,7 @@ public class UserDetails {
     @Autowired
     private UserService userService;
 
-    public String getUserIdByUsername(@RequestParam String username){
-
+    public Long getUserIdByUsername(@RequestParam String username){
+        return userService.getUserIdByUsernameService(username);
     }
 }
