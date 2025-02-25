@@ -53,6 +53,6 @@ public class UserService {
         }
     }
     public String getUserIdByUsername(String username){
-
+        User user = userRepo.findByUsername(username);
     }
 }
