@@ -13,4 +13,7 @@ public class UserAddress {
     private String addressType;
     private String username;
     private String id;
+
+    public UserAddress() {
+    }
 }
