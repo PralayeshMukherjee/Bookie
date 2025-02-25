@@ -23,6 +23,7 @@ function UserLogin() {
     console.log(data);
     if (data.exists) {
       sessionStorage.setItem("isLogin", "true");
+      sessionStorage.setItem("UserUserName", formData.username);
       navigate("/Main");
     } else {
       alert("User not Register");
