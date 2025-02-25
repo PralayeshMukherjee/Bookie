@@ -84,7 +84,7 @@ function ProductDetails() {
             <button className="bg-yellow-500 text-white py-2 px-6 rounded-lg">
               Add to Cart
             </button>
-            <button className="bg-orange-500 text-white py-2 px-6 rounded-lg">
+            <button className="bg-orange-500 text-white py-2 px-6 rounded-lg cursor-pointer">
               Buy Now
             </button>
             <button
