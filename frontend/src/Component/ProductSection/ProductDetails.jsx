@@ -55,6 +55,7 @@ function ProductDetails() {
     }
   }, [sellerDetails]);
   const AddressPage = () => {
+    sessionStorage.setItem("bookPrice", dataFetch.price);
     Navigate("/DeliveryAddress");
   };
   return (
