@@ -49,7 +49,9 @@ const AddAddress = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const CancelForm = () => {
+    Navigate("/Main/DeliveryAddress");
+  };
   return (
     <div className="max-w-lg mx-auto p-6 bg-violet-100 shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-4 text-center text-gray-800">
