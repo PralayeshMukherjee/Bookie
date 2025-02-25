@@ -44,7 +44,6 @@ function App() {
         <Route path="/SellerLogin" element={<SellerLogin />} />
         <Route path="/SellerRegister" element={<SellerRegister />} />
         <Route path="MailSuccess" element={<MailSuccess />} />
-        <Route path="/DeliveryAddress" element={<DeliveryAddress />} />
         <Route
           path="/SellerRegisterSuccess"
           element={<SellerRegisterSuccess />}
@@ -55,6 +54,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="Contact" element={<Contact />} />
           <Route path="Product" element={<Product />} />
+          <Route path="DeliveryAddress" element={<DeliveryAddress />} />
           <Route path="ProductDetails" element={<ProductDetails />} />
           <Route path="ContactSeller" element={<ContactSeller />} />
           <Route path="SellerFeature" element={<SellerFeature />} />
