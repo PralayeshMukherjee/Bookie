@@ -19,6 +19,17 @@ public class UserDetails {
     }
     @GetMapping("/UserAddressSave")
     public Map<String,Boolean> saveUserAddress(@RequestBody UserAddress userAddress){
-
+        String name = userAddress.getName();
+        String phone = userAddress.getPhone();
+        String pincode = userAddress.getPincode();
+        String locality = userAddress.getLocality();
+        String address = userAddress.getAddress();
+        String city = userAddress.getCity();
+        String state = userAddress.getState();
+        String landmark = userAddress.getLandmark();
+        String alternatePhone = userAddress.getAlternatePhone();
+        String addressType = userAddress.getAddressType();
+        String username = userAddress.getUsername();
+        String id = userAddress.getId();
     }
 }
