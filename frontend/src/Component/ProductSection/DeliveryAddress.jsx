@@ -62,8 +62,14 @@ const DeliveryAddress = () => {
               </div>
             </div>
           ))}
-          <button className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          <button className="mt-2 font-semibold bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer">
             Deliver Here
+          </button>
+          <button
+            onClick={AddDeliveryAddress}
+            className="mt-2 ml-1 font-semibold bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+          >
+            Add Delivery Address
           </button>
         </div>
 
