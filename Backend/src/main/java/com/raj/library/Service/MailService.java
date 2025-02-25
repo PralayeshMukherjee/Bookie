@@ -17,12 +17,14 @@ public class MailService {
         if(recipient.isEmpty()){
             recipient = "rajmukherjeegcp@gmail.com"; // Replace with your email
         }
+        System.out.println(recipient);
+        System.out.println(email);
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 
             messageHelper.setTo(recipient);
-            messageHelper.setFrom(email);
+            messageHelper.setFrom("rajmukherjeegcp@gmail.com");
             messageHelper.setSubject("New Contact Form Submission");
             if(mobile.equals("NULL")){
                 messageHelper.setText(
@@ -31,6 +33,7 @@ public class MailService {
                                 "Message:\n" + message
                 );
             }else{
+                messageHelper.setReplyTo(email);
                 messageHelper.setText(
                         "Username: " + username + "\n" +
                                 "Email: " + email + "\n" +
