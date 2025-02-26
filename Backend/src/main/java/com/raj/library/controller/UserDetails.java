@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.DTO.UserAddress;
+import com.raj.library.Service.AddressService;
 import com.raj.library.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,10 @@ public class UserDetails {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AddressService addressService;
+
     @GetMapping("/UserID")
     public Long getUserIdByUsername(@RequestParam String username){
         return userService.getUserIdByUsernameService(username);
@@ -31,5 +36,6 @@ public class UserDetails {
         String addressType = userAddress.getAddressType();
         String username = userAddress.getUsername();
         Long id = Long.parseLong(userAddress.getId());
+
     }
 }
