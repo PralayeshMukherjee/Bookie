@@ -25,6 +25,12 @@ public class AddressService {
         addressUser.setAddressType(addressType);
         addressUser.setUsername(username);
         addressUser.setId(id);
-        userAddressRepo.save(addressUser);
+        try{
+            userAddressRepo.save(addressUser);
+            return true;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }
