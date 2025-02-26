@@ -10,7 +10,7 @@ public class AddressService {
     @Autowired
     private UserAddressRepo userAddressRepo;
 
-    public boolean AddAddressOfUserService(){
+    public boolean AddAddressOfUserService(String name,String phone,String pincode,String locality,String address,String city,String state,String landmark,String alternatePhone,String addressType,String username,Long id){
 
     }
 }
