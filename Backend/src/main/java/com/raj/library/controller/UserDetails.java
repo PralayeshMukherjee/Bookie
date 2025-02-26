@@ -30,6 +30,6 @@ public class UserDetails {
         String alternatePhone = userAddress.getAlternatePhone();
         String addressType = userAddress.getAddressType();
         String username = userAddress.getUsername();
-        String id = userAddress.getId();
+        Long id = Long.parseLong(userAddress.getId());
     }
 }
