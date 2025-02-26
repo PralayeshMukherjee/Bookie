@@ -21,6 +21,9 @@ public class AddressUser {
     private String addressType;
     private String username;
 
+    public AddressUser() {
+    }
+
     public AddressUser(Long id, String pincode, String name, String phone, String locality, String address, String city, String state, String landmark, String alternatePhone, String addressType, String username) {
         this.id = id;
         this.pincode = pincode;
