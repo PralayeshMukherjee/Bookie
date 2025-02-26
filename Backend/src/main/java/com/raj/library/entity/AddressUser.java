@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Table(name="UserAddress")
 public class AddressUser {
     @Id
-    private String id;
+    private Long id;
     private String pincode;
     private String name;
     private String phone;
@@ -21,7 +21,7 @@ public class AddressUser {
     private String addressType;
     private String username;
 
-    public AddressUser(String id, String pincode, String name, String phone, String locality, String address, String city, String state, String landmark, String alternatePhone, String addressType, String username) {
+    public AddressUser(Long id, String pincode, String name, String phone, String locality, String address, String city, String state, String landmark, String alternatePhone, String addressType, String username) {
         this.id = id;
         this.pincode = pincode;
         this.name = name;
@@ -36,11 +36,11 @@ public class AddressUser {
         this.username = username;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
