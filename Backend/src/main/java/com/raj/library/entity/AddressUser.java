@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 @Table(name="UserAddress")
 public class AddressUser {
     @Id
+    private String id;
     private String pincode;
     private String name;
     private String phone;
@@ -19,5 +20,4 @@ public class AddressUser {
     private String alternatePhone;
     private String addressType;
     private String username;
-    private String id;
 }
