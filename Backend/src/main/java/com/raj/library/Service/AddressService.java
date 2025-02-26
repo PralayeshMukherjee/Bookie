@@ -9,4 +9,8 @@ public class AddressService {
 
     @Autowired
     private UserAddressRepo userAddressRepo;
+
+    public boolean AddAddressOfUserService(){
+
+    }
 }
