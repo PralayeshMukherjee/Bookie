@@ -20,4 +20,19 @@ public class AddressUser {
     private String alternatePhone;
     private String addressType;
     private String username;
+
+    public AddressUser(String id, String pincode, String name, String phone, String locality, String address, String city, String state, String landmark, String alternatePhone, String addressType, String username) {
+        this.id = id;
+        this.pincode = pincode;
+        this.name = name;
+        this.phone = phone;
+        this.locality = locality;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.landmark = landmark;
+        this.alternatePhone = alternatePhone;
+        this.addressType = addressType;
+        this.username = username;
+    }
 }
