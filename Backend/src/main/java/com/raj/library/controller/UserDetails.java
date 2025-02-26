@@ -36,6 +36,6 @@ public class UserDetails {
         String addressType = userAddress.getAddressType();
         String username = userAddress.getUsername();
         Long id = Long.parseLong(userAddress.getId());
-
+        boolean isAddressSaved = addressService.AddAddressOfUserService(name,phone,pincode,locality,address,city,state,landmark,alternatePhone,addressType,username,id);
     }
 }
