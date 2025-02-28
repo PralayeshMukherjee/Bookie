@@ -42,6 +42,6 @@ public class UserDetails {
     }
     @GetMapping("/GetUserDetails")
     public AddressUser getUserAddressDetails(@RequestParam String username){
-
+        return addressService.getUserAddressDetailsService(username);
     }
 }
