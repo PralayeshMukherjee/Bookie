@@ -40,6 +40,7 @@ public class UserDetails {
         boolean isAddressSaved = addressService.AddAddressOfUserService(name,phone,pincode,locality,address,city,state,landmark,alternatePhone,addressType,username,id);
         return Map.of("isAddressSaved",isAddressSaved);
     }
+    @GetMapping("/GetUserDetails")
     public AddressUser getUserAddressDetails(@RequestParam String username){
 
     }
