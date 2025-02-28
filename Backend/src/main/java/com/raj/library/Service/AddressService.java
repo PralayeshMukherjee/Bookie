@@ -5,6 +5,8 @@ import com.raj.library.repository.UserAddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AddressService {
 
@@ -33,7 +35,7 @@ public class AddressService {
             return false;
         }
     }
-    public AddressUser getUserAddressDetailsService(String username){
+    public List<AddressUser> getUserAddressDetailsService(String username){
         return userAddressRepo.findByUsername(username);
     }
 }

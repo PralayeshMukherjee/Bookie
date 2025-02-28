@@ -7,6 +7,7 @@ import com.raj.library.entity.AddressUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -41,7 +42,7 @@ public class UserDetails {
         return Map.of("isAddressSaved",isAddressSaved);
     }
     @GetMapping("/GetUserDetails")
-    public AddressUser getUserAddressDetails(@RequestParam String username){
+    public List<AddressUser> getUserAddressDetails(@RequestParam String username){
         return addressService.getUserAddressDetailsService(username);
     }
 }
