@@ -34,6 +34,6 @@ public class AddressService {
         }
     }
     public AddressUser getUserAddressDetailsService(String username){
-
+        return userAddressRepo.findByUsername(username);
     }
 }
