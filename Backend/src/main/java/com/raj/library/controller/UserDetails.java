@@ -3,6 +3,7 @@ package com.raj.library.controller;
 import com.raj.library.DTO.UserAddress;
 import com.raj.library.Service.AddressService;
 import com.raj.library.Service.UserService;
+import com.raj.library.entity.AddressUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,5 +39,8 @@ public class UserDetails {
         Long id = Long.parseLong(userAddress.getId());
         boolean isAddressSaved = addressService.AddAddressOfUserService(name,phone,pincode,locality,address,city,state,landmark,alternatePhone,addressType,username,id);
         return Map.of("isAddressSaved",isAddressSaved);
+    }
+    public AddressUser getUserAddressDetails(@RequestParam String username){
+
     }
 }
