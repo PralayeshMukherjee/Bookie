@@ -6,11 +6,15 @@ const [addresses, setAddress] = useState({});
 const DeliveryAddress = () => {
   const fetchAddress = async () => {
     let userNameOfUser = sessionStorage.getItem("UserUserName");
-    const response = await fetch(
-      `http://localhost:8080/UserDetails/UserAddressSave?username=${userNameOfUser}`
-    );
-    const data = await response.json();
-    setAddress(data);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/UserDetails/UserAddressSave?username=${userNameOfUser}`
+      );
+      const data = await response.json();
+      setAddress(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const [selectedAddress, setSelectedAddress] = useState(addresses[0]);
   const [bookPrice, setBookPrice] = useState(0);
