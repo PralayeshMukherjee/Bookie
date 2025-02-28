@@ -33,4 +33,7 @@ public class AddressService {
             return false;
         }
     }
+    public AddressUser getUserAddressDetailsService(String username){
+
+    }
 }
