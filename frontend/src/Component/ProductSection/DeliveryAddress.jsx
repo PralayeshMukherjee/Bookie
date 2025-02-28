@@ -1,29 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const addresses = [
-  {
-    id: 1,
-    name: "Raj Mukherjee",
-    phone: "9382530377",
-    address:
-      "MB 134, Purple Sunflower, Mohisbathan, New Town, West Bengal - 700102",
-  },
-  {
-    id: 2,
-    name: "Pralayesh Mukherjee",
-    phone: "9382530377",
-    address: "House, Andal High School Para, Andal, West Bengal - 713321",
-  },
-  {
-    id: 3,
-    name: "Biren Mukherjee",
-    phone: "9732134858",
-    address: "H5HV+FW7, Andal High School Para, Andal, West Bengal - 713321",
-  },
-];
+const [addresses, setAddress] = useState({});
 
 const DeliveryAddress = () => {
+  const fetchAddress = async () => {
+    let userNameOfUser = sessionStorage.getItem("UserUserName");
+    const response = await fetch(
+      `http://localhost:8080/UserDetails/UserAddressSave?username=${userNameOfUser}`
+    );
+    const data = await response.json();
+    setAddress(data);
+  };
   const [selectedAddress, setSelectedAddress] = useState(addresses[0]);
   const [bookPrice, setBookPrice] = useState(0);
   const [packingPrice, setPackingPrice] = useState(29);
