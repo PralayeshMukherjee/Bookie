@@ -47,17 +47,18 @@ const DeliveryAddress = () => {
           <h2 className="font-semibold text-lg mb-2">Delivery Address</h2>
           {addresses.map((add, idx) => (
             <div key={idx} className="flex items-center gap-2 mb-2">
-              {/* <input
-                type="radio"
-                name="address"
-                checked={selectedAddress.id === add.id}
-                onChange={() => setSelectedAddress(add)}
-              /> */}
               <div>
                 <p className="font-medium text-gray-800">
-                  {add.name} ({add.phone})
+                  Name: {add.name}
+                  <br />
+                  phone: {add.phone}
                 </p>
                 <p className="text-gray-600 text-sm">{add.address}</p>
+                <p className="text-gray-600 text-sm">Pincode: {add.pincode}</p>
+                <p className="text-gray-600 text-sm">
+                  Landmark: {add.landmark}
+                </p>
+                <p className="text-gray-600 text-sm">State: {add.state}</p>
               </div>
             </div>
           ))}
