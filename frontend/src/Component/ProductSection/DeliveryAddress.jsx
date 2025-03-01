@@ -30,6 +30,13 @@ const DeliveryAddress = () => {
   const AddDeliveryAddress = () => {
     Navigate("/Main/AddAddress");
   };
+  const PaymentGetway = () => {
+    if (addresses.length !== 0) {
+      Navigate("/PaymentGetway");
+    } else {
+      alert("Please add delivery address first");
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-200 to-violet-300 p-6">
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg text-gray-900">
