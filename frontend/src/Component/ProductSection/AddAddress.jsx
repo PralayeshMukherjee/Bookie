@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const statesOfIndia = [
@@ -45,79 +45,122 @@ const AddAddress = () => {
     alternatePhone: "",
     addressType: "home",
     username: "",
-    id: "",
+    id: 0,
   });
+
   const Navigate = useNavigate();
+  const [triggerSave, setTriggerSave] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
-  const SaveAddress = async () => {
+
+  const SaveAddress = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
     let userNameOfUser = sessionStorage.getItem("UserUserName");
+
     try {
-      setFormData({ ...formData, username: userNameOfUser });
       const responseUserId = await fetch(
         `http://localhost:8080/UserDetails/UserID?username=${userNameOfUser}`
       );
       const dataUserId = await responseUserId.json();
-      setFormData({ ...formData, id: dataUserId.id });
+
+      setFormData((prevData) => ({
+        ...prevData,
+        username: userNameOfUser,
+        id: dataUserId,
+      }));
+
+      // Set flag to trigger final save once state is updated
+      setTriggerSave(true);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching user ID:", error);
     }
   };
-  const CancelForm = () => {
-    Navigate("/Main/DeliveryAddress");
+
+  useEffect(() => {
+    if (triggerSave && formData.id !== 0) {
+      finalSave();
+      setTriggerSave(false); // Reset the trigger
+    }
+  }, [formData.id, triggerSave]); // Run when id is updated
+
+  const finalSave = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8080/UserDetails/UserAddressSave",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        Navigate("/Main/DeliveryAddress");
+      } else {
+        console.error("Failed to save address");
+      }
+    } catch (error) {
+      console.error("Error saving address:", error);
+    }
   };
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-violet-100 shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-4 text-center text-gray-800">
         Add Address
       </h2>
-      <form className="space-y-3">
+      <form className="space-y-3" onSubmit={SaveAddress}>
         <input
           type="text"
           name="name"
           placeholder="Name"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <input
           type="text"
           name="phone"
           placeholder="10-digit mobile number"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <input
           type="text"
           name="pincode"
           placeholder="Pincode"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <input
           type="text"
           name="locality"
           placeholder="Locality"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <textarea
           name="address"
           placeholder="Address (Area and Street)"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         ></textarea>
         <input
           type="text"
           name="city"
           placeholder="City/District/Town"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <select
           name="state"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         >
           <option value="">--Select State--</option>
           {statesOfIndia.map((state) => (
@@ -130,16 +173,17 @@ const AddAddress = () => {
           type="text"
           name="landmark"
           placeholder="Landmark (Optional)"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
         <input
           type="text"
           name="alternatePhone"
           placeholder="Alternate Phone (Optional)"
-          className="w-full p-3 border rounded bg-white text-gray-900"
           onChange={handleChange}
+          className="w-full p-3 border rounded bg-white text-gray-900"
         />
+
         <div className="mb-4 flex space-x-4">
           <label className="flex items-center space-x-2">
             <input
@@ -148,7 +192,7 @@ const AddAddress = () => {
               value="home"
               checked={formData.addressType === "home"}
               onChange={handleChange}
-            />{" "}
+            />
             <span>Home (All day delivery)</span>
           </label>
           <label className="flex items-center space-x-2">
@@ -158,20 +202,20 @@ const AddAddress = () => {
               value="work"
               checked={formData.addressType === "work"}
               onChange={handleChange}
-            />{" "}
+            />
             <span>Work (Delivery between 10 AM - 5 PM)</span>
           </label>
         </div>
+
         <button
-          onClick={SaveAddress}
           type="submit"
           className="w-full bg-orange-500 text-white p-3 rounded-lg shadow-md hover:bg-orange-600"
         >
           Save Address
         </button>
         <button
-          onClick={CancelForm}
           type="button"
+          onClick={() => Navigate("/Main/DeliveryAddress")}
           className="w-full text-center text-gray-700 p-3 mt-2 hover:underline cursor-pointer"
         >
           Cancel
