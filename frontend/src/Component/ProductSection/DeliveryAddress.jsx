@@ -62,7 +62,10 @@ const DeliveryAddress = () => {
               </div>
             </div>
           ))}
-          <button className="mt-2 font-semibold bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer">
+          <button
+            onClick={PaymentGetway}
+            className="mt-2 font-semibold bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer"
+          >
             Deliver Here
           </button>
           <button
