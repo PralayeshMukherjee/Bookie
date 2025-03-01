@@ -24,7 +24,7 @@ public class UserDetails {
     public Long getUserIdByUsername(@RequestParam String username){
         return userService.getUserIdByUsernameService(username);
     }
-    @GetMapping("/UserAddressSave")
+    @PostMapping("/UserAddressSave")
     public Map<String,Boolean> saveUserAddress(@RequestBody UserAddress userAddress){
         String name = userAddress.getName();
         String phone = userAddress.getPhone();
@@ -38,7 +38,9 @@ public class UserDetails {
         String addressType = userAddress.getAddressType();
         String username = userAddress.getUsername();
         Long id = Long.parseLong(userAddress.getId());
+        System.out.println(id);
         boolean isAddressSaved = addressService.AddAddressOfUserService(name,phone,pincode,locality,address,city,state,landmark,alternatePhone,addressType,username,id);
+        System.out.println(isAddressSaved);
         return Map.of("isAddressSaved",isAddressSaved);
     }
     @GetMapping("/GetUserDetails")
