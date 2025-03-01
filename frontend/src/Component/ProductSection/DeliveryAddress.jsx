@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const [addresses, setAddress] = useState({});
-
 const DeliveryAddress = () => {
+  const [addresses, setAddress] = useState([]);
   const fetchAddress = async () => {
     let userNameOfUser = sessionStorage.getItem("UserUserName");
     try {
       const response = await fetch(
-        `http://localhost:8080/UserDetails/UserAddressSave?username=${userNameOfUser}`
+        `http://localhost:8080/UserDetails/GetUserDetails?username=${userNameOfUser}`
       );
       const data = await response.json();
       setAddress(data);
@@ -16,7 +15,10 @@ const DeliveryAddress = () => {
       console.log(error);
     }
   };
-  const [selectedAddress, setSelectedAddress] = useState(addresses[0]);
+  useEffect(() => {
+    fetchAddress();
+  }, []);
+  const [selectedAddress, setSelectedAddress] = useState(null);
   const [bookPrice, setBookPrice] = useState(0);
   const [packingPrice, setPackingPrice] = useState(29);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -24,7 +26,7 @@ const DeliveryAddress = () => {
   useEffect(() => {
     setBookPrice(Number(sessionStorage.getItem("bookPrice")));
     setTotalPrice(Number(sessionStorage.getItem("bookPrice")) + packingPrice);
-  }, [bookPrice]);
+  }, []);
   const AddDeliveryAddress = () => {
     Navigate("/Main/AddAddress");
   };
@@ -43,19 +45,19 @@ const DeliveryAddress = () => {
         {/* Delivery Address */}
         <div className="border p-4 rounded-md mb-4 bg-gray-100">
           <h2 className="font-semibold text-lg mb-2">Delivery Address</h2>
-          {addresses.map((addr) => (
-            <div key={addr.id} className="flex items-center gap-2 mb-2">
-              <input
+          {addresses.map((add, idx) => (
+            <div key={idx} className="flex items-center gap-2 mb-2">
+              {/* <input
                 type="radio"
                 name="address"
-                checked={selectedAddress.id === addr.id}
-                onChange={() => setSelectedAddress(addr)}
-              />
+                checked={selectedAddress.id === add.id}
+                onChange={() => setSelectedAddress(add)}
+              /> */}
               <div>
                 <p className="font-medium text-gray-800">
-                  {addr.name} ({addr.phone})
+                  {add.name} ({add.phone})
                 </p>
-                <p className="text-gray-600 text-sm">{addr.address}</p>
+                <p className="text-gray-600 text-sm">{add.address}</p>
               </div>
             </div>
           ))}
