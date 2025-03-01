@@ -46,7 +46,7 @@ const paymentMethods = [
   },
 ];
 
-export default function PaymentPage() {
+export default function PaymentGetWay() {
   const [selectedMethod, setSelectedMethod] = useState(paymentMethods[0]);
 
   return (
