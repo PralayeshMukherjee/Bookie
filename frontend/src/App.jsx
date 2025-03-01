@@ -26,6 +26,7 @@ import {
   ContactSeller,
   DeliveryAddress,
   AddAddress,
+  PaymentGetWay,
 } from "./Component/index";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/SellerLogin" element={<SellerLogin />} />
         <Route path="/SellerRegister" element={<SellerRegister />} />
         <Route path="MailSuccess" element={<MailSuccess />} />
+        <Route path="/PaymentGetWay" element={<PaymentGetWay />} />
         <Route
           path="/SellerRegisterSuccess"
           element={<SellerRegisterSuccess />}
