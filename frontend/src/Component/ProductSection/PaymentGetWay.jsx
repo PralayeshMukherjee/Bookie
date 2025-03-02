@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -52,7 +52,13 @@ const paymentMethods = [
 
 export default function PaymentGetWay() {
   const [selectedMethod, setSelectedMethod] = useState(paymentMethods[0]);
-
+  const [bookPrice, setBookPrice] = useState(0);
+  const [packingPrice, setPackingPrice] = useState(29);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    setBookPrice(Number(sessionStorage.getItem("bookPrice")));
+    setTotalPrice(Number(sessionStorage.getItem("bookPrice")) + packingPrice);
+  }, []);
   return (
     <div className="flex flex-col md:flex-row p-6 bg-gray-100 min-h-screen">
       <div className="md:w-2/3 bg-white p-6 rounded-lg shadow-md">
@@ -132,20 +138,20 @@ export default function PaymentGetWay() {
         <div className="space-y-2 text-gray-700">
           <div className="flex justify-between">
             <span>Price (1 item)</span>
-            <span>₹135</span>
+            <span>{bookPrice}</span>
           </div>
           <div className="flex justify-between text-green-600">
             <span>Delivery Charges</span>
             <span>FREE</span>
           </div>
           <div className="flex justify-between">
-            <span>Platform Fee</span>
-            <span>₹3</span>
+            <span>Packing Price (1 item)</span>
+            <span>{packingPrice}</span>
           </div>
           <hr className="my-2" />
           <div className="flex justify-between font-bold text-lg">
             <span>Amount Payable</span>
-            <span>₹138</span>
+            <span>{totalPrice}</span>
           </div>
         </div>
       </div>
