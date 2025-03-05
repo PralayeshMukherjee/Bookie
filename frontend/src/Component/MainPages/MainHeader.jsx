@@ -9,6 +9,7 @@ import {
   Logout,
   Search,
 } from "../index";
+import ThemeBtn from "./ThemeBtn";
 
 function MainHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -193,6 +194,7 @@ function MainHeader() {
             </ul>
           )}
         </div>
+        <ThemeBtn />
         <div className="relative">
           <img
             src={User}
@@ -201,9 +203,13 @@ function MainHeader() {
             onClick={toggleMenu}
           />
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg">
-              <div className="p-4 flex items-center space-x-3 border-b">
-                <img src={User} alt="User" className="w-12 h-12 rounded-full" />
+            <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg dark:bg-gray-800 dark:text-white">
+              <div className="p-4 flex items-center space-x-3 border-b border-gray-300 dark:border-gray-600">
+                <img
+                  src={User}
+                  alt="User"
+                  className="w-12 h-12 rounded-full dark:brightness-90"
+                />
                 <h3>
                   <Link to="/Profile/Me" className="hover:underline">
                     Me
@@ -217,30 +223,46 @@ function MainHeader() {
                       ? "/Main/EditSectionSeller"
                       : "/SellerLogin"
                   }
-                  className="block px-4 py-2 hover:bg-gray-200 flex items-center"
+                  className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center"
                 >
-                  <img src={Profile} alt="Edit" className="w-6 h-6 mr-2" /> Edit
-                  Profile
+                  <img
+                    src={Profile}
+                    alt="Edit"
+                    className="w-6 h-6 mr-2 dark:brightness-90"
+                  />{" "}
+                  Edit Profile
                 </Link>
                 <Link
                   to="#"
-                  className="block px-4 py-2 hover:bg-gray-200 flex items-center"
+                  className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center"
                 >
-                  <img src={Setting} alt="Settings" className="w-6 h-6 mr-2" />{" "}
+                  <img
+                    src={Setting}
+                    alt="Settings"
+                    className="w-6 h-6 mr-2 dark:brightness-90"
+                  />
                   Settings & Privacy
                 </Link>
                 <Link
                   to="#"
-                  className="block px-4 py-2 hover:bg-gray-200 flex items-center"
+                  className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center"
                 >
-                  <img src={Help} alt="Help" className="w-6 h-6 mr-2" /> Help &
-                  Support
+                  <img
+                    src={Help}
+                    alt="Help"
+                    className="w-6 h-6 mr-2 dark:brightness-90"
+                  />{" "}
+                  Help & Support
                 </Link>
                 <Link
                   onClick={LogoutUser}
-                  className="block px-4 py-2 hover:bg-gray-200 flex items-center"
+                  className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center"
                 >
-                  <img src={Logout} alt="Logout" className="w-6 h-6 mr-2" />{" "}
+                  <img
+                    src={Logout}
+                    alt="Logout"
+                    className="w-6 h-6 mr-2 dark:brightness-90"
+                  />{" "}
                   Logout
                 </Link>
               </div>

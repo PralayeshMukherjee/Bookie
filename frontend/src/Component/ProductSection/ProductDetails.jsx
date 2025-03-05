@@ -1,9 +1,8 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { sellerContact } from "../index";
 import { useNavigate } from "react-router-dom";
 
 function ProductDetails() {
-  const [darkMode, setDarkMode] = useState(false);
   const [sellerDetailsComponent, setSellerDetailsComponent] = useState(false);
   const [sellerDetails, setSellerDetails] = useState({});
   const [sellerUsername, setSellerUsername] = useState("");
@@ -11,17 +10,20 @@ function ProductDetails() {
   const [bookDetails, setBookDetails] = useState("");
   const [dataFetch, setDataFetch] = useState({});
   const Navigate = useNavigate();
+
   useEffect(() => {
     if (book) {
       setSellerUsername(sessionStorage.getItem("SellerName"));
       setBookDetails(book);
     }
   }, []);
+
   useEffect(() => {
     if (bookDetails) {
       fetchData();
     }
   }, [bookDetails]);
+
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -35,6 +37,7 @@ function ProductDetails() {
       console.error("Error fetching data:", error);
     }
   };
+
   const getSellerDetails = async () => {
     try {
       console.log(sellerUsername);
@@ -48,20 +51,21 @@ function ProductDetails() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     if (sellerDetails.emailId) {
       sessionStorage.setItem("sellerEmail", sellerDetails.emailId);
       console.log("Seller email stored:", sellerDetails.emailId);
     }
   }, [sellerDetails]);
+
   const AddressPage = () => {
     sessionStorage.setItem("bookPrice", dataFetch.price);
     Navigate("/Main/DeliveryAddress");
   };
+
   return (
-    <div
-      className={darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}
-    >
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto p-6 shadow-lg rounded-lg flex">
         <div className="w-2/3 p-4">
           <h1 className="text-3xl font-bold">{dataFetch.title}</h1>
@@ -109,7 +113,7 @@ function ProductDetails() {
               Seller, {sellerDetails.name}
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              By Book from our Seller, {sellerDetails.name}
+              Buy Book from our Seller, {sellerDetails.name}
             </p>
             {Number(dataFetch.stocks) > 20 ? (
               <p className="text-1xl font-semibold text-green-600 mt-2">
@@ -139,12 +143,6 @@ function ProductDetails() {
           </div>
         )}
       </div>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="mt-4 mx-auto block bg-gray-800 dark:bg-gray-200 dark:text-black text-white py-2 px-4 rounded-lg"
-      >
-        Toggle Dark Mode
-      </button>
     </div>
   );
 }
