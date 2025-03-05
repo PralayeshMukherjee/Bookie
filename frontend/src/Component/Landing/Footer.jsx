@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Library } from "..";
+import { Library } from "../index";
 
-export default function Footer() {
+function MainFooter() {
   return (
-    <footer className="bg-violet-100 border-y">
+    <footer className="bg-gray-800 border-y">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -15,10 +15,10 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase">
                 Resources
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4">
                   <Link to="/home" className="hover:underline">
                     Home
@@ -32,10 +32,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase">
                 Follow us
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4">
                   <a
                     href="https://github.com/PralayeshMukherjee"
@@ -54,10 +54,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase">
                 Legal
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4">
                   <Link to="#" className="hover:underline">
                     Privacy Policy
@@ -72,9 +72,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-gray-100 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center">
+          <span className="text-sm text-gray-100 sm:text-center">
             © 2023
             <a href="/" className="hover:underline">
               Pralayesh Mukherjee
@@ -82,7 +82,7 @@ export default function Footer() {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-            <Link to="#" className="text-gray-500 hover:text-gray-900">
+            <Link to="#" className="text-gray-100 hover:text-gray-900">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -98,7 +98,7 @@ export default function Footer() {
               </svg>
               <span className="sr-only">Facebook page</span>
             </Link>
-            <Link to="#" className="text-gray-500">
+            <Link to="#" className="text-gray-100">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -110,7 +110,7 @@ export default function Footer() {
               </svg>
               <span className="sr-only">Discord community</span>
             </Link>
-            <Link to="#" className="text-gray-500">
+            <Link to="#" className="text-gray-100">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -126,7 +126,7 @@ export default function Footer() {
               </svg>
               <span className="sr-only">Twitter page</span>
             </Link>
-            <Link to="#" className="text-gray-500">
+            <Link to="#" className="text-gray-100">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -142,7 +142,7 @@ export default function Footer() {
               </svg>
               <span className="sr-only">GitHub account</span>
             </Link>
-            <Link to="#" className="text-gray-500">
+            <Link to="#" className="text-gray-100">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -164,3 +164,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default MainFooter;
