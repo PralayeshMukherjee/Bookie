@@ -34,4 +34,5 @@ import DeliveryAddress from '../Component/ProductSection/DeliveryAddress.jsx'
 import AddAddress from '../Component/ProductSection/AddAddress.jsx'
 import PaymentGetWay from '../Component/ProductSection/PaymentGetWay.jsx'
 
+
 export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay};
