@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { userLoginPNG } from "../../index";
+import { Library } from "../../index";
+import {
+  FaGoogle,
+  FaApple,
+  FaFacebook,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 
 function SellerLogin() {
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ userName: "", password: "" });
   const navigate = useNavigate();
   const handelChange = (e) => {
@@ -10,7 +18,6 @@ function SellerLogin() {
   };
   const handelSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     const response = await fetch("http://localhost:8080/login/sellerLogin", {
       method: "POST",
@@ -32,66 +39,102 @@ function SellerLogin() {
     }
   };
   return (
-    <div
-      className="flex justify-center items-center h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${userLoginPNG})` }}
-    >
-      <div className="w-80 p-6 bg-white/20 bg-opacity-20 backdrop-blur-md shadow-md rounded-lg border border-white">
-        <h2 className="text-white text-xl font-semibold text-center mb-4">
-          Seller Login
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-gray-800">
+      <div className="w-full max-w-sm bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-xl text-center">
+        <div className="flex justify-center mb-4">
+          <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center">
+            <img src={Library} alt="" />
+          </div>
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+          Welcome back
         </h2>
-        <form onSubmit={handelSubmit} className="flex flex-col space-y-4">
-          <div>
-            <label htmlFor="userName" className="text-white block mb-1">
-              Username:
+        <p className="text-gray-500 text-sm dark:text-gray-400">
+          Please enter your details to sign in
+        </p>
+
+        <form>
+          <div className="flex gap-3 my-4">
+            <button className="flex-1 border rounded-lg p-2 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <FaGoogle size={20} />
+            </button>
+            <button className="flex-1 border rounded-lg p-2 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <FaApple size={20} />
+            </button>
+            <button className="flex-1 border rounded-lg p-2 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <FaFacebook size={20} />
+            </button>
+          </div>
+
+          <div className="text-gray-400 my-4 text-sm">or</div>
+
+          <div className="text-left">
+            <label
+              htmlFor="userName"
+              className="text-gray-700 dark:text-gray-300 text-sm"
+            >
+              UserName
             </label>
             <input
               type="text"
-              id="userName"
               name="userName"
-              className="w-full p-2 bg-transparent border border-white text-white rounded-lg focus:outline-none placeholder-white"
-              placeholder="Enter username"
+              id="userName"
+              placeholder="Enter your email"
+              className="w-full p-3 border rounded-lg mt-1 focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
               onChange={handelChange}
             />
           </div>
-          <div>
-            <label htmlFor="password" className="text-white block mb-1">
-              Password:
+
+          <div className="text-left mt-4 relative">
+            <label
+              htmlFor="password"
+              className="text-gray-700 dark:text-gray-300 text-sm"
+            >
+              Password
             </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full p-2 bg-transparent border border-white text-white rounded-lg focus:outline-none placeholder-white"
-              placeholder="Enter password"
-              onChange={handelChange}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="••••••••"
+                name="password"
+                id="password"
+                className="w-full p-3 border rounded-lg mt-1 focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                onChange={handelChange}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-3 flex items-center text-gray-600 dark:text-gray-400"
+              >
+                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+            </div>
           </div>
+
+          <div className="flex justify-between items-center mt-4 text-sm">
+            <label className="flex items-center text-gray-600 dark:text-gray-400">
+              <input type="checkbox" className="mr-2" /> Remember for 30 days
+            </label>
+            <a href="#" className="text-purple-500 hover:underline">
+              Forgot password?
+            </a>
+          </div>
+
           <button
             type="submit"
-            className="bg-white text-black py-2 rounded-lg hover:bg-transparent hover:text-white border border-white transition"
+            onClick={handelSubmit}
+            className="w-full mt-6 bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition-all"
           >
-            Login
+            Sign in
           </button>
-          <p className="text-white text-xs text-center">
-            Don't have an account?{" "}
-            <Link
-              to="/SellerRegister"
-              className="text-orange-400 hover:text-orange-500"
-            >
-              Register as Seller
-            </Link>
-          </p>
-          <p className="text-white text-xs text-center">
-            Login as Admin:{" "}
-            <Link
-              to="/userLogin"
-              className="text-orange-400 hover:text-orange-500"
-            >
-              Login as User
-            </Link>
-          </p>
         </form>
+
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+          Don’t have an account?{" "}
+          <a href="#" className="text-purple-500 hover:underline">
+            Create account
+          </a>
+        </p>
       </div>
     </div>
   );
