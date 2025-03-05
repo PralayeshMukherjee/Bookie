@@ -20,18 +20,22 @@ function Home() {
     };
   }, []);
   return (
-    <div className="hero w-full min-h-screen bg-violet-100">
+    <div className="hero w-full min-h-screen bg-violet-100 dark:bg-gray-900 transition-colors duration-300">
       <section
-        className="firstSection flex justify-around p-0 m-0 items-center my-[130px] text-black"
+        className="firstSection flex justify-around p-0 m-0 items-center my-[130px] text-black dark:text-white"
         style={{ margin: "auto" }}
       >
         <div className="leftSection w-[30%] text-3xl my-8">
           <div>Welcome to the Library</div>
           <div>Here you can find:-</div>
-          <span id="element" className="text-[#aa6be4]" ref={typedMsg}></span>
+          <span
+            id="element"
+            className="text-[#aa6be4] dark:text-violet-400"
+            ref={typedMsg}
+          ></span>
         </div>
         <div className="rightSection w-[30%]">
-          <img src={Pic} className="w-full my-[50px]" alt="Image" />
+          <img src={Pic} className="w-full my-[50px]" alt="Library" />
         </div>
       </section>
     </div>
