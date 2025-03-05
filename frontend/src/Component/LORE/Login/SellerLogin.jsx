@@ -131,9 +131,18 @@ function SellerLogin() {
 
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
           Don’t have an account?{" "}
-          <a href="#" className="text-purple-500 hover:underline">
+          <Link
+            to={"/SellerRegister"}
+            className="text-purple-500 hover:underline"
+          >
             Create account
-          </a>
+          </Link>
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+          Want to Login as User?{" "}
+          <Link to={"/userLogin"} className="text-purple-500 hover:underline">
+            User Login
+          </Link>
         </p>
       </div>
     </div>
