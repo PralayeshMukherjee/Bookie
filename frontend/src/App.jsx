@@ -27,6 +27,7 @@ import {
   DeliveryAddress,
   AddAddress,
   PaymentGetWay,
+  Setting,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 
@@ -53,6 +54,7 @@ function App() {
           element={<SellerRegisterSuccess />}
         />
         <Route path="/Main" element={<MainLayout />}>
+          <Route path="Setting" element={<Setting />} />
           <Route index element={<MainHome />} />
           <Route path="MainHome" element={<MainHome />} />
           <Route path="about" element={<About />} />
