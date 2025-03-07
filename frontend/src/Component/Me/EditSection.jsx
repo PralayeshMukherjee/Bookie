@@ -90,7 +90,7 @@ export default function EditSection() {
             Save personal info
           </button>
         </div>
-        <div className="border p-4 rounded-lg">
+        <div className="border h-80 p-4 rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Change password</h3>
           <div className="mb-2">
             <label className="block text-gray-700">Old password</label>
