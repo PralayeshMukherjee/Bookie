@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function SettingSection() {
   return (
@@ -8,24 +9,66 @@ function SettingSection() {
       </h2>
       <div className="border-b border-gray-300 dark:border-gray-700 mb-4">
         <nav className="flex space-x-6 text-gray-500 dark:text-gray-400">
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          <NavLink
+            to="/Main/Setting/Permissions"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             Permissions
-          </span>
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          </NavLink>
+          <NavLink
+            to="/Main/Setting/Integrations"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             Integrations
-          </span>
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          </NavLink>
+          <NavLink
+            to="/Main/Setting/Notifications"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             Notifications
-          </span>
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          </NavLink>
+          <NavLink
+            to="/Main/Setting/KPIGoals"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             KPI Goals
-          </span>
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          </NavLink>
+          <NavLink
+            to="/Main/Setting/Programmatic"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             Programmatic
-          </span>
-          <span className="hover:text-gray-900 dark:hover:text-gray-200">
+          </NavLink>
+          <NavLink
+            to="/Main/Setting/EditSection"
+            className={({ isActive }) =>
+              isActive
+                ? "text-violet-800 underline"
+                : "hover:text-gray-900 dark:hover:text-gray-200"
+            }
+          >
             Edit Profile
-          </span>
+          </NavLink>
         </nav>
       </div>
     </div>
