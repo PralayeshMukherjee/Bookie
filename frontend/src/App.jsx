@@ -27,9 +27,10 @@ import {
   DeliveryAddress,
   AddAddress,
   PaymentGetWay,
-  Setting,
+  EditSection,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
+import SettingSectionLayout from "./SettingSectionLayout.jsx";
 
 function App() {
   const MyRouter = createBrowserRouter(
@@ -54,7 +55,9 @@ function App() {
           element={<SellerRegisterSuccess />}
         />
         <Route path="/Main" element={<MainLayout />}>
-          <Route path="Setting" element={<Setting />} />
+          <Route path="Setting" element={<SettingSectionLayout />}>
+            <Route path="EditSection" element={<EditSection />} />
+          </Route>
           <Route index element={<MainHome />} />
           <Route path="MainHome" element={<MainHome />} />
           <Route path="about" element={<About />} />
