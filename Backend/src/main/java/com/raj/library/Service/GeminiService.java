@@ -14,8 +14,8 @@ public class GeminiService {
 
     private final WebClient webClient;
 
-    public GeminiService(WebClient.Builder webClientBuilder){
-        this.webClient = webClientBuilder.baseUrl("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro").build();
+    public GeminiService(WebClient webClient){
+        this.webClient = webClient;
     }
     public Mono<String> chat(String userMessage){
         String formattedPrompt = "Suggest a book related to the following topic in 20 words: " + userMessage;
