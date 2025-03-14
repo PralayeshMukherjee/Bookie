@@ -11,4 +11,7 @@ public class GeminiService {
 
     private final WebClient webClient;
 
+    public GeminiService(WebClient.Builder webClientBuilder){
+        this.webClient = webClientBuilder.baseUrl("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro").build();
+    }
 }
