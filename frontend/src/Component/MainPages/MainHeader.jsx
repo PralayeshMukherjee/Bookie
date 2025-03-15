@@ -10,6 +10,7 @@ import {
   Search,
 } from "../index";
 import ThemeBtn from "./ThemeBtn";
+import "./Chatbot.css";
 
 function MainHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,6 +47,7 @@ function MainHeader() {
   };
   const sendMessage = async () => {
     if (!input.trim()) return;
+
     const userMessage = { text: input };
     setMessages([...messages, { text: input, sender: "user" }]);
     setInput("");
@@ -53,15 +55,29 @@ function MainHeader() {
     try {
       const response = await fetch("http://localhost:8080/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: input,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userMessage: input }), // Ensure it's JSON
       });
-      if (!response.ok) {
-        throw new Error("No response found");
-      }
-      const data = await response.text();
 
-      setMessages((prev) => [...prev, { text: data, sender: "bot" }]);
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      const data = await response.json(); // Parse JSON
+      console.log("API Response:", data); // Debugging log
+      console.log(typeof data);
+
+      let botMessage = "No response found.";
+
+      if (
+        data?.candidates?.length > 0 &&
+        data.candidates[0]?.content?.parts?.length > 0
+      ) {
+        botMessage = data.candidates[0].content.parts[0].text; // Correct extraction
+      }
+
+      console.log("Extracted bot message:", botMessage);
+      setMessages((prev) => [...prev, { text: botMessage, sender: "bot" }]);
     } catch (error) {
       console.error("Error:", error);
       setMessages((prev) => [
@@ -235,7 +251,7 @@ function MainHeader() {
 
         {/* Chat Window */}
         {chatOpen && (
-          <div className="fixed bottom-16 right-10 bg-white shadow-lg rounded-lg p-4 border resize-x overflow-auto dark:bg-gray-800 dark:text-white">
+          <div className="fixed bottom-16 right-10 bg-white shadow-lg rounded-lg p-4 border dark:bg-gray-800 dark:text-white resizable">
             <div className="flex justify-between items-center border-b pb-2 dark:border-gray-600">
               <h3 className="text-lg text-black dark:text-white font-semibold">
                 Chatbot
@@ -244,7 +260,7 @@ function MainHeader() {
                 X
               </button>
             </div>
-            <div className="h-64 overflow-y-auto border-b mt-2 p-2 dark:border-gray-600">
+            <div className="h-48 overflow-y-auto border-b mt-2 p-2 dark:border-gray-600">
               {messages.map((msg, index) => (
                 <div
                   key={index}
@@ -268,13 +284,14 @@ function MainHeader() {
               />
               <button
                 onClick={sendMessage}
-                className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="ml-2 px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               >
                 Send
               </button>
             </div>
           </div>
         )}
+
         {/* {searhbox} */}
         <div className="relative">
           <img
