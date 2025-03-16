@@ -35,6 +35,7 @@ import AddAddress from '../Component/ProductSection/AddAddress.jsx'
 import PaymentGetWay from '../Component/ProductSection/PaymentGetWay.jsx'
 import SettingSection from '../Component/Me/SettingSection.jsx'
 import EditSection from '../Component/Me/EditSection.jsx'
-import LibrarySection from '../Component/Maps/Library.jsx'
+import LibrarySection from './Maps/LibrarySection.jsx'
+import LibraryPage from '../Component/Maps/LibraryPage.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibrarySection};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibrarySection,LibraryPage};
