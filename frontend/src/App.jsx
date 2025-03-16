@@ -29,6 +29,7 @@ import {
   PaymentGetWay,
   EditSection,
   LibrarySection,
+  LibraryPage,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 import SettingSectionLayout from "./SettingSectionLayout.jsx";
