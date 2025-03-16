@@ -105,7 +105,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 📩 Contact
 🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
-🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pralayeshmukherjee)  
+🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pralayesh-mukherjee-756a8b276/)  
 💡 Have suggestions? Let's innovate together! 🚀📖
 🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
 💡 Have suggestions? Let's innovate together! 🚀📖
