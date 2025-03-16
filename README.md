@@ -16,13 +16,13 @@ Bookie is a next-gen platform that bridges the gap between book sellers and read
 - ✅ Browse books and view detailed descriptions
 - ✅ Purchase books through multiple payment options
 - ✅ Contact sellers directly via email for inquiries
+- ✅ **AI-Powered Chatbot** – Personalized book recommendations based on interests, topics & subjects
 
 ### 🔹 Payment & Transactions
 - ✅ Secure purchases via **UPI, wallets, credit & debit cards**
 
 ### 🚀 Upcoming Features
 - 🔜 **Payment Gateway Integration** – Secure & seamless transactions
-- 🔜 **AI-Powered Chatbot** – Personalized book recommendations based on interests, topics & subjects
 - 🔜 **Map Integration** – Locate nearby sellers & purchase books directly
 
 ---
@@ -104,6 +104,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 ## 📩 Contact
+🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
+🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pralayeshmukherjee)  
+💡 Have suggestions? Let's innovate together! 🚀📖
 🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
 💡 Have suggestions? Let's innovate together! 🚀📖
 
