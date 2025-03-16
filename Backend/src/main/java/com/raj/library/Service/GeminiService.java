@@ -31,8 +31,8 @@ public class GeminiService {
                         }
                 ))
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {}) // ✅ Return JSON object
-                .map(response -> response); // ✅ Don't convert to string
+                .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {})
+                .map(response -> response);
     }
 
 }
