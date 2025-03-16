@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LibraryMap from "./Library";
+import LibraryMap from "./LibrarySection";
 
 const LibraryPage = () => {
   const [showMap, setShowMap] = useState(false);
