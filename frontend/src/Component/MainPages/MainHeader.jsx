@@ -157,7 +157,7 @@ function MainHeader() {
               to={
                 sessionStorage.getItem("isValidSeller") === "true"
                   ? "/Main/SellerFeature"
-                  : "/Main/features"
+                  : "/Main/LibrarySection"
               }
               className={({ isActive }) =>
                 `hover:text-orange-300 ${
