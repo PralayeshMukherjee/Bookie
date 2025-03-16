@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
+import LibrarianLoginImage from "../../../images/LibrarianLoginImage.png";
 
-export default function LoginPage() {
+export default function LibraryLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -83,7 +84,7 @@ export default function LoginPage() {
       <div className="w-1/2 bg-gradient-to-r from-indigo-700 to-purple-900 flex items-center justify-center">
         <div
           className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url('/your-pattern-image.svg')` }}
+          style={{ backgroundImage: { LibrarianLoginImage } }}
         ></div>
       </div>
     </div>
