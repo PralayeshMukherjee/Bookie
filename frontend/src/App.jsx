@@ -28,6 +28,7 @@ import {
   AddAddress,
   PaymentGetWay,
   EditSection,
+  LibraryLoginPage,
   LibrarySection,
   LibraryPage,
 } from "./Component/index";
@@ -45,6 +46,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="Contact" element={<Contact />} />
         </Route>
+        <Route path="/LibraryLoginPage" element={<LibraryLoginPage />} />
         <Route path="/userLogin" element={<UserLogin />} />
         <Route path="/userRegister" element={<UserRegister />} />
         <Route path="/UserRegisterSuccess" element={<UserRegisterSuccess />} />
