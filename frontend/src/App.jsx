@@ -28,6 +28,7 @@ import {
   AddAddress,
   PaymentGetWay,
   EditSection,
+  LibrarySection,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 import SettingSectionLayout from "./SettingSectionLayout.jsx";
@@ -58,6 +59,7 @@ function App() {
           <Route path="Setting" element={<SettingSectionLayout />}>
             <Route path="EditSection" element={<EditSection />} />
           </Route>
+          <Route path="LibrarySection" element={<LibrarySection />} />
           <Route index element={<MainHome />} />
           <Route path="MainHome" element={<MainHome />} />
           <Route path="about" element={<About />} />
