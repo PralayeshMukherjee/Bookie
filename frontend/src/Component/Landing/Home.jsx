@@ -7,10 +7,10 @@ function Home() {
   useEffect(() => {
     const type = new Typed(typedMsg.current, {
       strings: [
-        "More than 1000 books",
-        "Reach out to the Librarian",
-        "See all your issued books",
-        "See the dates of every book for resubmission",
+        "More than 1000 Books",
+        "Reach out to the Seller",
+        "Get Suggestion from AI",
+        "Viewing nearest Library using Maps",
       ],
       typeSpeed: 75,
       loop: true,
