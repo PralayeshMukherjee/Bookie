@@ -124,7 +124,7 @@ function UserLogin() {
             </Link>
           </p>
           <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
-            Login as Admin:{" "}
+            Are you a Seller?{" "}
             <Link
               to="/SellerLogin"
               className="text-indigo-500 hover:text-indigo-600 dark:text-indigo-400"
