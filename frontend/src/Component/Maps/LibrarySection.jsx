@@ -2,7 +2,7 @@ import MapComponent from "./MapComponent";
 
 const LibrarySection = () => {
   // Example seller location (Kolkata, India)
-  const sellerLocation = { lat: 22.5726, lng: 88.3639 };
+  const sellerLocation = { lat: 23.57859, lng: 87.19487 };
 
   return (
     <div>
