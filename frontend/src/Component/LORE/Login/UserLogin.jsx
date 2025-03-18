@@ -132,17 +132,26 @@ function UserLogin() {
               Login as Seller
             </Link>
           </p>
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
+            Are you a Librarian & want to add your Library?{" "}
+            <Link
+              to="/LibraryLoginPage"
+              className="text-indigo-500 hover:text-indigo-600 dark:text-indigo-400"
+            >
+              Login as Librarian
+            </Link>
+          </p>
         </div>
 
         {/* Right: Promo Section */}
         <div className="w-1/2 bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-8 flex flex-col justify-center relative">
-          <h2 className="text-2xl font-bold">Turn your ideas into reality.</h2>
+          <h2 className="text-2xl font-bold">Are you a Book lover?</h2>
           <p className="text-sm mt-2">
-            Consistent quality and experience across all platforms and devices.
+            Join us and buy your favorite books by just one click.
           </p>
           <div className="absolute top-6 right-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 px-4 py-2 rounded-lg shadow-md">
-            <h3 className="text-sm font-semibold">Rewards</h3>
-            <p className="text-lg font-bold">172,832 Points</p>
+            <h3 className="text-sm font-semibold">Try Bookie</h3>
+            <p className="text-lg font-bold">More than 172,832 Customers</p>
           </div>
           <img className="w-100 h-80" src={LoginPage} alt="PNG" />
         </div>
