@@ -8,7 +8,8 @@ public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String username;
+    private String password;
     private String librarian;
     private String ph;
     private String mailId;
@@ -19,12 +20,21 @@ public class Library {
     public Library() {
     }
 
-    public Library(String name, String librarian, String ph, String mailId, byte[] imageData) {
-        this.name = name;
+    public Library(String username,String password, String librarian, String ph, String mailId, byte[] imageData) {
+        this.username = username;
+        this.password = password;
         this.librarian = librarian;
         this.ph = ph;
         this.mailId = mailId;
         this.imageData = imageData;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -35,12 +45,12 @@ public class Library {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getLibrarian() {
