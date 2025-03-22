@@ -31,6 +31,7 @@ import {
   LibraryLoginPage,
   LibrarySection,
   LibraryPage,
+  LibrarianRegister,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 import SettingSectionLayout from "./SettingSectionLayout.jsx";
@@ -54,6 +55,7 @@ function App() {
         <Route path="/SellerRegister" element={<SellerRegister />} />
         <Route path="MailSuccess" element={<MailSuccess />} />
         <Route path="/PaymentGetWay" element={<PaymentGetWay />} />
+        <Route path="/LibrarianRegister" element={<LibrarianRegister />} />
         <Route
           path="/SellerRegisterSuccess"
           element={<SellerRegisterSuccess />}
