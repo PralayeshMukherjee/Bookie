@@ -19,5 +19,6 @@ public class LibraryController {
         String password = libraryRegDTO.getPassword();
         String ph = libraryRegDTO.getPh();
         String mailId = libraryRegDTO.getMailId();
+        boolean isAdded = libraryService.AddLibrary(username,password,mailId,ph);
     }
 }
