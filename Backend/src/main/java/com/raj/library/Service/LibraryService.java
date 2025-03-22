@@ -19,7 +19,20 @@ public class LibraryService {
             return false;
         }
     }
-    public boolean LoginLibraryService(String username, String password){
-
+    public int LoginLibraryService(String username, String password){
+        try{
+            if(libraryRepo.existsByUsername(username)){
+                if(libraryRepo.existByPassword(password)){
+                    return 2;
+                }else{
+                    return 1;
+                }
+            }else{
+                return 0;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return -1;
+        }
     }
 }
