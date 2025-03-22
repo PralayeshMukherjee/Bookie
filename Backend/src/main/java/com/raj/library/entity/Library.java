@@ -29,6 +29,13 @@ public class Library {
         this.imageData = imageData;
     }
 
+    public Library(String username, String password, String ph, String mailId) {
+        this.username = username;
+        this.password = password;
+        this.ph = ph;
+        this.mailId = mailId;
+    }
+
     public String getPassword() {
         return password;
     }
