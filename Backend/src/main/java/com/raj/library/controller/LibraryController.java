@@ -29,5 +29,6 @@ public class LibraryController {
     public boolean LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
         String username = libraryLoginDTO.getUsername();
         String password = libraryLoginDTO.getPassword();
+        int result = libraryService.LoginLibraryService(username,password);
     }
 }
