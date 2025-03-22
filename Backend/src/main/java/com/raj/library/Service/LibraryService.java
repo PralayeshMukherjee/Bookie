@@ -21,7 +21,7 @@ public class LibraryService {
             return false;
         }
     }
-    public boolean LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
+    public boolean LoginLibrary(String username,String password){
 
     }
 }
