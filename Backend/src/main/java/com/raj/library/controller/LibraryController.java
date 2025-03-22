@@ -36,6 +36,8 @@ public class LibraryController {
             return Map.of("result","wrong password given");
         }else if(result==0){
             return Map.of("result","User not Register");
+        }else{
+            return Map.of("result","Something Wrong,Try after some time!");
         }
     }
 }
