@@ -6,4 +6,6 @@ public class LibraryRegDTO {
     private String ph;
     private String mailId;
 
+    public LibraryRegDTO() {
+    }
 }
