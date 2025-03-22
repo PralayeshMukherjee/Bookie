@@ -15,6 +15,9 @@ public class LibraryController {
     @Autowired
     private LibraryService libraryService;
     public Map<String,Boolean> AddLibraryController(@RequestBody LibraryRegDTO libraryRegDTO){
-
+        String username = libraryRegDTO.getUsername();
+        String password = libraryRegDTO.getPassword();
+        String ph = libraryRegDTO.getPh();
+        String mailId = libraryRegDTO.getMailId();
     }
 }
