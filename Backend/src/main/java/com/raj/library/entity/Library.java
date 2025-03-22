@@ -15,4 +15,15 @@ public class Library {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;
+
+    public Library() {
+    }
+
+    public Library(String name, String librarian, String ph, String mailId, byte[] imageData) {
+        this.name = name;
+        this.librarian = librarian;
+        this.ph = ph;
+        this.mailId = mailId;
+        this.imageData = imageData;
+    }
 }
