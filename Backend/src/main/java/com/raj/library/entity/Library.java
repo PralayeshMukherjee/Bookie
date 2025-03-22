@@ -12,5 +12,7 @@ public class Library {
     private String librarian;
     private String ph;
     private String mailId;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;
 }
