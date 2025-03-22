@@ -30,6 +30,8 @@ public class LibraryController {
         String username = libraryLoginDTO.getUsername();
         String password = libraryLoginDTO.getPassword();
         int result = libraryService.LoginLibraryService(username,password);
-
+        if(result==2){
+            return Map.of("result","successfully Login");
+        }
     }
 }
