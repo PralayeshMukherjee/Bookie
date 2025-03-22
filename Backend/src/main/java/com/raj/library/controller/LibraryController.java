@@ -32,6 +32,8 @@ public class LibraryController {
         int result = libraryService.LoginLibraryService(username,password);
         if(result==2){
             return Map.of("result","successfully Login");
+        }else if(result==1){
+            return Map.of("result","wrong password given");
         }
     }
 }
