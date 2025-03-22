@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="Library")
 public class Library {
+    @Id
     private Long id;
     private String name;
     private String librarian;
