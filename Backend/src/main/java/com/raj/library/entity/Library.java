@@ -6,4 +6,5 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="Library")
 public class Library {
+    private Long id;
 }
