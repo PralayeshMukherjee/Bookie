@@ -22,7 +22,7 @@ public class LibraryService {
     public int LoginLibraryService(String username, String password){
         try{
             if(libraryRepo.existsByUsername(username)){
-                if(libraryRepo.existByPassword(password)){
+                if(libraryRepo.existsByPassword(password)){
                     return 2;
                 }else{
                     return 1;

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LibraryRepo extends JpaRepository<Library,Long> {
     boolean existsByUsername(String username);
-    boolean existByPassword(String password);
+    boolean existsByPassword(String password);
 }
