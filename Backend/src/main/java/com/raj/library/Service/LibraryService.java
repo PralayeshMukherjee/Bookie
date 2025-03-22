@@ -1,9 +1,11 @@
 package com.raj.library.Service;
 
+import com.raj.library.DTO.LibraryLoginDTO;
 import com.raj.library.entity.Library;
 import com.raj.library.repository.LibraryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class LibraryService {
@@ -18,5 +20,8 @@ public class LibraryService {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+    public boolean LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
+
     }
 }
