@@ -25,6 +25,7 @@ public class LibraryController {
         boolean isAdded = libraryService.AddLibrary(username,password,mailId,ph);
         return Map.of("isAdded",isAdded);
     }
+    @PostMapping("/loginLibrary")
     public boolean LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
         String username = libraryLoginDTO.getUsername();
         String password = libraryLoginDTO.getPassword();
