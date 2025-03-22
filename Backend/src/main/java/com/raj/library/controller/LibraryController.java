@@ -1,5 +1,6 @@
 package com.raj.library.controller;
 
+import com.raj.library.DTO.LibraryLoginDTO;
 import com.raj.library.DTO.LibraryRegDTO;
 import com.raj.library.Service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,9 @@ public class LibraryController {
         String mailId = libraryRegDTO.getMailId();
         boolean isAdded = libraryService.AddLibrary(username,password,mailId,ph);
         return Map.of("isAdded",isAdded);
+    }
+    public boolean LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
+        String username = libraryLoginDTO.getUsername();
+        String password = libraryLoginDTO.getPassword();
     }
 }
