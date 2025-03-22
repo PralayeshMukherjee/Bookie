@@ -8,4 +8,7 @@ import org.springframework.stereotype.Service;
 public class LibraryService {
     @Autowired
     private LibraryRepo libraryRepo;
+    public boolean AddLibrary(String name,String password,String mailId,String ph){
+
+    }
 }
