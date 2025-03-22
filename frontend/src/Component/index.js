@@ -38,8 +38,9 @@ import EditSection from '../Component/Me/EditSection.jsx'
 // library
 import LibrarianLoginImage from '../images/LibrarianLoginImage.png'
 import LibraryLoginPage from '../Component/LORE/Login/LibrarianLogin.jsx'
+import LibrarianRegister from '../Component/LORE/Register/LibrarianRegister.jsx'
 
 import LibrarySection from './Maps/LibrarySection.jsx'
 import LibraryPage from '../Component/Maps/LibraryPage.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,LibrarianLoginImage,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibraryLoginPage,LibrarySection,LibraryPage};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,LibrarianLoginImage,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibraryLoginPage,LibrarySection,LibraryPage,LibrarianRegister};
