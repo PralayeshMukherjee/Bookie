@@ -25,15 +25,6 @@ export default function HomeLibrary() {
           </Link>
         </div>
       </div>
-
-      {/* Library/Book Images */}
-      <div className="flex justify-center mt-12">
-        <img
-          src="https://source.unsplash.com/featured/?library,books"
-          alt="Library"
-          className="w-2/3 rounded-lg shadow-lg dark:shadow-gray-800"
-        />
-      </div>
     </div>
   );
 }
