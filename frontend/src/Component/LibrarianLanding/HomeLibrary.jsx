@@ -7,19 +7,19 @@ export default function HomeLibrary() {
       {/* Hero Section */}
       <div className="flex flex-col items-center text-center px-6">
         <p className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-300 mt-20">
-          FREE 30 DAYS TRIAL
+          Start to add your Library
         </p>
         <h2 className="text-5xl font-bold my-4 text-gray-900 dark:text-white">
           The best way to manage your library
         </h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
-          Here you can add and manage libraries efficiently with our platform.
+          Here you can add your library details
         </p>
 
         <div className="mt-6">
           <Link
             to="/add-library"
-            className="bg-blue-600 dark:bg-blue-500 text-white px-6 py-3 rounded-md text-lg shadow-lg dark:shadow-white/10"
+            className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg shadow-lg dark:shadow-white/10"
           >
             Add Library
           </Link>
