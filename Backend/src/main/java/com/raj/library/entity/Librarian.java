@@ -3,8 +3,8 @@ package com.raj.library.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Library")
-public class Library {
+@Table(name="Librarian")
+public class Librarian {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,10 +17,10 @@ public class Library {
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;
 
-    public Library() {
+    public Librarian() {
     }
 
-    public Library(String username,String password, String librarian, String ph, String mailId, byte[] imageData) {
+    public Librarian(String username, String password, String librarian, String ph, String mailId, byte[] imageData) {
         this.username = username;
         this.password = password;
         this.librarian = librarian;
@@ -29,7 +29,7 @@ public class Library {
         this.imageData = imageData;
     }
 
-    public Library(String username, String password, String ph, String mailId) {
+    public Librarian(String username, String password, String ph, String mailId) {
         this.username = username;
         this.password = password;
         this.ph = ph;
