@@ -32,6 +32,12 @@ export default function LibrarianRegister() {
       console.log(err);
     }
     const data = await response.json();
+    if (data.isAdded) {
+      sessionStorage.setItem("isLibrarianRegister", "true");
+    } else {
+      sessionStorage.setItem("isLibrarianRegister", "false");
+      alert("Not Register!");
+    }
   };
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-400 dark:bg-gray-900">
