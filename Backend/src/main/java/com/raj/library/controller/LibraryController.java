@@ -15,6 +15,16 @@ public class LibraryController {
     @Autowired
     private LibraryService libraryService;
     public Map<String,Boolean> addLibrary(@RequestBody LibraryAddingDTO libraryAddingDTO){
-
+        String  name = libraryAddingDTO.getName();
+        float avgRating = libraryAddingDTO.getAvgRating();
+        String libraryMailId = libraryAddingDTO.getLibraryMailId();
+        double latitude = libraryAddingDTO.getLatitude();
+        double longitude = libraryAddingDTO.getLongitude();
+        String websiteLink = libraryAddingDTO.getWebsiteLink();
+        String openingTime = libraryAddingDTO.getOpeningTime();
+        String closingTime = libraryAddingDTO.getClosingTime();
+        String openDays = libraryAddingDTO.getOpenDays();
+        String ph = libraryAddingDTO.getLibraryMailId();
+        String username = libraryAddingDTO.getUsername();
     }
 }
