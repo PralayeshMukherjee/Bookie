@@ -10,6 +10,8 @@ import {
   Search,
 } from "../index";
 import ThemeBtn from "../MainPages/ThemeBtn";
+import { useState } from "react";
+import { navigate } from "react-router-dom";
 
 export default function HeaderLibrary() {
   useEffect(() => {
