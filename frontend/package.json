@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@mui/material": "^6.4.8",
     "@tailwindcss/vite": "^4.0.6",
     "frontendlibrary": "file:",
     "leaflet": "^1.9.4",
