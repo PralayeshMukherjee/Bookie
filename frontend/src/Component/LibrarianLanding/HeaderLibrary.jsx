@@ -11,7 +11,6 @@ import {
 } from "../index";
 import ThemeBtn from "../MainPages/ThemeBtn";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function HeaderLibrary() {
   const navigate = useNavigate();
