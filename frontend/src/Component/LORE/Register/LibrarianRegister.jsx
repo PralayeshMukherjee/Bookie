@@ -17,16 +17,20 @@ export default function LibrarianRegister() {
   };
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "http://localhost:8080/librarian/addLibrarian",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    );
+    try {
+      const response = await fetch(
+        "http://localhost:8080/librarian/addLibrarian",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
     const data = await response.json();
   };
   return (
