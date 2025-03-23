@@ -1,7 +1,7 @@
 package com.raj.library.controller;
 
-import com.raj.library.DTO.LibraryLoginDTO;
-import com.raj.library.DTO.LibraryRegDTO;
+import com.raj.library.DTO.LibrarianLoginDTO;
+import com.raj.library.DTO.LibrarianRegDTO;
 import com.raj.library.Service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +13,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/library")
-public class LibraryController {
+public class LibrarianController {
     @Autowired
     private LibraryService libraryService;
     @PostMapping("/addLibrary")
-    public Map<String,Boolean> AddLibraryController(@RequestBody LibraryRegDTO libraryRegDTO){
+    public Map<String,Boolean> AddLibraryController(@RequestBody LibrarianRegDTO libraryRegDTO){
         String username = libraryRegDTO.getUsername();
         String password = libraryRegDTO.getPassword();
         String ph = libraryRegDTO.getPh();
@@ -26,7 +26,7 @@ public class LibraryController {
         return Map.of("isAdded",isAdded);
     }
     @PostMapping("/loginLibrary")
-    public Map<String,String> LoginLibrary(@RequestBody LibraryLoginDTO libraryLoginDTO){
+    public Map<String,String> LoginLibrary(@RequestBody LibrarianLoginDTO libraryLoginDTO){
         String username = libraryLoginDTO.getUsername();
         String password = libraryLoginDTO.getPassword();
         int result = libraryService.LoginLibraryService(username,password);
