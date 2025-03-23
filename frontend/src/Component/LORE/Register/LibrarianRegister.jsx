@@ -15,6 +15,7 @@ export default function LibrarianRegister() {
       [e.target.name]: e.target.value,
     });
   };
+  const handelSubmit = async (e) => {};
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-400 dark:bg-gray-900">
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-96">
