@@ -3,6 +3,12 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function LibrarianRegister() {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    mailId: "",
+    ph: "",
+    password: "",
+  });
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-400 dark:bg-gray-900">
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-96">
@@ -13,7 +19,8 @@ export default function LibrarianRegister() {
           <div className="mb-4">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="username"
+              name="username"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
@@ -21,20 +28,15 @@ export default function LibrarianRegister() {
             <input
               type="email"
               placeholder="Email address"
+              name="mailId"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
           <div className="mb-4">
             <input
               type="text"
-              placeholder="Country"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="tel"
-              placeholder="Phone"
+              placeholder="Phone Number"
+              name="ph"
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
