@@ -33,6 +33,7 @@ import {
   LibraryPage,
   LibrarianRegister,
   LibraryLayout,
+  HomeLibrary,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 import SettingSectionLayout from "./SettingSectionLayout.jsx";
@@ -77,7 +78,10 @@ function App() {
           <Route path="SellerFeature" element={<SellerFeature />} />
           <Route path="AddAddress" element={<AddAddress />} />
         </Route>
-        <Route path="/Library" element={<LibraryLayout />}></Route>
+        <Route path="/Library" element={<LibraryLayout />}>
+          <Route index element={<HomeLibrary />} />
+          <Route path="HomeLibrary" element={<HomeLibrary />} />
+        </Route>
       </>
     )
   );
