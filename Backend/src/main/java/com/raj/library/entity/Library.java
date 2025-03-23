@@ -1,6 +1,9 @@
 package com.raj.library.entity;
 
+import jakarta.persistence.Id;
+
 public class Library {
+    @Id
     private Long id;
     private String  name;
     private float avgRating;
