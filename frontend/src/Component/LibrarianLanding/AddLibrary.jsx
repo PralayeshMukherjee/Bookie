@@ -34,7 +34,7 @@ function AddLibrary() {
 
   const handleAddBook = async () => {
     if (newBook.title && newBook.price && newBook.stocks && newBook.author) {
-      const response = await fetch("http://localhost:8080/books/addBooks", {
+      const response = await fetch("http://localhost:8080/library/addLibrary", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
