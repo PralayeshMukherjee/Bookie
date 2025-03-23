@@ -34,10 +34,10 @@ export default function LibrarianRegister() {
       const data = await response.json();
       if (data.isAdded) {
         sessionStorage.setItem("isLibrarianRegister", "true");
-        toast.success("✅ Successfully Registered!", { position: "top-right" });
-        setTimeout(() => {
-          navigate("/LibraryLoginPage");
-        }, 3000);
+        toast.success("✅ Successfully Registered!", {
+          position: "top-right",
+          onClose: () => navigate("/LibraryLoginPage"), // Navigate after toast disappears
+        });
       } else {
         sessionStorage.setItem("isLibrarianRegister", "false");
         toast.error("❌ Registration Failed!", { position: "top-right" });
