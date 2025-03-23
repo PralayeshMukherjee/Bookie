@@ -29,5 +29,6 @@ public class LibraryController {
         String username = libraryAddingDTO.getUsername();
         Library library = new Library(name,avgRating,libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph,username);
         boolean isAdded = libraryService.addLibrary(library);
+        return Map.of("isAdded",isAdded);
     }
 }
