@@ -24,29 +24,44 @@ export default function HeaderLibrary() {
   }, []);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  <header className="shadow sticky z-50 top-0">
-    <div className="min-h-screen bg-white font-sans flex flex-col justify-between">
+  return (
+    <header className="shadow sticky z-50 top-0 bg-white dark:bg-gray-900">
+      {/* <div className="min-h-screen bg-white dark:bg-gray-900 font-sans flex flex-col justify-between"> */}
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-6 shadow-md">
-        <h1 className="text-2xl font-bold">Lando</h1>
+      <nav className="flex justify-between items-center p-6 shadow-md dark:shadow-gray-800">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Lando
+        </h1>
         <ul className="flex space-x-6">
           <li>
-            <Link to="/home" className="text-gray-700 hover:text-black">
+            <Link
+              to="/home"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/pricing" className="text-gray-700 hover:text-black">
+            <Link
+              to="/pricing"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
               Pricing
             </Link>
           </li>
           <li>
-            <Link to="/about" className="text-gray-700 hover:text-black">
+            <Link
+              to="/about"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
               About Us
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="text-gray-700 hover:text-black">
+            <Link
+              to="/contact"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
               Contact
             </Link>
           </li>
@@ -123,6 +138,7 @@ export default function HeaderLibrary() {
           )}
         </div>
       </nav>
-    </div>
-  </header>;
+      {/* </div> */}
+    </header>
+  );
 }
