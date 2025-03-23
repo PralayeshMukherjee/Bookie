@@ -12,4 +12,7 @@ public class LibraryAddingDTO {
     private String openDays;
     private String ph;
     private String username;
+
+    public LibraryAddingDTO() {
+    }
 }
