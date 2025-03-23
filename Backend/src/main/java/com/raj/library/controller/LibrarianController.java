@@ -16,7 +16,7 @@ import java.util.Map;
 public class LibrarianController {
     @Autowired
     private LibraryService libraryService;
-    @PostMapping("/addLibrary")
+    @PostMapping("/addLibrarian")
     public Map<String,Boolean> AddLibraryController(@RequestBody LibrarianRegDTO libraryRegDTO){
         String username = libraryRegDTO.getUsername();
         String password = libraryRegDTO.getPassword();
