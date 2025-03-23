@@ -21,7 +21,7 @@ export default function LibrarianRegister() {
         <h2 className="text-xl font-semibold text-center text-cyan-600 dark:text-cyan-400 mb-4">
           • Registration Form •
         </h2>
-        <form>
+        <form onSubmit={handelSubmit}>
           <div className="mb-4">
             <input
               type="text"
