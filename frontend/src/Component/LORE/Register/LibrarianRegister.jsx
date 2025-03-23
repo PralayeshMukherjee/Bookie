@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function LibrarianRegister() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,15 +30,15 @@ export default function LibrarianRegister() {
           body: JSON.stringify(formData),
         }
       );
+      const data = await response.json();
+      if (data.isAdded) {
+        sessionStorage.setItem("isLibrarianRegister", "true");
+      } else {
+        sessionStorage.setItem("isLibrarianRegister", "false");
+        alert("Not Register!");
+      }
     } catch (err) {
       console.log(err);
-    }
-    const data = await response.json();
-    if (data.isAdded) {
-      sessionStorage.setItem("isLibrarianRegister", "true");
-    } else {
-      sessionStorage.setItem("isLibrarianRegister", "false");
-      alert("Not Register!");
     }
   };
   return (
