@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Library,
@@ -9,9 +9,17 @@ import {
   Logout,
   Search,
 } from "../index";
-import ThemeBtn from "./ThemeBtn";
+import ThemeBtn from "../MainPages/ThemeBtn";
 
 export default function HeaderLibrary() {
+  useEffect(() => {
+    const isLibrarianLogin =
+      sessionStorage.getItem("isLibrarianLogin") === "true";
+    if (!isLibrarianLogin) {
+      console.log("No Librarian is logged in. Redirecting to userLogin...");
+      navigate("/LibraryLoginPage");
+    }
+  }, []);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
   <header className="shadow sticky z-50 top-0">
