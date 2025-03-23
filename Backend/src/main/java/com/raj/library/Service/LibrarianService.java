@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LibraryService {
+public class LibrarianService {
     @Autowired
     private LibrarianRepo libraryRepo;
     public boolean AddLibrary(String username, String password, String mailId, String ph){
