@@ -1,14 +1,45 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import LibrarianLoginImage from "../../../images/LibrarianLoginImage.png";
 
 export default function LibraryLoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const handelChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://localhost:8080/librarian/loginLibrarian",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const data = await response.json();
+      if (data.result === "successfully Login") {
+        sessionStorage.setItem("isLibrarianRegister", "true");
+        navigate("/Library");
+      } else {
+        sessionStorage.setItem("isLibrarianRegister", "false");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="flex h-screen bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-white">
       {/* Left Section - Login Form */}
@@ -20,15 +51,18 @@ export default function LibraryLoginPage() {
           <p className="text-gray-600 dark:text-gray-400">
             Add your Library and get connected with more customers
           </p>
-          <form className="space-y-4">
+          <form onSubmit={handelSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium dark:text-gray-300">
-                Email *
+                Username *
               </label>
               <input
-                type="email"
-                placeholder="Enter your email"
+                type="text"
+                placeholder="Enter your username"
+                name="username"
+                onChange={handelChange}
                 className="mt-1 w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
+                required
               />
             </div>
             <div>
@@ -39,7 +73,10 @@ export default function LibraryLoginPage() {
                 <input
                   type="password"
                   placeholder="Enter password"
+                  name="password"
+                  onChange={handelChange}
                   className="mt-1 w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 pr-10"
+                  required
                 />
                 <button
                   type="button"
