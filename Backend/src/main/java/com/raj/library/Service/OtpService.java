@@ -41,11 +41,11 @@ public class OtpService {
             messageHelper.setSubject("OTP for our Verification: TEAM LIBRARY");
             messageHelper.setText(
                     "<html><div>" +
-                            "<h1 style='font-size:24px;'>Welcome to The Library, " + username + "!</h1>" +
+                            "<h1 style='font-size:24px;'>Welcome to The Librarian, " + username + "!</h1>" +
                             "<p style='font-size:20px;'>Your OTP is: <strong>" + otp + "</strong></p>" +
                             "<p style='font-size:16px; color:red; display: inline-block;'><strong>Security Notice:</strong></p>" +
                             "<ul style='font-size:14px; color:#555;'>" +
-                            "<li>Never share your OTP with anyone, including Library staff.</li>" +
+                            "<li>Never share your OTP with anyone, including Librarian staff.</li>" +
                             "<li>The OTP is valid for a limited time and can only be used once.</li>" +
                             "<li>If you did not request this OTP, please ignore this email.</li>" +
                             "</ul>" +
