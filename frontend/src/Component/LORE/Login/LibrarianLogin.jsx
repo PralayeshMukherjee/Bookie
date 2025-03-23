@@ -31,10 +31,10 @@ export default function LibraryLoginPage() {
       );
       const data = await response.json();
       if (data.result === "successfully Login") {
-        sessionStorage.setItem("isLibrarianRegister", "true");
+        sessionStorage.setItem("isLibrarianLogin", "true");
         navigate("/Library");
       } else {
-        sessionStorage.setItem("isLibrarianRegister", "false");
+        sessionStorage.setItem("isLibrarianLogin", "false");
       }
     } catch (err) {
       console.log(err);
