@@ -35,6 +35,9 @@ export default function LibrarianRegister() {
       if (data.isAdded) {
         sessionStorage.setItem("isLibrarianRegister", "true");
         toast.success("✅ Successfully Registered!", { position: "top-right" });
+        setTimeout(() => {
+          navigate("/LibraryLoginPage");
+        }, 3000);
       } else {
         sessionStorage.setItem("isLibrarianRegister", "false");
         toast.error("❌ Registration Failed!", { position: "top-right" });
