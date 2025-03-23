@@ -10,6 +10,12 @@ public class LibraryService {
     @Autowired
     private LibraryRepo libraryRepo;
     public boolean addLibrary(Library library){
-
+        try{
+            libraryRepo.save(library);
+            return true;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }
