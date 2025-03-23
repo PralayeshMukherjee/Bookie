@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default function FooterLibrary() {
   <div className="min-h-screen bg-white font-sans flex flex-col justify-between">
     <footer className="bg-gray-800 text-white text-center p-6 mt-12">
