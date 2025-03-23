@@ -1,7 +1,7 @@
 import React from "react";
 import { HeaderLibrary, FooterLibrary } from "./Component/index";
 import { Outlet } from "react-router-dom";
-function MainLayout() {
+function LibraryLayout() {
   return (
     <>
       <HeaderLibrary />
@@ -11,4 +11,4 @@ function MainLayout() {
   );
 }
 
-export default MainLayout;
+export default LibraryLayout;
