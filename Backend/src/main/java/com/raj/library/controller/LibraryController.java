@@ -28,5 +28,6 @@ public class LibraryController {
         String ph = libraryAddingDTO.getLibraryMailId();
         String username = libraryAddingDTO.getUsername();
         Library library = new Library(name,avgRating,libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph,username);
+        boolean isAdded = libraryService.addLibrary(library);
     }
 }
