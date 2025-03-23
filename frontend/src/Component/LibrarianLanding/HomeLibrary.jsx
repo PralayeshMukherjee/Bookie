@@ -19,7 +19,7 @@ export default function HomeLibrary() {
         <div className="mt-6">
           <Link
             to="/add-library"
-            className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg shadow-lg dark:shadow-white/10"
+            className="bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg shadow-lg dark:shadow-white/10"
           >
             Add Library
           </Link>
