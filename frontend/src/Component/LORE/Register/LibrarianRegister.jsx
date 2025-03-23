@@ -27,6 +27,7 @@ export default function LibrarianRegister() {
         body: JSON.stringify(formData),
       }
     );
+    const data = await response.json();
   };
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-400 dark:bg-gray-900">
