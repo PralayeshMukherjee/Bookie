@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/library")
+@RequestMapping("/librarian")
 public class LibrarianController {
     @Autowired
     private LibraryService libraryService;
@@ -25,7 +25,7 @@ public class LibrarianController {
         boolean isAdded = libraryService.AddLibrary(username,password,mailId,ph);
         return Map.of("isAdded",isAdded);
     }
-    @PostMapping("/loginLibrary")
+    @PostMapping("/loginLibrarian")
     public Map<String,String> LoginLibrary(@RequestBody LibrarianLoginDTO libraryLoginDTO){
         String username = libraryLoginDTO.getUsername();
         String password = libraryLoginDTO.getPassword();
