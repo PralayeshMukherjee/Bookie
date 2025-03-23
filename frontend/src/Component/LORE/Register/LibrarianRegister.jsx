@@ -33,12 +33,14 @@ export default function LibrarianRegister() {
       const data = await response.json();
       if (data.isAdded) {
         sessionStorage.setItem("isLibrarianRegister", "true");
+        toast.success("✅ Successfully Registered!", { position: "top-right" });
       } else {
         sessionStorage.setItem("isLibrarianRegister", "false");
-        alert("Not Register!");
+        toast.error("❌ Registration Failed!", { position: "top-right" });
       }
     } catch (err) {
       console.log(err);
+      toast.error("❌ Something went wrong!", { position: "top-right" });
     }
   };
   return (
@@ -116,6 +118,7 @@ export default function LibrarianRegister() {
           </Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 }
