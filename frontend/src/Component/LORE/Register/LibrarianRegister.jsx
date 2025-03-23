@@ -53,6 +53,7 @@ export default function LibrarianRegister() {
               name="username"
               onChange={handelChange}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              required
             />
           </div>
           <div className="mb-4">
@@ -62,6 +63,7 @@ export default function LibrarianRegister() {
               name="mailId"
               onChange={handelChange}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              required
             />
           </div>
           <div className="mb-4">
@@ -71,6 +73,7 @@ export default function LibrarianRegister() {
               name="ph"
               onChange={handelChange}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              required
             />
           </div>
           <div className="mb-4 relative">
@@ -81,6 +84,7 @@ export default function LibrarianRegister() {
               id="password"
               onChange={handelChange}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              required
             />
             <button
               type="button"
