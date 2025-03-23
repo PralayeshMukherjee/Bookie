@@ -1,6 +1,7 @@
 package com.raj.library.entity;
 
 public class Library {
+    private Long id;
     private String  name;
     private float avgRating;
     private String libraryMailId;
