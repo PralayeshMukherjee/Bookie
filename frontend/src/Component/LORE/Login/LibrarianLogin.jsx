@@ -32,6 +32,7 @@ export default function LibraryLoginPage() {
       const data = await response.json();
       if (data.result === "successfully Login") {
         sessionStorage.setItem("isLibrarianLogin", "true");
+        sessionStorage.setItem("LibrarianUserName", formData.username);
         navigate("/Library");
       } else {
         sessionStorage.setItem("isLibrarianLogin", "false");
