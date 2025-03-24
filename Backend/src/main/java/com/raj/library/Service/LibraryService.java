@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class LibraryService {
+    private static final double EARTH_RADIUS = 6371;
     @Autowired
     private LibraryRepo libraryRepo;
     public boolean addLibrary(Library library){
