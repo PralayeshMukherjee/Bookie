@@ -50,6 +50,7 @@ public class LibraryService {
         return EARTH_RADIUS * c;
     }
     public List<UserLibrary> sortedMaps(List<Library> libraryList){
+        List<UserLibrary> sortedList = new ArrayList<>();
         for(int i=0;i<libraryList.size();i++){
             String name = libraryList.get(i).getName();
             float avgRating = libraryList.get(i).getAvgRating();
