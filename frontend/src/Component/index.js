@@ -46,5 +46,6 @@ import HeaderLibrary from '../Component/LibrarianLanding/HeaderLibrary.jsx'
 import FooterLibrary from '../Component/LibrarianLanding/FooterLibrary.jsx'
 import LibraryLayout from '../LibraryLayout.jsx'
 import HomeLibrary from '../Component/LibrarianLanding/HomeLibrary.jsx'
+import AddLibrary from '../Component/LibrarianLanding/AddLibrary.jsx'
 
-export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,LibrarianLoginImage,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibraryLoginPage,LibrarySection,LibraryPage,LibrarianRegister,HeaderLibrary,FooterLibrary,LibraryLayout,HomeLibrary};
+export {Layout,Home,UserLogin,UserRegister,UserRegisterSuccess,MainHeader,MainLayout,MainFooter,MainHome,About,Library,User,LibrarianLoginImage,Profile,Setting,Help,Logout,Pic,userLoginPNG,AboutPNG,Clear,Search,SellerLogin,SellerRegister,SellerRegisterSuccess,SellerFeature,Contact,MailSuccess,Product,LoginPage,ProductDetails,sellerContact,ContactSeller,DeliveryAddress,AddAddress,PaymentGetWay,SettingSection,EditSection,LibraryLoginPage,LibrarySection,LibraryPage,LibrarianRegister,HeaderLibrary,FooterLibrary,LibraryLayout,HomeLibrary,AddLibrary};
