@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -31,5 +32,8 @@ public class LibraryController {
         Library library = new Library(libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph,username,name);
         boolean isAdded = libraryService.addLibrary(library);
         return Map.of("isAdded",isAdded);
+    }
+    public List<Library> getAllBooks(){
+
     }
 }
