@@ -37,6 +37,19 @@ public class Library {
         this.username = username;
     }
 
+    public Library(String libraryMailId, double latitude, double longitude, String websiteLink, String openingTime, String closingTime, String openDays, String ph, String username, String name) {
+        this.libraryMailId = libraryMailId;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.websiteLink = websiteLink;
+        this.openingTime = openingTime;
+        this.closingTime = closingTime;
+        this.openDays = openDays;
+        this.ph = ph;
+        this.username = username;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
