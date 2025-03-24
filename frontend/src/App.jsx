@@ -34,6 +34,7 @@ import {
   LibrarianRegister,
   LibraryLayout,
   HomeLibrary,
+  AddLibrary,
 } from "./Component/index";
 import { ThemeProvider } from "./Contexts/theme.jsx"; // Add `.jsx`
 import SettingSectionLayout from "./SettingSectionLayout.jsx";
@@ -81,6 +82,7 @@ function App() {
         <Route path="/Library" element={<LibraryLayout />}>
           <Route index element={<HomeLibrary />} />
           <Route path="HomeLibrary" element={<HomeLibrary />} />
+          <Route path="AddLibrary" element={<AddLibrary />} />
         </Route>
       </>
     )
