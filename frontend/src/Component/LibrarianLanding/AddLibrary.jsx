@@ -9,10 +9,17 @@ function AddLibrary() {
 
   const [books, setBooks] = useState([]);
   const [newBook, setNewBook] = useState({
-    title: "",
-    price: "",
-    stocks: "",
-    author: "",
+    name: "",
+    avgRating: "",
+    libraryMailId: "",
+    latitude: "",
+    longitude: "",
+    websiteLink: "",
+    openingTime: "",
+    closingTime: "",
+    openDays: "",
+    ph: "",
+    username: "",
   });
 
   const handleChange = (e) => {
@@ -88,12 +95,93 @@ function AddLibrary() {
         <h2 className="text-3xl font-bold mt-4">Hey, {sellerName}</h2>
         <p className="mt-2 text-lg">Book Seller | Trusted Partner</p>
 
+        <div className="mt-6 grid gap-4">
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={handleChange}
+            name="name"
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="number"
+            step="0.1"
+            placeholder="Average Rating"
+            name="avgRating"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="email"
+            placeholder="Library Mail ID"
+            name="libraryMailId"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Latitude"
+            name="latitude"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Longitude"
+            name="longitude"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="url"
+            placeholder="Website Link"
+            name="websiteLink"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="time"
+            placeholder="Opening Time"
+            name="openingTime"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="time"
+            placeholder="Closing Time"
+            name="closingTime"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Open Days"
+            name="openDays"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            name="ph"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg"
+          />
+        </div>
+
         <div className="mt-6">
           <h3 className="text-xl font-semibold">Your Books</h3>
           <br />
           <button
             onClick={getBooks}
-            className="bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 rounded-lg font-semibold h-10 w-50 shadow-lg cursor-pointer"
+            className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg font-semibold h-10 w-50 shadow-lg cursor-pointer"
           >
             Show all Books
           </button>
@@ -101,66 +189,24 @@ function AddLibrary() {
             {books.map((book) => (
               <li
                 key={book.id}
-                className="flex justify-between items-center p-3 rounded-lg shadow-md border dark:border-gray-700 dark:bg-gray-800"
+                className="flex justify-between items-center p-3 rounded-lg shadow-md border"
               >
                 <span className="text-lg">
                   {book.title} -{" "}
-                  <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                  <span className="font-semibold text-indigo-600">
                     {book.price}/-
                   </span>{" "}
                   by {book.author} | In Stock: {book.stocks}
                 </span>
                 <button
                   onClick={() => handleDeleteBook(book.id)}
-                  className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-500 text-xl"
+                  className="text-red-500 hover:text-red-700 text-xl"
                 >
                   <FaTrash />
                 </button>
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold">Add New Book</h3>
-          <input
-            type="text"
-            placeholder="Book Title"
-            value={newBook.title}
-            name="title"
-            onChange={handleChange}
-            className="w-full p-3 border placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 dark:border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          />
-          <input
-            type="text"
-            placeholder="Author"
-            value={newBook.author}
-            name="author"
-            onChange={handleChange}
-            className="w-full p-3 border placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 dark:border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          />
-          <input
-            type="number"
-            placeholder="Price"
-            value={newBook.price}
-            name="price"
-            onChange={handleChange}
-            className="w-full p-3 border placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 dark:border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          />
-          <input
-            type="number"
-            placeholder="Books in Stock"
-            value={newBook.stocks}
-            name="stocks"
-            onChange={handleChange}
-            className="w-full p-3 border placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 dark:border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          />
-          <button
-            onClick={handleAddBook}
-            className="mt-4 px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-lg hover:bg-indigo-600 dark:bg-indigo-700 dark:hover:bg-indigo-800 flex items-center gap-2 mx-auto text-lg font-semibold transition-all duration-300 cursor-pointer"
-          >
-            <FaPlus /> Add Book
-          </button>
         </div>
       </div>
     </div>
