@@ -24,4 +24,7 @@ public class UserLibrary {
         this.openDays = openDays;
         this.ph = ph;
     }
+
+    public UserLibrary() {
+    }
 }
