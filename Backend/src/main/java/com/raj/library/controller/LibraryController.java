@@ -31,7 +31,6 @@ public class LibraryController {
         return Map.of("isAdded",isAdded);
     }
     public List<Library> getAllBooks(@RequestParam String username){
-        List<Library> allLibrary = libraryService.getLibraryService(username);
-
+        return libraryService.getLibraryService(username);
     }
 }
