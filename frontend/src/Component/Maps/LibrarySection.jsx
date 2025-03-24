@@ -1,8 +1,8 @@
-import MapComponent from "./MapComponent";
+import MapComponent from "../Maps/MapComponent";
 
-const LibrarySection = () => {
+const SellerProfile = () => {
   // Example seller location (Kolkata, India)
-  const sellerLocation = { lat: 23.57859, lng: 87.19487 };
+  const sellerLocation = { lat: 22.5726, lng: 88.3639 };
 
   return (
     <div>
@@ -15,4 +15,4 @@ const LibrarySection = () => {
   );
 };
 
-export default LibrarySection;
+export default SellerProfile;
