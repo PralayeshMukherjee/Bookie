@@ -24,6 +24,11 @@ export default function HeaderLibrary() {
   }, []);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const navigateToLogout = useNavigate();
+  const LogoutLibrarian = () => {
+    sessionStorage.removeItem("LibrarianUserName");
+    navigateToLogout("/LibraryLoginPage", { replace: true });
+  };
   return (
     <header className="shadow sticky z-50 top-0 bg-white dark:bg-gray-900">
       {/* <div className="min-h-screen bg-white dark:bg-gray-900 font-sans flex flex-col justify-between"> */}
@@ -123,7 +128,7 @@ export default function HeaderLibrary() {
                   Help & Support
                 </Link>
                 <Link
-                  onClick={LogoutUser}
+                  onClick={LogoutLibrarian}
                   className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center"
                 >
                   <img
