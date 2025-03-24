@@ -35,7 +35,7 @@ public class LibraryController {
     public List<Library> getAllBooks(@RequestParam String username){
         return libraryService.getLibraryService(username);
     }
-
+    @GetMapping("/nearby")
     public List<UserLibrary> getNearbyLibraries(@RequestParam double lat, @RequestParam double lng){
         List<Library> libraryList = libraryService.getNearbyLibrariesController(lat,lng);
         return libraryService.sortedMaps(libraryList);
