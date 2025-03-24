@@ -1,5 +1,6 @@
 package com.raj.library.Service;
 
+import com.raj.library.DTO.UserLibrary;
 import com.raj.library.entity.Library;
 import com.raj.library.repository.LibraryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LibraryService {
@@ -30,5 +32,11 @@ public class LibraryService {
             System.out.println(e.getMessage());
         }
         return libraryList;
+    }
+    public List<Library> getNearbyLibrariesController(double lat,double lng){
+        List<Library> listOfLibrary = libraryRepo.findAll();
+        return listOfLibrary.stream()
+                .filter(library -> calculateDistance(lat,lng,library.getLatitude(),library.getLongitude())<=5)
+                .toList();
     }
 }
