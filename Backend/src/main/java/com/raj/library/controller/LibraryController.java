@@ -36,8 +36,8 @@ public class LibraryController {
         return libraryService.getLibraryService(username);
     }
     @GetMapping("/nearby")
-    public List<UserLibrary> getNearbyLibraries(@RequestParam double lat, @RequestParam double lng){
-        List<Library> libraryList = libraryService.getNearbyLibrariesController(lat,lng);
-        return libraryService.sortedMaps(libraryList);
+    public List<Library> getNearbyLibraries(){
+        return  libraryService.getNearbyLibrariesController();
+//        return libraryService.sortedMaps(libraryList);
     }
 }
