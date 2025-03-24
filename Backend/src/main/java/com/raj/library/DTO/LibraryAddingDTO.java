@@ -2,10 +2,9 @@ package com.raj.library.DTO;
 
 public class LibraryAddingDTO {
     private String  name;
-    private float avgRating;
     private String libraryMailId;
-    private double latitude;
-    private double longitude;
+    private String  latitude;
+    private String  longitude;
     private String websiteLink;
     private String openingTime;
     private String closingTime;
@@ -24,13 +23,6 @@ public class LibraryAddingDTO {
         this.name = name;
     }
 
-    public float getAvgRating() {
-        return avgRating;
-    }
-
-    public void setAvgRating(float avgRating) {
-        this.avgRating = avgRating;
-    }
 
     public String getLibraryMailId() {
         return libraryMailId;
@@ -40,19 +32,19 @@ public class LibraryAddingDTO {
         this.libraryMailId = libraryMailId;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
