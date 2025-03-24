@@ -1,6 +1,7 @@
 package com.raj.library.controller;
 
 import com.raj.library.DTO.LibraryAddingDTO;
+import com.raj.library.DTO.UserLibrary;
 import com.raj.library.Service.LibraryService;
 import com.raj.library.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,9 @@ public class LibraryController {
     @GetMapping("/getLirary")
     public List<Library> getAllBooks(@RequestParam String username){
         return libraryService.getLibraryService(username);
+    }
+
+    public List<UserLibrary> getNearbyLibraries(@RequestParam double lat, @RequestParam double lng){
+        List<Library> libraryList = libraryService.getNearbyLibrariesController(lat,lng);
     }
 }
