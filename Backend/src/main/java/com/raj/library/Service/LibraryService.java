@@ -65,5 +65,6 @@ public class LibraryService {
             UserLibrary userLibrary = new UserLibrary(name,avgRating,libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph);
             sortedList.add(userLibrary);
         }
+        return sortedList;
     }
 }
