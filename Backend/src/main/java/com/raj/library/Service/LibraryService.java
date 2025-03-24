@@ -21,7 +21,7 @@ public class LibraryService {
             return false;
         }
     }
-    public List<Library> getLibraryService(){
+    public List<Library> getLibraryService(String username){
 
     }
 }
