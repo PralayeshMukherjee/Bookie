@@ -39,4 +39,8 @@ public class LibraryService {
                 .filter(library -> calculateDistance(lat,lng,library.getLatitude(),library.getLongitude())<=5)
                 .toList();
     }
+    public double calculateDistance(double lat1,double lng1,double lat2,double lng2){
+
+    }
+
 }
