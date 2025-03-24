@@ -5,6 +5,8 @@ import com.raj.library.repository.LibraryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LibraryService {
     @Autowired
@@ -18,5 +20,8 @@ public class LibraryService {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+    public List<Library> getLibraryService(){
+
     }
 }
