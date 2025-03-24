@@ -24,5 +24,11 @@ public class LibraryService {
     }
     public List<Library> getLibraryService(String username){
         List<Library> libraryList = new ArrayList<>();
+        try{
+            libraryList = libraryRepo.findByUsername(username);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return libraryList;
     }
 }
