@@ -49,5 +49,7 @@ public class LibraryService {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return EARTH_RADIUS * c;
     }
+    public List<UserLibrary> sortedMaps(List<Library> libraryList){
 
+    }
 }
