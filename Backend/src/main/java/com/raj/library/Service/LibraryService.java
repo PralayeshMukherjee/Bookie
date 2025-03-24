@@ -62,6 +62,7 @@ public class LibraryService {
             String closingTime = libraryList.get(i).getClosingTime();
             String openDays = libraryList.get(i).getOpenDays();
             String ph = libraryList.get(i).getPh();
+            UserLibrary userLibrary = new UserLibrary(name,avgRating,libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph);
         }
     }
 }
