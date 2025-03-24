@@ -50,6 +50,17 @@ public class LibraryService {
         return EARTH_RADIUS * c;
     }
     public List<UserLibrary> sortedMaps(List<Library> libraryList){
-
+        for(int i=0;i<libraryList.size();i++){
+            String name = libraryList.get(i).getName();
+            float avgRating = libraryList.get(i).getAvgRating();
+            String libraryMailId = libraryList.get(i).getLibraryMailId();
+            double latitude = libraryList.get(i).getLatitude();
+            double longitude = libraryList.get(i).getLongitude();
+            String websiteLink = libraryList.get(i).getWebsiteLink();
+            String openingTime = libraryList.get(i).getOpeningTime();
+            String closingTime = libraryList.get(i).getClosingTime();
+            String openDays = libraryList.get(i).getOpenDays();
+            String ph = libraryList.get(i).getPh();
+        }
     }
 }
