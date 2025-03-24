@@ -30,6 +30,7 @@ public class LibraryController {
         boolean isAdded = libraryService.addLibrary(library);
         return Map.of("isAdded",isAdded);
     }
+    @GetMapping("/getLirary")
     public List<Library> getAllBooks(@RequestParam String username){
         return libraryService.getLibraryService(username);
     }
