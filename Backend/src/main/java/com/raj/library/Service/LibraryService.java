@@ -11,6 +11,7 @@ public class LibraryService {
     private LibraryRepo libraryRepo;
     public boolean addLibrary(Library library){
         try{
+            library.setAvgRating(3.0F);
             libraryRepo.save(library);
             return true;
         }catch (Exception e){
