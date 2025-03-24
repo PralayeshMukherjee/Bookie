@@ -19,17 +19,16 @@ public class LibraryController {
     @PostMapping("/addLibrary")
     public Map<String,Boolean> addLibrary(@RequestBody LibraryAddingDTO libraryAddingDTO){
         String name = libraryAddingDTO.getName();
-        float avgRating = libraryAddingDTO.getAvgRating();
         String libraryMailId = libraryAddingDTO.getLibraryMailId();
-        double latitude = libraryAddingDTO.getLatitude();
-        double longitude = libraryAddingDTO.getLongitude();
+        double latitude = Double.parseDouble(libraryAddingDTO.getLatitude());
+        double longitude = Double.parseDouble(libraryAddingDTO.getLongitude());
         String websiteLink = libraryAddingDTO.getWebsiteLink();
         String openingTime = libraryAddingDTO.getOpeningTime();
         String closingTime = libraryAddingDTO.getClosingTime();
         String openDays = libraryAddingDTO.getOpenDays();
         String ph = libraryAddingDTO.getLibraryMailId();
         String username = libraryAddingDTO.getUsername();
-        Library library = new Library(name,avgRating,libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph,username);
+        Library library = new Library(libraryMailId,latitude,longitude,websiteLink,openingTime,closingTime,openDays,ph,username,name);
         boolean isAdded = libraryService.addLibrary(library);
         return Map.of("isAdded",isAdded);
     }
