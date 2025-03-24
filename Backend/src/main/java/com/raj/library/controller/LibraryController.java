@@ -4,10 +4,7 @@ import com.raj.library.DTO.LibraryAddingDTO;
 import com.raj.library.Service.LibraryService;
 import com.raj.library.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -33,7 +30,8 @@ public class LibraryController {
         boolean isAdded = libraryService.addLibrary(library);
         return Map.of("isAdded",isAdded);
     }
-    public List<Library> getAllBooks(){
+    public List<Library> getAllBooks(@RequestParam String username){
+        List<Library> allLibrary = libraryService.getLibraryService(username);
 
     }
 }
