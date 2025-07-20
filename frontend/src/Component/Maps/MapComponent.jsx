@@ -10,7 +10,9 @@ const MapComponent = () => {
   useEffect(() => {
     const getLibraries = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/library/nearby`);
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/library/nearby`
+        );
         const data = await response.json();
         setLibraries(data);
         setLoading(false);

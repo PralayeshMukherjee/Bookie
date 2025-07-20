@@ -19,7 +19,9 @@ function Product() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/fetchSellers/books?title=${selectedBooks}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/fetchSellers/books?title=${selectedBooks}`
       );
       if (!response.ok) throw new Error("Failed to fetch data");
 
@@ -40,7 +42,7 @@ function Product() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8080/search/books?query=${query}`
+        `${import.meta.env.VITE_BACKEND_URL}/search/books?query=${query}`
       );
       const data = await response.json();
       setSuggestions(data);

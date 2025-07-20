@@ -27,7 +27,9 @@ function ProductDetails() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/fetchSellers/idMatched?id=${bookDetails}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/fetchSellers/idMatched?id=${bookDetails}`
       );
       if (!response.ok) throw new Error("Failed to fetch data");
 
@@ -42,7 +44,9 @@ function ProductDetails() {
     try {
       console.log(sellerUsername);
       const response = await fetch(
-        `http://localhost:8080/fetchSellers/getSellerName?userName=${sellerUsername}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/fetchSellers/getSellerName?userName=${sellerUsername}`
       );
       const data = await response.json();
       setSellerDetails(data);

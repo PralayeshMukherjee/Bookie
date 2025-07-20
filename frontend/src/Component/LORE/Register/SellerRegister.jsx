@@ -20,7 +20,7 @@ function SellerRegister() {
     e.preventDefault();
     console.log(registerFormData);
     const response = await fetch(
-      "http://localhost:8080/registration/addSeller",
+      `${import.meta.env.VITE_BACKEND_URL}/registration/addSeller`,
       {
         method: "POST",
         headers: {
@@ -51,7 +51,7 @@ function SellerRegister() {
     } else {
       try {
         const sendOTPResponse = await fetch(
-          "http://localhost:8080/mail/sendOtp",
+          `${import.meta.env.VITE_BACKEND_URL}/mail/sendOtp`,
           {
             method: "POST",
             headers: {
@@ -82,16 +82,19 @@ function SellerRegister() {
   const verifyOTP = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/verify/verifyOTP", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          otp: otp.otp,
-          username: registerFormData.userName,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/verify/verifyOTP`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            otp: otp.otp,
+            username: registerFormData.userName,
+          }),
+        }
+      );
       const result = await response.json();
       if (result.isVerified == 2) {
         alert("OTP Verified");

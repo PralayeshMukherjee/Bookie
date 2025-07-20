@@ -21,13 +21,16 @@ function UserRegister() {
   const handelSubmit = async (e) => {
     e.preventDefault();
     console.log(registerFormData);
-    const response = await fetch("http://localhost:8080/registration/addUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(registerFormData),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/registration/addUser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registerFormData),
+      }
+    );
     const data = await response.json();
     console.log(data);
 

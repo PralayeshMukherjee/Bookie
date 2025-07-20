@@ -20,7 +20,7 @@ export default function LibraryLoginPage() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8080/librarian/loginLibrarian",
+        `${import.meta.env.VITE_BACKEND_URL}/librarian/loginLibrarian`,
         {
           method: "POST",
           headers: {

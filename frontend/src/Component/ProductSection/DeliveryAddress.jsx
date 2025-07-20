@@ -7,7 +7,9 @@ const DeliveryAddress = () => {
     let userNameOfUser = sessionStorage.getItem("UserUserName");
     try {
       const response = await fetch(
-        `http://localhost:8080/UserDetails/GetUserDetails?username=${userNameOfUser}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/UserDetails/GetUserDetails?username=${userNameOfUser}`
       );
       const data = await response.json();
       setAddress(data);

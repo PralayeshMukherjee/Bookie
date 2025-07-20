@@ -22,7 +22,7 @@ export default function LibrarianRegister() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8080/librarian/addLibrarian",
+        `${import.meta.env.VITE_BACKEND_URL}/librarian/addLibrarian`,
         {
           method: "POST",
           headers: {

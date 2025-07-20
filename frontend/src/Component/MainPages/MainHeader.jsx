@@ -54,11 +54,14 @@ function MainHeader() {
     setInput("");
 
     try {
-      const response = await fetch("http://localhost:8080/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userMessage: input }), // Ensure it's JSON
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/chat`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userMessage: input }), // Ensure it's JSON
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`);
@@ -103,7 +106,7 @@ function MainHeader() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8080/search/books?query=${query}`
+        `${import.meta.env.VITE_BACKEND_URL}/search/books?query=${query}`
       );
       const data = await response.json();
       setSuggestions(data);

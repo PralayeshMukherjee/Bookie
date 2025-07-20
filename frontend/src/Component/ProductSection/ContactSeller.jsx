@@ -22,7 +22,7 @@ const ContactSeller = () => {
     } else {
       try {
         const sendOTPResponse = await fetch(
-          "http://localhost:8080/mail/sendOtp",
+          `${import.meta.env.VITE_BACKEND_URL}/mail/sendOtp`,
           {
             method: "POST",
             headers: {

@@ -19,13 +19,16 @@ function SellerLogin() {
   const handelSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/login/sellerLogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/login/sellerLogin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const data = await response.json();
     console.log(data);
     if (data.isValidSeller == "true") {

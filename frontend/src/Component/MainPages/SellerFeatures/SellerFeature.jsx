@@ -22,7 +22,7 @@ const SellerProfile = () => {
   const getBooks = async () => {
     try {
       const getAllBooksResponse = await fetch(
-        "http://localhost:8080/books/getAllBooks"
+        `${import.meta.env.VITE_BACKEND_URL}/books/getAllBooks`
       );
       const listData = await getAllBooksResponse.json();
       setBooks(listData);
@@ -34,13 +34,16 @@ const SellerProfile = () => {
 
   const handleAddBook = async () => {
     if (newBook.title && newBook.price && newBook.stocks && newBook.author) {
-      const response = await fetch("http://localhost:8080/books/addBooks", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newBook),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/books/addBooks`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newBook),
+        }
+      );
       const data = await response.json();
       if (data.isAdded) {
         setNewBook({
@@ -58,7 +61,7 @@ const SellerProfile = () => {
 
   const handleDeleteBook = async (id) => {
     const deleteResponse = await fetch(
-      "http://localhost:8080/books/deleteBook",
+      `${import.meta.env.VITE_BACKEND_URL}/books/deleteBook`,
       {
         method: "DELETE",
         headers: {

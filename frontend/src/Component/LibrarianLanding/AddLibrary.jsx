@@ -28,7 +28,9 @@ const AddLibrary = () => {
   const getLibrary = async () => {
     try {
       const getAllBooksResponse = await fetch(
-        `http://localhost:8080/library/getLirary?username=${librarianUsername}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/library/getLirary?username=${librarianUsername}`
       );
       const listData = await getAllBooksResponse.json();
       setLibrary(listData);
@@ -41,13 +43,16 @@ const AddLibrary = () => {
   const handelAddLibrary = async () => {
     try {
       console.log(newLibrary);
-      const response = await fetch("http://localhost:8080/library/addLibrary", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newLibrary),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/library/addLibrary`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newLibrary),
+        }
+      );
       const data = await response.json();
       if (data.isAdded) {
         setNewLibrary({
@@ -73,7 +78,7 @@ const AddLibrary = () => {
 
   const handleDeleteBook = async (id) => {
     const deleteResponse = await fetch(
-      "http://localhost:8080/books/deleteBook",
+      `${import.meta.env.VITE_BACKEND_URL}/books/deleteBook`,
       {
         method: "DELETE",
         headers: {

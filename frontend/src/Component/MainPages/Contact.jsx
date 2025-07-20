@@ -23,7 +23,7 @@ export default function Contact() {
       setLoading(true);
       try {
         const sendOTPResponse = await fetch(
-          "http://localhost:8080/mail/sendOtp",
+          `${import.meta.env.VITE_BACKEND_URL}/mail/sendOtp`,
           {
             method: "POST",
             headers: {
@@ -56,13 +56,16 @@ export default function Contact() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:8080/mail/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/mail/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
       console.log(result);
@@ -86,13 +89,16 @@ export default function Contact() {
   const verifyOTP = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/verify/verifyOTP", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ otp: otp.otp, username: formData.username }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/verify/verifyOTP`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ otp: otp.otp, username: formData.username }),
+        }
+      );
       const result = await response.json();
       if (result.isVerified == 2) {
         alert("OTP Verified");

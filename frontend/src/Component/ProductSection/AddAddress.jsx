@@ -65,7 +65,9 @@ const AddAddress = () => {
 
     try {
       const responseUserId = await fetch(
-        `http://localhost:8080/UserDetails/UserID?username=${userNameOfUser}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/UserDetails/UserID?username=${userNameOfUser}`
       );
       const dataUserId = await responseUserId.json();
 
@@ -92,7 +94,7 @@ const AddAddress = () => {
   const finalSave = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8080/UserDetails/UserAddressSave",
+        `${import.meta.env.VITE_BACKEND_URL}/UserDetails/UserAddressSave`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

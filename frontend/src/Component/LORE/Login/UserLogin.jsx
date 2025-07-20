@@ -12,13 +12,16 @@ function UserLogin() {
     e.preventDefault();
     console.log(formData);
 
-    const response = await fetch("http://localhost:8080/login/userLogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/login/userLogin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const data = await response.json();
     console.log(data);
     if (data.exists) {
