@@ -45,6 +45,7 @@ function MainHeader() {
     sessionStorage.removeItem("isValidSeller");
     navigateToLogout("/", { replace: true });
   };
+
   const sendMessage = async () => {
     if (!input.trim()) return;
 
