@@ -3,7 +3,7 @@
 🚀 **From Digital Library to Bookie!**
 
 Bookie is a next-gen platform that bridges the gap between book sellers and readers. Originally conceptualized as a **Digital Library**, Bookie has evolved into a dynamic marketplace where sellers can list books, manage stock, and set prices, while users can explore, purchase, and connect with sellers directly.
----------
+-----------
 
 ## ✨ Features
 
