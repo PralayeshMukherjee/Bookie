@@ -13,8 +13,7 @@ public class Librarian {
     private String librarian;
     private String ph;
     private String mailId;
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
+    @Column(columnDefinition = "BYTEA")
     private byte[] imageData;
 
     public Librarian() {
