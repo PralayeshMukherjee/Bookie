@@ -31,6 +31,8 @@ public class OtpService {
     private JavaMailSender javaMailSender;
     public boolean sendOTPToEmail(String username,String email){
         try{
+            System.out.println(username);
+            System.out.println(email);
             String otp = otpMapping.get(username);
             System.out.println(otp);
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
