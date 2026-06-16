@@ -22,7 +22,7 @@ public class GeminiService {
         String formattedPrompt = "Suggest a book related to the following topic in 20 words: " + userMessage;
 
         return webClient.post()
-                .uri(uriBuilder -> uriBuilder.path("/models/gemini-2.0-flash:generateContent").queryParam("key", apiKey).build())
+                .uri(uriBuilder -> uriBuilder.path("/models/gemini-2.5-flash:generateContent").queryParam("key", apiKey).build())
                 .bodyValue(Map.of(
                         "contents", new Object[]{
                                 Map.of("parts", new Object[]{
