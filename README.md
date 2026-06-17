@@ -33,7 +33,7 @@ Bookie is a next-gen platform that bridges the gap between book sellers and read
 | **Initial Version**  | HTML, CSS, JavaScript, Thymeleaf, Spring MVC |
 | **Upgraded Version**  | React + Vite, Spring Boot, Expanded Database (3 new tables) |
 
-----
+------
 
 ## 🚀 Getting Started
 
